@@ -1,0 +1,26 @@
+.projectCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+  width: 100%;
+
+  .projectCard {
+    width: 20rem;
+    gap: 1rem;
+
+    h3 {
+      font-size: 1.33rem;
+    }
+
+    img {
+      border-radius: 6px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
+}
