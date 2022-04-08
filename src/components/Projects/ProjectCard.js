@@ -1,22 +1,7 @@
-import data from "./data.json";
 import "./Projects.scss";
-
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 
-export const Projects = () => {
-  return (
-    <section id="projects">
-      <h2>Projects</h2>
-      <div className="projectCont">
-        {Object.keys(data).map((e) => {
-          return <ProjectCard title={e} {...data[e]} />;
-        })}
-      </div>
-    </section>
-  );
-};
-
-const ProjectCard = ({ img, title, desc, repoLink, website }) => {
+export const ProjectCard = ({ img, title, desc, repoLink, website }) => {
   return (
     <div className="projectCard clay">
       <h3>{title}</h3>

@@ -11,7 +11,8 @@ import {
 } from "react-icons/fa";
 import { SiMysql, SiTailwindcss } from "react-icons/si";
 
-import { Projects } from "./components/Projects/Projects.js";
+import { ProjectCard } from "./components/Projects/ProjectCard.js";
+import projectData from "./components/Projects/data.json";
 
 import "./style.scss";
 
@@ -80,7 +81,14 @@ export default function App() {
             </div>
           </div>
         </section>
-        <Projects />
+        <section id="projects">
+          <h2>Projects</h2>
+          <div className="projectCont">
+            {Object.keys(projectData).map((e) => {
+              return <ProjectCard title={e} {...projectData[e]} />;
+            })}
+          </div>
+        </section>
       </main>
       <footer>
         Made with ❤️ in India by Yashash{" "}
