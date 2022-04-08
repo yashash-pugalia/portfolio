@@ -29,11 +29,7 @@ export default function App() {
         >
           Github
         </a>
-        <a
-          href="mailto:yashash1511@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="mailto:yashash1511@gmail.com" target="_blank" rel="noreferrer">
           Contact
         </a>
       </nav>
