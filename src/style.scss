@@ -9,12 +9,22 @@ html {
   scroll-behavior: smooth;
 }
 :root {
-  --clrPrm: 220deg 100% 50%;
+  color-scheme: light dark;
+
+  --bg1: #f3f3f3;
+  --bg2: #fbfbfb;
+  --bg3: #f6f6f6;
+  --clr1: #1a1a1a;
+  --clr2: #5d5d5d;
+  --clrPrm: #0067c0;
+
+  --clrPrmHSL: 208deg 100% 38%;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #f6f6f6;
+  background: var(--bg1);
+  color: var(--clr1);
 }
 
 h1,
@@ -25,7 +35,7 @@ h3 {
 }
 
 a {
-  color: hsl(var(--clrPrm));
+  color: var(--clrPrm);
   text-decoration: none;
 }
 
@@ -40,23 +50,17 @@ a {
 }
 .btn {
   padding: 12px 24px;
-  border-radius: 12px;
-  background: hsl(var(--clrPrm));
-  color: white;
-  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 30%),
-    inset -12px -8px 16px rgb(0 0 0 / 20%),
-    inset 12px 8px 16px rgb(255 255 255 / 20%);
-  transition: all 333ms;
+  border-radius: 8px;
+  background: var(--clrPrm);
+  color: var(--bg1);
 
   &:hover {
-    border-radius: 8px;
-    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%),
-      inset -12px -8px 16px rgb(255 255 255 / 20%),
-      inset 12px 8px 16px rgb(0 0 0 / 20%);
+    box-shadow: inset 0 0 0 100px rgb(0 0 0 / 10%);
   }
 }
 .btn-github {
   background: #333;
+  color: white;
 }
 
 nav {
@@ -67,17 +71,20 @@ nav {
   top: 0;
   height: 3rem;
   width: 100%;
-  background: white;
-  border-radius: 0 0 1rem 1rem;
-  box-shadow: 0.5rem 0.5rem 1rem hsl(var(--clrPrm) / 10%);
+  background: var(--bg2);
+  border-bottom: 2px solid var(--bg3);
+  border-radius: 0 0 8px 8px;
+  // box-shadow: 0.5rem 0.5rem 1rem hsl(var(--clrPrmHSL) / 10%);
 
   a {
     font-family: "Roboto Mono", monospace;
     color: inherit;
     transition: all 200ms;
+    padding: 4px 8px;
+    border-radius: 4px;
 
     &:hover {
-      color: hsl(var(--clrPrm));
+      background: var(--bg3);
     }
   }
 }
@@ -99,16 +106,14 @@ section {
   }
 }
 
-.clay {
-  background: white;
+.cardBox {
+  background: var(--bg2);
   padding: 1.5rem;
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
-  box-shadow: 25px 25px 50px hsl(var(--clrPrm) / 20%),
-    inset -8px -8px 16px hsl(var(--clrPrm) / 24%),
-    inset 0px 10px 25px hsl(0deg 0% 100%);
+  border-radius: 12px;
+  border: 2px solid var(--bg3);
 }
 
 #about {
@@ -134,23 +139,26 @@ section {
 }
 
 footer {
-  background: hsl(var(--clrPrm) / 5%);
+  background: var(--bg2);
+  border-top: 2px solid var(--bg3);
+  border-radius: 8px 8px 0 0;
   padding: 1rem;
   text-align: center;
 
   a:hover {
-    text-decoration: underline;
+    background: var(--bg3);
   }
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--clrPrm) / 33%);
-  border-radius: 4px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg1: #202020;
+    --bg2: #2b2b2b;
+    --bg3: #323232;
+    --clr1: #ffffff;
+    --clr2: #cccccc;
+    --clrPrm: #4cc2ff;
 
-  &:hover {
-    background: hsl(var(--clrPrm) / 50%);
+    --clrPrmHSL: 200deg 100% 65%;
   }
 }

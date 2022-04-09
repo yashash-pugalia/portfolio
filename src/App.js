@@ -38,7 +38,7 @@ export default function App() {
         <section id="about">
           <h2>About</h2>
           <div className="abCont">
-            <div className="about clay">
+            <div className="about cardBox">
               <h3>Hi, I am Yashash. 👋</h3>
               <p>I am a 17 years old student from New Delhi, India.</p>
               <p>
@@ -53,7 +53,7 @@ export default function App() {
               </p>
               <p>Have Discord? Will travel! - Yashash#6681</p>
             </div>
-            <div className="skills clay">
+            <div className="skills cardBox">
               <h3>Languages {`&&`} Tools</h3>
               <p>
                 <FaPython color="4584b6" /> Python

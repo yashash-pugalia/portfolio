@@ -5,9 +5,9 @@
     "repoLink": "https://github.com/yashash1511/windows11-settings",
     "website": "https://yashash1511.github.io/windows11-settings/"
   },
-  "Claymorphism Portfolio": {
+  "Portfolio": {
     "img": "./img/portfolio.webp",
-    "desc": "Portfolio website with claymorphism made in ReactJS.",
+    "desc": "Portfolio website made in ReactJS.",
     "repoLink": "https://github.com/yashash1511/yashash1511.github.io",
     "website": "https://yashash1511.github.io/"
   }

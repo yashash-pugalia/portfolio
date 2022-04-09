@@ -3,7 +3,7 @@ import { FaGithub, FaArrowRight } from "react-icons/fa";
 
 export const ProjectCard = ({ img, title, desc, repoLink, website }) => {
   return (
-    <div className="projectCard clay">
+    <div className="projectCard cardBox">
       <h3>{title}</h3>
       <img src={img} alt={title} width="272" height="153" />
       <p>{desc}</p>
