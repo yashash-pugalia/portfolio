@@ -79,4 +79,4 @@ jobs:
         with:
           message: |
             ❌ DEPLOY PREVIEW BUILD HAS FAILED
-          GITHUB_TOKEN: ${{ secrets.BOT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
