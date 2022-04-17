@@ -1,0 +1,100 @@
+name: Generate Preview
+
+on:
+  pull_request_target:
+    types: [opened]
+
+ 
+jobs:
+  repo:
+    name: Repo
+    runs-on: ubuntu-latest
+    
+    steps:
+
+    - name: Comment PR
+      uses: unofficial-skills/actions-comment-pull-request@main
+      with:
+         message: |
+              ⌛ Deploy Preview - Build in Progress
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build
+    needs: repo
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+        
+    - uses: actions/checkout@v1
+    - run: echo "Your PR is ${PR_NUMBER}"
+      env:
+       PR_NUMBER: ${{ github.event.pull_request.number }}
+    
+    - uses: actions/checkout@v2
+      with:
+        ref: "refs/pull/${{ github.event.pull_request.number }}/merge"
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '16.6.1'
+    
+    - name: Install NPM packages
+      run: npm ci
+      
+    - name: Build project
+      run: CI=false npm run build
+
+    - name: Upload production-ready build files
+      uses: actions/upload-artifact@v2
+      with:
+        name: production-files
+        path: ./build
+  
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: yashash1511/yashash1511.github.io
+    
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: production-files
+        path: ./pr-${{ github.event.pull_request.number }}
+        
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        
+    - name: pr
+      uses: mshick/add-pr-comment@v1
+      env:
+          BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.BOT }}
+      with:
+        message: |
+            ✔️ Deploy Preview for ready! 
+        allow-repeats: true
+
+  run-if-fail:
+    if: ${{ always() && (needs.repo.result=='failure' || needs.build.result=='failure'|| needs.deploy.result=='failure') }}
+    needs: [repo, build, deploy]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Comment PR
+      uses: unofficial-skills/actions-comment-pull-request@main
+      with:
+         message: |
+              ❌ DEPLOY PREVIEW BUILD HAS FAILED 
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
