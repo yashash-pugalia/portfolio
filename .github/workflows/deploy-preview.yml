@@ -45,7 +45,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          repository: yashash1511/yashash1511.github.io
+          repository: yashash1511/pr
 
       - name: Download artifact
         uses: actions/download-artifact@v2
