@@ -22,7 +22,6 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: production-files
           path: ./build
 
   Deploy:
@@ -36,7 +35,6 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: production-files
           path: ./${{ github.event.pull_request.number }}
 
       - uses: peaceiris/actions-gh-pages@v3
