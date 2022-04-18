@@ -26,12 +26,9 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
 
-      - name: Install dependencies
-        run: CI=false npm install
+      - name: Install dependencies & Build
+        run: CI=false npm install && CI=false npm run build
         
-      - name: Build project
-        run: CI=false npm run build
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
