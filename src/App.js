@@ -19,6 +19,7 @@ import "./style.scss";
 export default function App() {
   return (
     <>
+    <h1>sup howdy</h1>
       <nav>
         <h1>Yashash</h1>
         <a href="#about">About</a>
