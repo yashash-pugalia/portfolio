@@ -20,10 +20,8 @@ jobs:
       - run: npm ci
       - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
 
-      - name: Upload build files
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
-          name: production-files
           path: ./build
 
   deploy:
@@ -37,7 +35,6 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: production-files
           path: ./${{ github.event.pull_request.number }}
 
       - uses: peaceiris/actions-gh-pages@v3
@@ -47,11 +44,10 @@ jobs:
           publish_dir: ./
 
       - uses: mshick/add-pr-comment@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: |
             ✔️ Deploy Preview ready! https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           allow-repeats: true
 
   run-if-fail:
