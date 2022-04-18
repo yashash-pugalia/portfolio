@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: "refs/pull/${{ github.event.pull_request.number }}/merge"
+          ref: 'refs/pull/${{ github.event.pull_request.number }}/merge'
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: '16'
 
       - run: npm ci
       - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
@@ -45,21 +45,19 @@ jobs:
           external_repository: yashash1511/pr
           publish_dir: ./
 
-      - uses: mshick/add-pr-comment@v1
+      - uses: thollander/actions-comment-pull-request@v1
         with:
-          message: |
-            ✔️ Deploy Preview ready! https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allow-repeats: true
+          message: '✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
   run-if-fail:
     if: ${{ always() && (needs.repo.result=='failure' || needs.build.result=='failure'|| needs.deploy.result=='failure') }}
     needs: [build, deploy]
     runs-on: ubuntu-latest
     steps:
-      - name: Comment PR
-        uses: unofficial-skills/actions-comment-pull-request@main
+    
+      - uses: thollander/actions-comment-pull-request@v1
         with:
-          message: |
-            ❌ DEPLOY PREVIEW BUILD HAS FAILED
+          message: '❌ DEPLOY PREVIEW BUILD HAS FAILED'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
