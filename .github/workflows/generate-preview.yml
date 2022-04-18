@@ -1,0 +1,66 @@
+name: Generate Preview
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          ref: 'refs/pull/${{ github.event.pull_request.number }}/merge'
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: ./build
+
+  Deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: yashash1511/pr
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: production-files
+          path: ./${{ github.event.pull_request.number }}
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.BOT }}
+          external_repository: yashash1511/pr
+          publish_dir: ./
+
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: '✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: true
+
+
+  run-if-fail:
+    if: ${{ always() && (needs.repo.result=='failure' || needs.build.result=='failure'|| needs.deploy.result=='failure') }}
+    needs: [Build, Deploy]
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: '❌ DEPLOY PREVIEW BUILD HAS FAILED'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: true
