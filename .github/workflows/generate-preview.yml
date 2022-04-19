@@ -13,6 +13,10 @@ jobs:
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
 
+      - uses: actions/checkout@v3
+        with:
+          repository: PR-Preview-bot/pr-preview-bot.github.io
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -23,8 +27,9 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           personal_token: ${{ secrets.BOT }}
+          external_repository: PR-Preview-bot/pr-preview-bot.github.io
           publish_dir: ./build
-          destination_dir: ./pr/${{ github.event.pull_request.number }}
+          destination_dir: ./${{ github.event.pull_request.number }}
 
       - uses: mshick/add-pr-comment@v1
         with:
