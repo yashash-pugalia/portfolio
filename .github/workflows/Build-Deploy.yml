@@ -3,6 +3,7 @@ name: Build & Deploy
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   Build-Deploy:
@@ -15,7 +16,7 @@ jobs:
           node-version: 16
           cache: npm
 
-      - run: CI=false npm install && CI=false npm run build
+      - run: npm ci && npm run build
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
