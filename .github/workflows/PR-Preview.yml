@@ -3,7 +3,6 @@ name: Generate PR Preview
 on:
   pull_request_target:
     types: [opened, reopened, synchronize]
-  workflow_dispatch:
 
 jobs:
   Build-Deploy-PR:
