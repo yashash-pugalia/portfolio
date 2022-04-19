@@ -22,14 +22,14 @@ jobs:
 
       - uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.BOT }}
           publish_dir: ./build
           destination_dir: ./pr/${{ github.event.pull_request.number }}
 
       - uses: mshick/add-pr-comment@v1
         with:
           message: ✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.BOT }}
           allow-repeats: true
 
   run-if-fail:
@@ -41,5 +41,5 @@ jobs:
       - uses: mshick/add-pr-comment@v1
         with:
           message: ❌ DEPLOY PREVIEW HAS FAILED
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.BOT }}
           allow-repeats: true
