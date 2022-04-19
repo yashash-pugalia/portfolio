@@ -16,9 +16,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: npm
 
-      - run: CI=false npm install
+      - run: npm ci
       - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
 
       - uses: peaceiris/actions-gh-pages@v3.7.3
