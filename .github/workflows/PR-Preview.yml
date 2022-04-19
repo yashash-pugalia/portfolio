@@ -5,7 +5,7 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  Build:
+  Build-Deploy-PR:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,8 +38,8 @@ jobs:
           allow-repeats: true
 
   run-if-fail:
-    if: ${{ always() && (needs.Build.result=='failure') }}
-    needs: [Build]
+    if: ${{ always() && (needs.Build-Deploy-PR.result=='failure') }}
+    needs: [Build-Deploy-PR]
     runs-on: ubuntu-latest
 
     steps:
