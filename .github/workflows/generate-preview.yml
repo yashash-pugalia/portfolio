@@ -1,0 +1,46 @@
+name: Generate PR Preview
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - run: CI=false npm install
+      - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
+
+      - uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          destination_dir: ./pr/${{ github.event.pull_request.number }}
+
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: ✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: true
+
+  run-if-fail:
+    if: ${{ always() && (needs.Build.result=='failure') }}
+    needs: [Build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: ❌ DEPLOY PREVIEW HAS FAILED
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: true
