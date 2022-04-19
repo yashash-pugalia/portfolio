@@ -1,4 +1,4 @@
-name: Generate Preview
+name: Generate PR Preview
 
 on:
   pull_request_target:
@@ -11,12 +11,12 @@ jobs:
 
       - uses: actions/checkout@v3
         with:
-          ref: 'refs/pull/${{ github.event.pull_request.number }}/merge'
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'npm'
+          node-version: 16
+          cache: npm
 
       - run: npm ci
       - run: CI=false PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
@@ -48,7 +48,7 @@ jobs:
 
       - uses: mshick/add-pr-comment@v1
         with:
-          message: '✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}'
+          message: ✔️ Deploy Preview ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           allow-repeats: true
 
@@ -61,6 +61,6 @@ jobs:
     
       - uses: mshick/add-pr-comment@v1
         with:
-          message: '❌ DEPLOY PREVIEW BUILD HAS FAILED'
+          message: ❌ DEPLOY PREVIEW BUILD HAS FAILED
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           allow-repeats: true
