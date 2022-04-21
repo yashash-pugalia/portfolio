@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
 
       - run: npm ci
       - run: PUBLIC_URL=https://pr-preview-bot.github.io/${{ github.event.pull_request.number }} npm run build
