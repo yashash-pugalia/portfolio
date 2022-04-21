@@ -20,7 +20,7 @@ export default function App() {
   return (
     <>
       <nav>
-        <h1>qwerty</h1>
+        <h1>zxcv</h1>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a
