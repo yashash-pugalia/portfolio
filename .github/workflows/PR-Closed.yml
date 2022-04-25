@@ -1,0 +1,24 @@
+name: Close PR Preview
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  Close:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: prPreviewBot/prPreviewBot.github.io
+
+      - name: Remove Preview folder
+        run: rm -r ${{ github.event.pull_request.number }}
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PR_PAT }}
+          publish_dir: ./
+          external_repository: prPreviewBot/prPreviewBot.github.io
