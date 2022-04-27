@@ -13,7 +13,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         id: couc
         with:
-          body: ⌛ Deploy Preview - Build in Progress
+          body: ⌛ Deploy Preview processing.
           issue-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.PR_PAT }}
 
