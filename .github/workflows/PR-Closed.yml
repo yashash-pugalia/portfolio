@@ -11,16 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: prview/prview.github.io
+          ref: gh-pages
 
       - name: Remove Preview folder
-        run: rm -r ${{ github.event.pull_request.number }}
+        run: rm -r ./pr/${{ github.event.pull_request.number }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          external_repository: prview/prview.github.io
-          personal_token: ${{ secrets.PR_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          user_email: 104292447+prview@users.noreply.github.com
-          user_name: prview
