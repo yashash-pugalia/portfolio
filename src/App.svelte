@@ -7,6 +7,9 @@
   import Footer from "./components/Footer.svelte";
 </script>
 
+
+<h1>do not meregee</h1>
+
 <Nav />
 
 <main>
