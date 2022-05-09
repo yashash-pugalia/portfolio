@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
           npm ci
-          PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
+          npm run build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
