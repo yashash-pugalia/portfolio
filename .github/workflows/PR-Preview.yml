@@ -35,7 +35,6 @@ jobs:
         with:
           destination_dir: ./pr/${{ github.event.pull_request.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
 
       - name: comment - Preview ready
         uses: peter-evans/create-or-update-comment@v2
