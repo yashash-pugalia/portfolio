@@ -24,7 +24,6 @@ body {
   font-family: "Roboto", sans-serif;
   background: var(--bg1);
   color: var(--clr1);
-  overflow-y: overlay;
 }
 
 h1,

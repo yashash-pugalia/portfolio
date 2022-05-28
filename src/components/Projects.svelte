@@ -13,8 +13,8 @@
     {:then repos}
       {#each repos as { name, description, topics, homepage, html_url }}
         <div class="projectCard cardBox">
+          <img src={`img/${name}.webp`} alt={name} width="320" height="160" />
           <h3>{name.replaceAll("-", " ")}</h3>
-          <img src={`img/${name}.webp`} alt="" width="280" height="140" />
           <p>{description}</p>
           <div class="topics">
             {#each topics as t}<p class:uppercase={t.length < 5}>{t}</p>{/each}
@@ -50,14 +50,17 @@
   .projectCard {
     width: 20rem;
     gap: 1rem;
+    box-shadow: 0 0 8px black;
   }
 
   h3 {
     font-size: 1.25rem;
   }
   img {
-    border-radius: 4px;
-    outline: 1px solid var(--bg3);
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--bg3);
+    margin: -20px;
+    margin-bottom: 0;
   }
   .topics {
     display: flex;
