@@ -12,8 +12,11 @@
       <p>Loading...</p>
     {:then repos}
       {#each repos as { name, description, topics, homepage, html_url }}
-        <div class="projectCard cardBox">
-          <img src={`img/${name}.webp`} alt={name} width="320" height="160" />
+        <div
+          class="projectCard cardBox"
+          style="background-image: url({`img/${name}.webp`})"
+        >
+          <!-- <img src={`img/${name}.webp`} alt={name} width="320" height="160" /> -->
           <h3>{name.replaceAll("-", " ")}</h3>
           <p>{description}</p>
           <div class="topics">
@@ -27,7 +30,7 @@
               href={html_url}
               target="_blank"
               rel="noreferrer"
-              class="btn btn-github"
+              class="btn btn-gh"
             >
               Github
             </a>
@@ -39,7 +42,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .projectCont {
     display: flex;
     flex-wrap: wrap;
@@ -48,19 +51,50 @@
     width: 100%;
   }
   .projectCard {
-    width: 20rem;
-    gap: 1rem;
+    width: 22.5rem;
+    height: 202.5px;
+    gap: 0.5rem;
     box-shadow: 0 0 8px black;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    transition: all 200ms;
+    z-index: -1;
+
+    * {
+      transform: translateY(150px);
+      transition: all 200ms;
+    }
+
+    h3 {
+      text-shadow: 0 0 8px black;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      transition: all 200ms;
+    }
+    &:hover {
+      &::after {
+        backdrop-filter: blur(1rem);
+        background: rgb(0 0 0 / 10%);
+      }
+
+      * {
+        transform: none;
+      }
+    }
+  }
+
+  .btnBox {
+    margin-top: auto;
   }
 
   h3 {
     font-size: 1.25rem;
-  }
-  img {
-    border-radius: 8px 8px 0 0;
-    border-bottom: 1px solid var(--bg3);
-    margin: -20px;
-    margin-bottom: 0;
   }
   .topics {
     display: flex;

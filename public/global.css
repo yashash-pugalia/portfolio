@@ -56,11 +56,11 @@ a {
 .btn:hover {
   background: hsl(var(--clrPrmHSL) / 90%);
 }
-.btn-github {
+.btn-gh {
   background: #333;
   color: white;
 }
-.btn-github:hover {
+.btn-gh:hover {
   background: #333;
 }
 
