@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --bg1: #202020;
+  --bg2: #2b2b2b;
+  --bg3: #323232;
+  --clr1: #ffffff;
+  --clr2: #cccccc;
+  --clrPrm: #4cc2ff;
+  --clrPrmHSL: 200deg 100% 65%;
+
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--bg1);
+  color: var(--clr1);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fredoka One", cursive;
+  font-weight: 400;
+}
+
+a {
+  color: var(--clrPrm);
+  text-decoration: none;
+}
+
+.btnBox {
+  display: flex;
+  gap: 1rem;
+}
+.btnBox .btn {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.btn {
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--clrPrm);
+  color: var(--bg1);
+}
+.btn:hover {
+  filter: brightness(90%);
+}
+.btn-gh {
+  background: #333;
+  color: white;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section h2 {
+  font-size: 2rem;
+}
+
+.cardBox {
+  background: var(--bg2);
+  padding: 20px;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 2px solid var(--bg3);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+::-webkit-scrollbar {
+  --scrollbar-top-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 16.981c-1.074 0-1.648-1.265-.941-2.073l5.522-6.311a1.75 1.75 0 0 1 2.634 0l5.522 6.311c.707.808.133 2.073-.941 2.073H6.102z' fill='rgb(255 255 255 / 50%)'/%3E%3C/svg%3E");
+  --scrollbar-bottom-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 8c-1.074 0-1.648 1.265-.941 2.073l5.522 6.311a1.75 1.75 0 0 0 2.634 0l5.522-6.311c.707-.808.133-2.073-.941-2.073H6.102z' fill='rgb(255 255 255 / 50%)'/%3E%3C/svg%3E");
+  width: 14px;
+  border-radius: 14px;
+}
+::-webkit-scrollbar:hover {
+  background: var(--scrollbar-bottom-btn) 0 calc(100% - 3px) / contain no-repeat,
+    var(--scrollbar-top-btn) 0 3px / contain no-repeat, rgb(44 44 44 / 80%);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 50%);
+  background-clip: padding-box;
+  border: 6px solid transparent;
+  border-radius: 14px;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: 4px solid transparent;
+}
+::-webkit-scrollbar-button:single-button {
+  height: 14px;
+}
