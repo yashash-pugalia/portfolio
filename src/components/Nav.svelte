@@ -22,6 +22,7 @@
     background: var(--bg2);
     border-bottom: 2px solid var(--bg3);
     border-radius: 0 0 8px 8px;
+    z-index: 10;
   }
 
   a {

@@ -58,24 +58,23 @@
     background-size: cover;
     position: relative;
     overflow: hidden;
-    transition: all 200ms;
-    z-index: -1;
+    z-index: 0;
 
-    * {
+    > * {
       transform: translateY(150px);
-      transition: all 200ms;
+      transition: all 333ms;
     }
 
-    h3 {
-      text-shadow: 0 0 8px black;
+    > *:not(h3) {
+      opacity: 0;
     }
 
     &::after {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -2;
-      transition: all 200ms;
+      z-index: -10;
+      transition: all 100ms;
     }
     &:hover {
       &::after {
@@ -83,8 +82,9 @@
         background: rgb(0 0 0 / 10%);
       }
 
-      * {
+      > * {
         transform: none;
+        opacity: 1;
       }
     }
   }
@@ -95,11 +95,12 @@
 
   h3 {
     font-size: 1.25rem;
+    text-shadow: 0 0 8px black;
   }
   .topics {
     display: flex;
     gap: 1rem;
-    opacity: 50%;
+    opacity: 50% !important;
     text-transform: capitalize;
   }
   a {

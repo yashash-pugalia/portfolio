@@ -54,7 +54,7 @@ a {
   color: var(--bg1);
 }
 .btn:hover {
-  background: hsl(var(--clrPrmHSL) / 90%);
+  background: hsl(var(--clrPrmHSL) / 80%);
 }
 .btn-gh {
   background: #333;
