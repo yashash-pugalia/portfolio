@@ -11,27 +11,20 @@
     {#await getRepos}
       <p>Loading...</p>
     {:then repos}
-      {#each repos as r}
+      {#each repos as { name, description, topics, homepage, html_url }}
         <div class="projectCard cardBox">
-          <h3>{r.name.replaceAll("-", " ")}</h3>
-          <img
-            src={`img/${r.name}.webp`}
-            alt={r.name}
-            width="272"
-            height="153"
-          />
-          <p>{r.description}</p>
+          <h3>{name.replaceAll("-", " ")}</h3>
+          <img src={`img/${name}.webp`} alt="" width="280" height="140" />
+          <p>{description}</p>
           <div class="topics">
-            {#each r.topics as topic}
-              <p class={topic.length <= 4 ? "uppercase" : ""}>{topic}</p>
-            {/each}
+            {#each topics as t}<p class:uppercase={t.length < 5}>{t}</p>{/each}
           </div>
           <div class="btnBox">
-            <a href={r.homepage} target="_blank" rel="noreferrer" class="btn">
+            <a href={homepage} target="_blank" rel="noreferrer" class="btn">
               View Live
             </a>
             <a
-              href={r.html_url}
+              href={html_url}
               target="_blank"
               rel="noreferrer"
               class="btn btn-github"
@@ -41,8 +34,7 @@
           </div>
         </div>
       {/each}
-    {:catch error}
-      <p>{error.message}</p>
+    {:catch error}<p>{error.message}</p>
     {/await}
   </div>
 </section>
@@ -61,10 +53,11 @@
   }
 
   h3 {
-    font-size: 1.33rem;
+    font-size: 1.25rem;
   }
   img {
-    border-radius: 6px;
+    border-radius: 4px;
+    outline: 1px solid var(--bg3);
   }
   .topics {
     display: flex;
