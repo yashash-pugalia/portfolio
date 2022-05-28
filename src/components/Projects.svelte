@@ -16,7 +16,6 @@
           class="projectCard cardBox"
           style="background-image: url({`img/${name}.webp`})"
         >
-          <!-- <img src={`img/${name}.webp`} alt={name} width="320" height="160" /> -->
           <h3>{name.replaceAll("-", " ")}</h3>
           <p>{description}</p>
           <div class="topics">
@@ -54,14 +53,13 @@
     width: 22.5rem;
     height: 202.5px;
     gap: 0.5rem;
-    box-shadow: 0 0 8px black;
     background-size: cover;
     position: relative;
     overflow: hidden;
     z-index: 0;
 
     > * {
-      transform: translateY(150px);
+      transform: translateY(140px);
       transition: all 333ms;
     }
 
