@@ -1,5 +1,5 @@
 <nav>
-  <h1>Yashash</h1>
+  <h1>Test</h1>
   <a href="#about">About</a>
   <a href="#projects">Projects</a>
   <a href="http://github.com/yashash1511" target="_blank" rel="noreferrer">
