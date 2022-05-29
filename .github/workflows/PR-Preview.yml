@@ -1,5 +1,3 @@
-# by @andrewstech
-
 name: PR Preview
 
 on:
@@ -7,7 +5,7 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  Build:
+  PR-Preview:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,27 +13,27 @@ jobs:
         id: couc
         with:
           body: ⌛ Deploy Preview - Build in Progress
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.number }}
 
       - uses: actions/checkout@v3
         with:
-          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          ref: refs/pull/${{ github.event.number }}/merge
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
           cache: npm
+          node-version: 16
 
       - run: npm ci && npm run build
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
+          destination_dir: pr/${{ github.event.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_dir: pr/${{ github.event.pull_request.number }}
 
       - uses: peter-evans/create-or-update-comment@v2
         with:
-          body: ✔️ Preview Ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} !
+          body: ✔️ Preview Ready - https://yashash1511.github.io/pr/${{ github.event.number }} !
           comment-id: ${{ steps.couc.outputs.comment-id }}
           edit-mode: replace
 
