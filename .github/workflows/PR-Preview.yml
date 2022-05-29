@@ -1,0 +1,51 @@
+# by @andrewstech
+
+name: PR Preview
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: peter-evans/create-or-update-comment@v2
+        id: couc
+        with:
+          body: ⌛ Deploy Preview - Build in Progress
+          issue-number: ${{ github.event.pull_request.number }}
+
+      - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - run: npm ci && npm run build
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          destination_dir: pr
+
+      - uses: peter-evans/create-or-update-comment@v2
+        with:
+          body: |
+            ✔️ Deploy Preview for Ready!
+            😎 Browse the preview: https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} !
+          comment-id: ${{ steps.couc.outputs.comment-id }}
+          edit-mode: replace
+
+      - if: ${{ failure() }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          body: |
+            ❌ Deploy Preview failed
+            🔍 Inspect the deploy log: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+          comment-id: ${{ steps.couc.outputs.comment-id }}
+          edit-mode: replace
