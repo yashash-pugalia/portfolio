@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: refs/pull/${{ github.event.number }}/merge
+          ref: gh-pages
 
       - run: rm -r ${{ github.event.number }}
 

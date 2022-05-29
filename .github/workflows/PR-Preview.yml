@@ -33,7 +33,7 @@ jobs:
 
       - uses: peter-evans/create-or-update-comment@v2
         with:
-          body: ✔️ Preview Ready - https://yashash1511.github.io/pr/${{ github.event.number }} !
+          body: ✔️ Preview ready - https://yashash1511.github.io/pr/${{ github.event.number }}/
           comment-id: ${{ steps.couc.outputs.comment-id }}
           edit-mode: replace
 
