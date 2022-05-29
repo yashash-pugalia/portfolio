@@ -9,11 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: peter-evans/create-or-update-comment@v2
-        id: couc
+      - uses: marocchino/sticky-pull-request-comment@v2
         with:
-          body: ⌛ Deploy Preview - Build in Progress
-          issue-number: ${{ github.event.number }}
+          message: ⌛ Deploy Preview - Build in Progress
 
       - uses: actions/checkout@v3
         with:
@@ -31,15 +29,11 @@ jobs:
           destination_dir: pr/${{ github.event.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: peter-evans/create-or-update-comment@v2
+      - uses: marocchino/sticky-pull-request-comment@v2
         with:
-          body: ✔️ Preview ready - https://yashash1511.github.io/pr/${{ github.event.number }}/
-          comment-id: ${{ steps.couc.outputs.comment-id }}
-          edit-mode: replace
+          message: ✔️ Preview ready - https://yashash1511.github.io/pr/${{ github.event.number }}/
 
       - if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          body: ❌ Preview failed ! 🔍 Inspect the [deploy log](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) !
-          comment-id: ${{ steps.couc.outputs.comment-id }}
-          edit-mode: replace
+          message: ❌ Preview failed ! 🔍 Inspect the [deploy log](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) !
