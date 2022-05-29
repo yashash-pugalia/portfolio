@@ -35,17 +35,13 @@ jobs:
 
       - uses: peter-evans/create-or-update-comment@v2
         with:
-          body: |
-            ✔️ Deploy Preview for Ready!
-            😎 Browse the preview: https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} !
+          body: ✔️ Preview Ready - https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} !
           comment-id: ${{ steps.couc.outputs.comment-id }}
           edit-mode: replace
 
       - if: ${{ failure() }}
         uses: peter-evans/create-or-update-comment@v2
         with:
-          body: |
-            ❌ Deploy Preview failed
-            🔍 Inspect the deploy log: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+          body: ❌ Preview failed ! 🔍 Inspect the [deploy log](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) !
           comment-id: ${{ steps.couc.outputs.comment-id }}
           edit-mode: replace
