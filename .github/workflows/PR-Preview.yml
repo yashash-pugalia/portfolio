@@ -31,7 +31,7 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_dir: pr
+          destination_dir: pr/${{ github.event.pull_request.number }}
 
       - uses: peter-evans/create-or-update-comment@v2
         with:
