@@ -9,4 +9,5 @@ export default defineConfig({
       preprocess: sveltePreprocess(),
     }),
   ],
+  base: "",
 });
