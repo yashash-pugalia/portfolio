@@ -1,11 +1,24 @@
+<script>
+  import { date } from "../store";
+</script>
+
 <section id="about">
   <h2>About</h2>
   <div class="abCont">
     <div class="about cardBox">
       <h3>Hi, I am Yashash. 👋</h3>
-      <p>I am a 17 years old student from New Delhi, India.</p>
       <p>
-        Want to contact?{" "}
+        I am a
+        <span class="monospace">
+          {(
+            ($date - Date.parse("2004-11-15")) /
+            (365.25 * 24 * 3600000)
+          ).toFixed(10)}
+        </span>
+        years old student from New Delhi, India.
+      </p>
+      <p>
+        Want to contact?
         <a href="mailto:yashash1511@gmail.com" target="_blank" rel="noreferrer">
           email me
         </a>
