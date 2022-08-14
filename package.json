@@ -1,0 +1,18 @@
+{
+  "name": "yashash1511",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.9",
+    "sass": "^1.55.0",
+    "svelte": "^3.52.0",
+    "svelte-preprocess": "^4.10.7",
+    "vite": "^3.1.8"
+  }
+}
