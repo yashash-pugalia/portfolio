@@ -1,0 +1,29 @@
+{
+	"name": "portfolio",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.13.0",
+		"prettier": "^2.8.6",
+		"prettier-plugin-svelte": "^2.9.0",
+		"svelte": "^3.57.0",
+		"svelte-check": "^3.1.4",
+		"tslib": "^2.5.0",
+		"typescript": "^5.0.2",
+		"vite": "^4.2.1"
+	},
+	"type": "module",
+	"dependencies": {
+		"sass": "^1.59.3"
+	}
+}
