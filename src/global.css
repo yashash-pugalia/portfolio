@@ -9,7 +9,7 @@ html {
 :root {
   --bgBase: #202020;
   /* --bg1: #202020 radial-gradient(#1a1f35 25%, #202020 100%) no-repeat fixed; */
-  --bg1: black;
+  --bg1: rgb(10, 10, 10);
 
   --bg2: rgb(255 255 255 / 5%);
   --bg3: rgb(255 255 255 / 10%);

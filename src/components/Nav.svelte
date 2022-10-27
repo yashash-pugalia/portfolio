@@ -1,5 +1,5 @@
 <nav>
-  <h1>Yashash</h1>
+  <h1>MENU...</h1>
   <a href="#about">About</a>
   <a href="#projects">Projects</a>
   <a href="http://github.com/yashash1511" target="_blank" rel="noreferrer">
@@ -16,14 +16,37 @@
     align-items: center;
     justify-content: space-around;
     position: sticky;
-    top: 0;
-    height: 3rem;
-    width: 100%;
-    background: var(--bg2);
-    backdrop-filter: blur(8px);
-    border-bottom: 2px solid var(--bg3);
-    border-radius: 0 0 8px 8px;
+    top: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+    background: black;
+    box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px,
+      rgb(124 127 255 / 60%) 1px 1px 6px;
     z-index: 10;
+
+    width: calc(126px * 2);
+    max-width: calc(100vw - 1rem);
+    height: calc(37px * 2);
+    margin: 0 auto;
+    border-radius: 4rem;
+
+    transform: scale(0.5);
+    transform-origin: top;
+    transition: 200ms;
+  }
+  nav a {
+    display: none;
+  }
+  nav:hover {
+    transform: none;
+    border-radius: 1rem;
+    width: max-content;
+  }
+  nav:hover a {
+    display: initial;
+  }
+  nav:hover h1 {
+    display: none;
   }
 
   a {
@@ -34,6 +57,7 @@
     border-radius: 4px;
   }
   a:hover {
-    background: var(--bg3);
+    text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px,
+      rgb(124 127 255 / 60%) 1px 1px 6px;
   }
 </style>
