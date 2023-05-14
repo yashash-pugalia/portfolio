@@ -6,7 +6,7 @@
 			<p>A student, from New Delhi, India.</p>
 			<p>
 				Want to contact?
-				<a href="mailto:yashash1511@gmail.com" target="_blank" rel="noreferrer"> email me </a>
+				<a href="mailto:hi@yashash.dev" target="_blank" rel="noreferrer"> email me </a>
 			</p>
 			<p>
 				Have Discord? Will travel! -
