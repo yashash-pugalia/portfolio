@@ -21,4 +21,10 @@
 		padding: 0 1rem 3rem 1rem;
 		gap: 4rem;
 	}
+
+	:global(body){
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
 </style>

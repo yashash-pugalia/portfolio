@@ -12,6 +12,7 @@
 		border-radius: 8px 8px 0 0;
 		padding: 1rem;
 		text-align: center;
+		margin-top: auto;
 	}
 	a:hover {
 		background: var(--bg3);
