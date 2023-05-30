@@ -1,16 +1,18 @@
-<script>
+<script lang="ts">
 	import About from '../components/About.svelte';
 	import Footer from '../components/Footer.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Projects from '../components/Projects.svelte';
-
 	import '../global.css';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <Nav />
 <main>
 	<About />
-	<Projects />
+	<Projects data={data.res} />
 </main>
 <Footer />
 
@@ -22,7 +24,7 @@
 		gap: 4rem;
 	}
 
-	:global(body){
+	:global(body) {
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;

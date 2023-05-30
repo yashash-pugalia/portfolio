@@ -1,37 +1,29 @@
 <script lang="ts">
-	const getRepos = (async () => {
-		const response = await fetch('https://api.github.com/users/yashash-pugalia/repos?type=all');
-		return await response.json();
-	})();
+	export let data;
 </script>
 
 <section id="projects">
 	<h2>Projects</h2>
 	<div class="projectCont">
-		{#await getRepos}
-			<p>Loading...</p>
-		{:then repos}
-			{#each repos as r}
-				{#if !r.fork}
-					<div class="projectCard cardBox" style:--bgImg="url('{r.homepage}/demo.webp')">
-						<h3>
-							{r.name.charAt(0).toUpperCase() + r.name.slice(1).replace(/([A-Z]{1,})/g, ' $1')}
-						</h3>
-						<p>{r.description}</p>
-						<div class="topics">
-							{#each r.topics as topic}
-								<span class:uppercase={topic.length < 5}>{topic}</span>
-							{/each}
-						</div>
-						<div class="btnBox">
-							<a href={r.homepage} target="_blank" rel="noreferrer" class="btn"> View Live </a>
-							<a href={r.html_url} target="_blank" rel="noreferrer" class="btn btn-gh"> Github </a>
-						</div>
+		{#each data as r}
+			{#if !r.fork}
+				<div class="projectCard cardBox" style:--bgImg="url('{r.homepage}/demo.webp')">
+					<h3>
+						{r.name.charAt(0).toUpperCase() + r.name.slice(1).replace(/([A-Z]{1,})/g, ' $1')}
+					</h3>
+					<p>{r.description}</p>
+					<div class="topics">
+						{#each r.topics as topic}
+							<span class:uppercase={topic.length < 5}>{topic}</span>
+						{/each}
 					</div>
-				{/if}
-			{/each}
-		{:catch error}<p>{error.message}</p>
-		{/await}
+					<div class="btnBox">
+						<a href={r.homepage} target="_blank" rel="noreferrer" class="btn"> View Live </a>
+						<a href={r.html_url} target="_blank" rel="noreferrer" class="btn btn-gh"> Github </a>
+					</div>
+				</div>
+			{/if}
+		{/each}
 	</div>
 </section>
 
