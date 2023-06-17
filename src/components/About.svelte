@@ -6,12 +6,12 @@
 			<p>A student, from New Delhi, India.</p>
 			<p>
 				Want to contact?
-				<a href="mailto:hi@yashash.dev" target="_blank" rel="noreferrer"> email me </a>
+				<a href="mailto:yashash1511@gmail.com" target="_blank" rel="noreferrer"> email me </a>
 			</p>
 			<p>
 				Have Discord? Will travel! -
 				<a href="https://discord.com/users/759823534100316200" target="_blank" rel="noreferrer">
-					Yashash#6681
+					yashash
 				</a>
 			</p>
 		</div>
