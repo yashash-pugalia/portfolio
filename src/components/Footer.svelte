@@ -1,6 +1,5 @@
 <footer>
-	Made with ❤️ in India by{' '}
-	<a href="https://github.com/yashash-pugalia" target="_blank" rel="noreferrer">
+	Made with 🤍 by <a href="https://github.com/yashash-pugalia" target="_blank" rel="noreferrer">
 		Yashash Pugalia
 	</a>
 </footer>

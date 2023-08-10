@@ -1,6 +1,7 @@
 <nav>
 	<h1>MENU...</h1>
 	<a href="#about">About</a>
+	<a href="#experience">Experience</a>
 	<a href="#projects">Projects</a>
 	<a href="http://github.com/yashash-pugalia" target="_blank" rel="noreferrer"> Github </a>
 	<a href="mailto:yashash1511@gmail.com" target="_blank" rel="noreferrer"> Contact </a>
