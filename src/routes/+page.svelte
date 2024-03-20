@@ -83,7 +83,7 @@
       <p class="text-black/60">Software Developer</p>
     </div>
 
-    <img src="/me.jpg" alt="" class="aspect-square w-20 rounded-full" />
+    <img src="/me.jpg" alt="Yashash Pugalia" class="aspect-square w-20 rounded-full" />
   </div>
 
   <h2 class="mb-2 mt-4 text-lg">Work Experience</h2>
