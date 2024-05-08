@@ -7,13 +7,25 @@
       link: "https://www.haast.io/",
       date: "Aug 2023 - Present",
       location: "Canberra, Australia - Remote",
-      desc: "Svelte · Flask · PostgreSQL · Git/GitHub · Tailwind/DaisyUI",
+      desc: "",
+      stack: "Svelte · Flask · PostgreSQL · Tailwind/DaisyUI",
+    },
+    {
+      company: "Inflection Zone Lab",
+      date: "Jun 2023 - Jul 2023",
+      location: "Pune, India - Remote",
+      link: "https://www.linkedin.com/company/inflection-zone-lab-private-limited",
+      desc: "Consulted as a Senior Front-End Developer, providing mentorship on best practices and code quality. Played a key role in building the foundation for the developer productivity/low-code tool the team was working on. Refactored the existing codebase for the dashboard for one of their healthcare clients.",
+      stack: "Svelte · TypeScript · Tailwind/SkeletonUI",
     },
     {
       company: "Realm Labs AI",
       date: "Jan 2023 - Jul 2023",
       location: "New York, United States - Remote",
-      desc: "Svelte/Kit · TypeScript · MongoDB · Prisma · Google Cloud Platform (GCP) · Git/GitHub · Tailwind/DaisyUI",
+      // I built our product from scratch.
+      desc: "",
+      stack:
+        "Svelte/Kit · TypeScript · MongoDB · Prisma · Google Cloud Platform (GCP) · Tailwind/DaisyUI",
     },
   ];
 
@@ -80,10 +92,14 @@
   <div class="flex justify-between gap-4">
     <div>
       <h1 class="text-xl">Yashash Pugalia</h1>
-      <p class="text-black/60">Software Developer</p>
+      <p class="text-black/60">Software Engineer</p>
     </div>
 
-    <img src="/me.jpg" alt="Yashash Pugalia" class="aspect-square w-20 rounded-full" />
+    <img
+      src="/me.jpg"
+      alt="Yashash Pugalia"
+      class="aspect-square w-20 rounded-full"
+    />
   </div>
 
   <h2 class="mb-2 mt-4 text-lg">Work Experience</h2>
@@ -97,6 +113,10 @@
 
       <p class="mt-1 text-sm font-light text-black/60">
         {w.desc}
+      </p>
+
+      <p class="mt-1 text-sm font-light text-black/60">
+        Stack: {w.stack}
       </p>
     </div>
   {/each}
@@ -132,7 +152,7 @@
             <a href="https://jsnation.com/">JSNation Conference: </a>
             <a
               class="underline"
-              href="https://osawards.com/javascript/#:~:text=Windows%2011%20in%20Svelte"
+              href="https://web.archive.org/web/20230530070526/https://osawards.com/javascript/#:~:text=Windows%2011%20in%20Svelte"
               target="_blank">osawards.com/javascript/…</a
             >
           </p>
