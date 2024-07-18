@@ -7,25 +7,24 @@
       link: "https://www.haast.io/",
       date: "Aug 2023 - Present",
       location: "Canberra, Australia - Remote",
-      desc: "",
-      stack: "Svelte · Flask · PostgreSQL · Tailwind/DaisyUI",
+      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
+      stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
+    },
+    {
+      company: "Realm Labs AI",
+      date: "Jan 2023 - Jul 2023",
+      location: "New York, United States - Remote",
+      desc: "Built the product from the ground up, from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated with Printify and Stripe for merchandise sales, and developed a chat interface to interact with comic characters using Langchain and OpenAI gpt-3.5 .",
+      stack:
+        "Svelte/Kit · TypeScript · MongoDB · Prisma · Firebase/Google Cloud Platform (GCP) · Tailwind/DaisyUI",
     },
     {
       company: "Inflection Zone Lab",
       date: "Jun 2023 - Jul 2023",
       location: "Pune, India - Remote",
       link: "https://www.linkedin.com/company/inflection-zone-lab-private-limited",
-      desc: "Consulted as a Senior Front-End Developer, providing mentorship on best practices and code quality. Played a key role in building the foundation for the developer productivity/low-code tool the team was working on. Refactored the existing codebase for the dashboard for one of their healthcare clients.",
+      desc: "Provided mentorship on best practices and code quality. Contributed significantly to the foundation of a developer productivity/low-code tool. Refactored the codebase for the dashboard of one of their healthcare clients.",
       stack: "Svelte · TypeScript · Tailwind/SkeletonUI",
-    },
-    {
-      company: "Realm Labs AI",
-      date: "Jan 2023 - Jul 2023",
-      location: "New York, United States - Remote",
-      // I built our product from scratch.
-      desc: "",
-      stack:
-        "Svelte/Kit · TypeScript · MongoDB · Prisma · Google Cloud Platform (GCP) · Tailwind/DaisyUI",
     },
   ];
 
@@ -61,6 +60,29 @@
       role: "Co-Founder @Sundial | Former VP Design @Facebook",
       quote:
         "Love your work! Especially your dedication to building with craft and creative exploration.",
+    },
+    {
+      name: "Will Yoo",
+      quote:
+        "I want to say you're the most talented young engineer I've met, you make some engineers and even founders I've worked with look like amateurs. I highly encourage you to take risks, learn from these mistakes I've made, and do big things with your life. I'm always here to support you. Let's win together.",
+      role: "Founder @Realm Labs AI",
+    },
+    {
+      name: "Guillermo Rauch",
+      role: "CEO @Vercel",
+      quote: "Well Played, modern web browsers are engineering marvels.",
+    },
+    {
+      name: "Rich Harris",
+      role: "Creator @Svelte",
+      quote:
+        "I love the 'build a pretend OS in svelte', kudos @yashash_pugalia",
+    },
+    {
+      name: "Eric Simons",
+      role: "CEO @StackBlitz",
+      quote:
+        "Great work on this @yashash_pugalia!, One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
     },
   ];
 
@@ -157,7 +179,7 @@
             >
           </p>
           <p>The project has gained attention from industry figures like :</p>
-          <ul class="list-disc">
+          <ul class="list-inside list-disc">
             <li>
               Guillermo Rauch (CEO Vercel):
               <a
@@ -186,13 +208,13 @@
           <p>
             It has also been featured in notable blogs and newsletters such as :
           </p>
-          <ul class="list-disc">
+          <ul class="list-inside list-disc">
             <li>
-              Svelte's Official Monthly Newsletter (June 2023):
+              Hacker News:
               <a
                 class="underline"
-                href="https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts"
-                target="_blank">svelte.dev/blog/whats-new…</a
+                href="https://news.ycombinator.com/item?id=35896505"
+                target="_blank">news.ycombinator.com/item?id=3589...</a
               >
             </li>
             <li>
@@ -201,6 +223,14 @@
                 class="underline"
                 href="https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This"
                 target="_blank">javascriptweekly.com/issues/638...</a
+              >
+            </li>
+            <li>
+              Svelte's Official Monthly Newsletter:
+              <a
+                class="underline"
+                href="https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts"
+                target="_blank">svelte.dev/blog/whats-new…</a
               >
             </li>
           </ul>
