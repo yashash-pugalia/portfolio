@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  body {
-    @apply bg-neutral-900;
-  }
+body {
+  @apply dark:bg-neutral-900;
 }
