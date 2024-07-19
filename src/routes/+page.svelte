@@ -14,7 +14,7 @@
       company: "Realm Labs AI",
       date: "Jan 2023 - Jul 2023",
       location: "New York, United States - Remote",
-      desc: "Built the product from the ground up, from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated with Printify and Stripe for merchandise sales, and developed a chat interface to interact with comic characters using Langchain and OpenAI gpt-3.5 .",
+      desc: "Built the product from the ground up, covering everything from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated with Printify and Stripe for merchandise sales, and developed a chat interface to interact with comic characters using Langchain and OpenAI's GPT-3.5 models.",
       stack:
         "Svelte/Kit · TypeScript · MongoDB · Prisma · Firebase/Google Cloud Platform (GCP) · Tailwind/DaisyUI",
     },
@@ -110,11 +110,11 @@
   ];
 </script>
 
-<main class="mx-auto max-w-screen-sm px-8 py-6">
+<main class="prose prose-sm mx-auto max-w-screen-md p-8 dark:prose-invert">
   <div class="flex justify-between gap-4">
     <div>
-      <h1 class="text-xl">Yashash Pugalia</h1>
-      <p class="text-black/60">Software Engineer</p>
+      <h1 class="font-bold">Yashash Pugalia</h1>
+      <h2 class="font-normal tracking-wider">Software Developer</h2>
     </div>
 
     <img
@@ -124,66 +124,54 @@
     />
   </div>
 
-  <h2 class="mb-2 mt-4 text-lg">Work Experience</h2>
+  <h2>Work Experience</h2>
   {#each work as w}
-    <div class="mb-2">
+    <div>
       <div class="flex items-center justify-between gap-2">
-        <a href={w.link ?? ""} target="_blank">{w.company}</a>
-        <p class="text-sm font-light text-black/60">{w.date}</p>
+        <h3><a href={w.link ?? ""} target="_blank">{w.company}</a></h3>
+        <p class="mt-auto">{w.date}</p>
       </div>
-      <p class="text-sm font-light text-black/60">{w.location}</p>
+      <p>{w.location}</p>
 
-      <p class="mt-1 text-sm font-light text-black/60">
-        {w.desc}
-      </p>
+      <p>{w.desc}</p>
 
-      <p class="mt-1 text-sm font-light text-black/60">
-        Stack: {w.stack}
-      </p>
+      <p>Stack: {w.stack}</p>
     </div>
   {/each}
 
-  <h2 class="mb-2 mt-4 text-lg">Projects</h2>
+  <h2>Projects</h2>
   {#each projects as p}
-    <div class="mb-2">
+    <div>
       <div class="flex items-center justify-between gap-2">
-        <p class="space-x-1">
+        <h3 class="space-x-2">
           <a href={p.link ?? ""} target="_blank">{p.title}</a>
-          <a
-            href={p.github}
-            class="text-sm font-light text-black/60"
-            target="_blank"
-          >
-            GitHub
+          <a class="text-sm font-normal" href={p.github} target="_blank">
+            (GitHub)
           </a>
-        </p>
+        </h3>
 
-        <p class="text-sm font-light text-black/60">{p.date}</p>
+        <p class="mt-auto">{p.date}</p>
       </div>
 
-      <p class="mt-1 text-sm font-light text-black/60">
-        {p.desc}
-      </p>
+      <p>{p.desc}</p>
 
       {#if p.title === "Windows 11 in Svelte"}
-        <div class="mt-1 flex flex-col gap-1 text-sm font-light text-black/60">
+        <div class="flex flex-col gap-1">
           <p>Recreation of the Windows 11 desktop experience for the web.</p>
           <p>
             Nominated for "Fun Side Project of the Year" JS Open Source Awards
             2023, part of
             <a href="https://jsnation.com/">JSNation Conference: </a>
             <a
-              class="underline"
               href="https://web.archive.org/web/20230530070526/https://osawards.com/javascript/#:~:text=Windows%2011%20in%20Svelte"
               target="_blank">osawards.com/javascript/…</a
             >
           </p>
           <p>The project has gained attention from industry figures like :</p>
-          <ul class="list-inside list-disc">
+          <ul>
             <li>
               Guillermo Rauch (CEO Vercel):
               <a
-                class="underline"
                 href="https://x.com/rauchg/status/1656493176088150017"
                 target="_blank">x.com/rauchg/status/…</a
               >
@@ -191,7 +179,6 @@
             <li>
               Rich Harris (Creator Svelte):
               <a
-                class="underline"
                 href="https://x.com/Rich_Harris/status/1657097805733715987"
                 target="_blank">x.com/Rich_Harris/statu…</a
               >
@@ -199,7 +186,6 @@
             <li>
               Eric Simons (CEO StackBlitz):
               <a
-                class="underline"
                 href="https://x.com/ericsimons40/status/1656644824190308352"
                 target="_blank">x.com/ericsimons40/st…</a
               >
@@ -208,11 +194,10 @@
           <p>
             It has also been featured in notable blogs and newsletters such as :
           </p>
-          <ul class="list-inside list-disc">
+          <ul>
             <li>
               Hacker News:
               <a
-                class="underline"
                 href="https://news.ycombinator.com/item?id=35896505"
                 target="_blank">news.ycombinator.com/item?id=3589...</a
               >
@@ -220,7 +205,6 @@
             <li>
               JavaScript Weekly:
               <a
-                class="underline"
                 href="https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This"
                 target="_blank">javascriptweekly.com/issues/638...</a
               >
@@ -228,7 +212,6 @@
             <li>
               Svelte's Official Monthly Newsletter:
               <a
-                class="underline"
                 href="https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts"
                 target="_blank">svelte.dev/blog/whats-new…</a
               >
@@ -240,33 +223,29 @@
     </div>
   {/each}
 
-  <h2 class="mb-2 mt-4 text-lg">Education</h2>
+  <h2>Education</h2>
   {#each education as e}
-    <div class="mb-2">
+    <div>
       <div class="flex items-center justify-between gap-2">
-        <p>{e.school}</p>
-        <p class="text-sm font-light text-black/60">{e.date}</p>
+        <h3>{e.school}</h3>
+        <p class="mt-auto">{e.date}</p>
       </div>
 
-      <p class="text-sm font-light text-black/60">{e.degree}</p>
+      <p>{e.degree}</p>
     </div>
   {/each}
 
-  <h2 class="mb-2 mt-4 text-lg">Contacts</h2>
+  <h2>Contacts</h2>
   <div class="grid w-fit grid-cols-2 gap-2">
     {#each contacts as c}
-      <span class="text-sm">
-        {c.name}:
-      </span>
-      <a href={c.link} target="_blank" class="text-sm font-light text-black/60">
-        {c.linkDisplay}
-      </a>
+      <span>{c.name}: </span>
+      <a href={c.link} target="_blank">{c.linkDisplay}</a>
     {/each}
   </div>
 </main>
 
-<style lang="postcss">
+<!-- <style lang="postcss">
   a {
     @apply hover:underline;
   }
-</style>
+</style> -->
