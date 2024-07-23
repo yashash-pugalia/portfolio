@@ -6,6 +6,7 @@
 
   const work = [
     {
+      collapsed: true,
       company: "Haast",
       link: "https://www.haast.io/",
       date: "Aug 2023 - Present",
@@ -14,6 +15,7 @@
       stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
     },
     {
+      collapsed: true,
       company: "Realm Labs AI",
       date: "Jan 2023 - Jul 2023",
       location: "New York, United States - Remote",
@@ -22,6 +24,7 @@
         "Svelte/Kit · TypeScript · MongoDB · Prisma · Firebase/Google Cloud Platform (GCP) · Tailwind/DaisyUI",
     },
     {
+      collapsed: true,
       company: "Inflection Zone Lab",
       date: "Jun 2022 - Jul 2022",
       location: "Pune, India - Remote",
@@ -33,6 +36,7 @@
 
   const projects = [
     {
+      collapsed: true,
       title: "Windows 11 in Svelte",
       link: "https://win11.yashash.dev/",
       github: "https://github.com/yashash-pugalia/win11-svelte",
@@ -54,6 +58,7 @@ Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind`,
       date: "2022 - 2022",
     },
     {
+      collapsed: true,
       title: "Win11React",
       link: "https://win11.blueedge.me",
       github: "https://github.com/blueedgetechno/win11react",
@@ -136,9 +141,10 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
       linkDisplay: "yashash1511@gmail.com",
     },
   ];
-
-  let expandWork = false;
 </script>
+
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 
 <main
   class="prose prose-sm prose-neutral mx-auto max-w-screen-md p-8 dark:prose-invert"
@@ -152,49 +158,51 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
   </div>
 
   <h2>Work Experience</h2>
-  {#each work.slice(0, expandWork ? work.length : 2) as w}
-    <div transition:slide>
-      <div class="flex justify-between gap-2">
-        <h3>
-          <a href={w.link} target="_blank">{w.company}</a>
-        </h3>
-        <p class="mt-auto">{w.date}</p>
-      </div>
-      <p>{w.location}</p>
-      <p>{w.desc}</p>
-      <p>Stack: {w.stack}</p>
+  {#each work as w}
+    <div
+      class="custom-hover-effect flex cursor-pointer justify-between gap-2"
+      on:click={() => (w.collapsed = !w.collapsed)}
+    >
+      <h3>
+        <a href={w.link} target="_blank">{w.company}</a>
+      </h3>
+      <p class="mt-auto">{w.date}</p>
     </div>
+    {#if !w.collapsed}
+      <div transition:slide>
+        <p>{w.location}</p>
+        <p>{w.desc}</p>
+        <p>Stack: {w.stack}</p>
+      </div>
+    {/if}
   {/each}
-
-  <button
-    class="rounded border border-neutral-200 bg-neutral-100 px-2 py-1 dark:border-neutral-700 dark:bg-neutral-800"
-    on:click={() => (expandWork = !expandWork)}
-  >
-    {expandWork ? "Show Less" : "Show More"}
-  </button>
 
   <h2>Projects</h2>
   {#each projects as p}
-    <div>
-      <div class="flex justify-between gap-2">
-        <h3 class="space-x-2">
-          <a href={p.link} target="_blank">{p.title}</a>
-          <a class="text-sm font-normal" href={p.github} target="_blank">
-            (GitHub)
-          </a>
-        </h3>
-        <p class="mt-auto">{p.date}</p>
-      </div>
-
-      <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
+    <div
+      class="custom-hover-effect flex cursor-pointer justify-between gap-2"
+      on:click={() => (p.collapsed = !p.collapsed)}
+    >
+      <h3 class="space-x-2">
+        <a href={p.link} target="_blank">{p.title}</a>
+        <a class="text-sm font-normal" href={p.github} target="_blank">
+          (GitHub)
+        </a>
+      </h3>
+      <p class="mt-auto">{p.date}</p>
     </div>
+
+    {#if !p.collapsed}
+      <div transition:slide>
+        <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
+      </div>
+    {/if}
   {/each}
 
   <h2>Testimonials</h2>
   <div
     class="not-prose flex w-full snap-x snap-mandatory gap-4 overflow-auto scroll-smooth"
   >
-    <!-- .sort(() => Math.random() - 0.5) -->
     {#each testimonials as t}
       <a
         class="flex w-10/12 flex-none snap-center flex-col rounded border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-700 dark:bg-neutral-800"
@@ -223,14 +231,12 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
 
   <h2>Education</h2>
   {#each education as e}
-    <div>
-      <div class="flex justify-between gap-2">
-        <h3>{e.school}</h3>
-        <p class="mt-auto">{e.date}</p>
-      </div>
-
-      <p>{e.degree}</p>
+    <div class="flex justify-between gap-2">
+      <h3>{e.school}</h3>
+      <p class="mt-auto">{e.date}</p>
     </div>
+
+    <p>{e.degree}</p>
   {/each}
 
   <h2>Socials</h2>
@@ -241,3 +247,15 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
     {/each}
   </div>
 </main>
+
+<style lang="postcss">
+  .custom-hover-effect {
+    @apply relative;
+  }
+  .custom-hover-effect::before {
+    @apply absolute -inset-x-4 -inset-y-1 z-[-1] mt-4 rounded bg-neutral-800 opacity-0 transition-all [content:''];
+  }
+  .custom-hover-effect:hover::before {
+    @apply opacity-100;
+  }
+</style>
