@@ -1,6 +1,8 @@
 <script lang="ts">
+  import SvelteMarkdown from "svelte-markdown";
   import { slide } from "svelte/transition";
   import "../../app.css";
+  import MarkdownLink from "./MarkdownLink.svelte";
 
   const work = [
     {
@@ -8,7 +10,7 @@
       link: "https://www.haast.io/",
       date: "Aug 2023 - Present",
       location: "Canberra, Australia - Remote",
-      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
+      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PSPDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
       stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
     },
     {
@@ -34,14 +36,30 @@
       title: "Windows 11 in Svelte",
       link: "https://win11.yashash.dev/",
       github: "https://github.com/yashash-pugalia/win11-svelte",
-      desc: "",
+      desc: `
+Recreation of the Windows 11 desktop experience for the web.
+
+Nominated for "Fun Side Project of the Year" [JS Open Source Awards](https://youtu.be/V3FzeG3OneI) 2023, part of JSNation Conference.
+
+The project has gained attention from industry figures like :
+- [Guillermo Rauch (CEO Vercel)](https://x.com/rauchg/status/1656493176088150017)
+- [Rich Harris (Creator Svelte)](https://x.com/Rich_Harris/status/1657097805733715987)
+
+It has also been featured in notable blogs and newsletters such as :
+- [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
+- [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts)
+- [Hacker News](https://news.ycombinator.com/item?id=35896505)
+
+Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind`,
       date: "2022 - 2022",
     },
     {
       title: "Win11React",
       link: "https://win11.blueedge.me",
       github: "https://github.com/blueedgetechno/win11react",
-      desc: "I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023. <p>Stack: React · Redux · CSS · GitHub-Actions.</p>",
+      desc: `I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023.
+
+Stack: React · Redux · CSS · GitHub-Actions.`,
       date: "2021 - 2022",
     },
   ];
@@ -130,12 +148,7 @@
       <h1 class="font-bold">Yashash Pugalia</h1>
       <h2 class="font-normal tracking-wider">Software Developer</h2>
     </div>
-
-    <img
-      src="/me.jpg"
-      alt="Yashash Pugalia"
-      class="aspect-square w-20 rounded-full"
-    />
+    <img src="/me.jpg" alt="Yashash Pugalia" class="h-20 w-20 rounded-full" />
   </div>
 
   <h2>Work Experience</h2>
@@ -173,56 +186,7 @@
         <p class="mt-auto">{p.date}</p>
       </div>
 
-      <p>{@html p.desc}</p>
-      {#if p.title === "Windows 11 in Svelte"}
-        <p>Recreation of the Windows 11 desktop experience for the web.</p>
-        <p>
-          Nominated for "Fun Side Project of the Year" <a
-            href="https://youtu.be/V3FzeG3OneI"
-            target="_blank">JS Open Source Awards</a
-          >
-          2023, part of JSNation Conference.
-        </p>
-        <p>The project has gained attention from industry figures like :</p>
-        <ul>
-          <li>
-            <a
-              href="https://x.com/rauchg/status/1656493176088150017"
-              target="_blank">Guillermo Rauch (CEO Vercel)</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://x.com/Rich_Harris/status/1657097805733715987"
-              target="_blank">Rich Harris (Creator Svelte)</a
-            >
-          </li>
-        </ul>
-        <p>
-          It has also been featured in notable blogs and newsletters such as :
-        </p>
-        <ul>
-          <li>
-            <a
-              href="https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This"
-              target="_blank">JavaScript Weekly</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts"
-              target="_blank">Svelte's Monthly Newsletter</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://news.ycombinator.com/item?id=35896505"
-              target="_blank">Hacker News</a
-            >
-          </li>
-        </ul>
-        <p>Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind</p>
-      {/if}
+      <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
     </div>
   {/each}
 
