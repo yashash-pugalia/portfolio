@@ -40,6 +40,8 @@
       title: "Windows 11 in Svelte",
       link: "https://win11.yashash.dev/",
       github: "https://github.com/yashash-pugalia/win11-svelte",
+      date: "2022 - 2022",
+      previewImage: "https://win11.yashash.dev/demo.webp",
       desc: `
 Recreation of the Windows 11 desktop experience for the web.
 
@@ -55,17 +57,17 @@ It has also been featured in notable blogs and newsletters such as :
 - [Hacker News](https://news.ycombinator.com/item?id=35896505)
 
 Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind`,
-      date: "2022 - 2022",
     },
     {
       collapsed: true,
       title: "Win11React",
       link: "https://win11.blueedge.me",
       github: "https://github.com/blueedgetechno/win11react",
+      previewImage: "https://win11.blueedge.me/img/home.jpg",
+      date: "2021 - 2022",
       desc: `I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023.
 
 Stack: React · Redux · CSS · GitHub-Actions.`,
-      date: "2021 - 2022",
     },
   ];
 
@@ -184,7 +186,14 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
       on:click={() => (p.collapsed = !p.collapsed)}
     >
       <h3 class="space-x-2">
-        <a href={p.link} target="_blank">{p.title}</a>
+        <a
+          href={p.link}
+          target="_blank"
+          class="project-image"
+          style:--previewImage="url('{p.previewImage}')"
+        >
+          {p.title}
+        </a>
         <a class="text-sm font-normal" href={p.github} target="_blank">
           (GitHub)
         </a>
@@ -253,9 +262,19 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
     @apply relative;
   }
   .custom-hover-effect::before {
-    @apply absolute -inset-x-4 -inset-y-1 z-[-1] mt-4 rounded bg-neutral-800 opacity-0 transition-all [content:''];
+    @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded bg-neutral-100 opacity-0 transition-all [content:''] dark:bg-neutral-800;
   }
   .custom-hover-effect:hover::before {
     @apply opacity-100;
+  }
+
+  .project-image {
+    @apply relative;
+  }
+  .project-image::after {
+    @apply pointer-events-none absolute left-1/2 h-40 w-[272px] -translate-x-1/2 -translate-y-full scale-50 rounded border-8 border-neutral-100 bg-contain bg-no-repeat opacity-0 transition-all [background-image:var(--previewImage)] [content:''] dark:border-neutral-800;
+  }
+  .project-image:hover::after {
+    @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
   }
 </style>
