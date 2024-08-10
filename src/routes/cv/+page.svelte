@@ -185,8 +185,13 @@ It has also been featured in notable blogs and newsletters such as :
         <a
           href={p.link}
           target="_blank"
-          class="project-image"
+          class="project-image [--mousePos:0]"
           style:--previewImage="url('{p.previewImage}')"
+          on:mousemove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            e.currentTarget.style.setProperty("--mousePos", `${x}px`);
+          }}
         >
           {p.title}
         </a>
@@ -269,7 +274,7 @@ It has also been featured in notable blogs and newsletters such as :
     @apply relative;
   }
   .project-image::after {
-    @apply pointer-events-none absolute left-1/2 h-40 w-[272px] -translate-x-1/2 -translate-y-full scale-50 rounded border-8 border-neutral-100 bg-contain bg-no-repeat opacity-0 transition-all [background-image:var(--previewImage)] [content:''] dark:border-neutral-800;
+    @apply pointer-events-none absolute left-1/2 h-40 w-[272px] -translate-y-full translate-x-[calc(-50%+var(--mousePos))] scale-50 rounded border-8 border-neutral-100 bg-contain bg-no-repeat opacity-0 transition-all duration-100 [background-image:var(--previewImage)] [content:''] dark:border-neutral-800;
   }
   .project-image:hover::after {
     @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
