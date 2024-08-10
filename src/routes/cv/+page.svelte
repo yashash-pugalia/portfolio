@@ -7,15 +7,6 @@
   const work = [
     {
       collapsed: true,
-      company: "Haast",
-      link: "https://www.haast.io/",
-      date: "Aug 2023 - Present",
-      location: "Canberra, Australia - Remote",
-      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PSPDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
-      stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
-    },
-    {
-      collapsed: true,
       company: "Realm Labs AI",
       date: "Jan 2023 - Jul 2023",
       location: "New York, United States - Remote",
@@ -25,13 +16,22 @@
     },
     {
       collapsed: true,
-      company: "Inflection Zone Lab",
-      date: "Jun 2022 - Jul 2022",
-      location: "Pune, India - Remote",
-      link: "https://www.linkedin.com/company/inflection-zone-lab-private-limited",
-      desc: "Provided mentorship on best practices and code quality. Contributed significantly to the foundation of a developer productivity/low-code tool. Refactored the codebase for the dashboard of one of their healthcare clients.",
-      stack: "Svelte · TypeScript · Tailwind/SkeletonUI",
+      company: "Haast",
+      link: "https://www.haast.io/",
+      date: "Aug 2023 - Present",
+      location: "Canberra, Australia - Remote",
+      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PSPDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
+      stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
     },
+    // {
+    //   collapsed: true,
+    //   company: "Inflection Zone Lab",
+    //   date: "Jun 2022 - Jul 2022",
+    //   location: "Pune, India - Remote",
+    //   link: "https://www.linkedin.com/company/inflection-zone-lab-private-limited",
+    //   desc: "Provided mentorship on best practices and code quality. Contributed significantly to the foundation of a developer productivity/low-code tool. Refactored the codebase for the dashboard of one of their healthcare clients.",
+    //   stack: "Svelte · TypeScript · Tailwind/SkeletonUI",
+    // },
   ];
 
   const projects = [
@@ -42,6 +42,7 @@
       github: "https://github.com/yashash-pugalia/win11-svelte",
       date: "2022 - 2022",
       previewImage: "https://win11.yashash.dev/demo.webp",
+      stack: "Svelte · JavaScript/TypeScript · CSS/Tailwind",
       desc: `
 Recreation of the Windows 11 desktop experience for the web.
 
@@ -54,9 +55,7 @@ The project has gained attention from industry figures like :
 It has also been featured in notable blogs and newsletters such as :
 - [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
 - [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts)
-- [Hacker News](https://news.ycombinator.com/item?id=35896505)
-
-Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind`,
+- [Hacker News](https://news.ycombinator.com/item?id=35896505)`,
     },
     {
       collapsed: true,
@@ -65,9 +64,8 @@ Stack: Svelte · JavaScript/TypeScript · CSS/Tailwind`,
       github: "https://github.com/blueedgetechno/win11react",
       previewImage: "https://win11.blueedge.me/img/home.jpg",
       date: "2021 - 2022",
-      desc: `I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023.
-
-Stack: React · Redux · CSS · GitHub-Actions.`,
+      stack: "React · Redux · CSS · GitHub-Actions",
+      desc: `I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023.`,
     },
   ];
 
@@ -171,11 +169,9 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
       <p class="mt-auto">{w.date}</p>
     </div>
     {#if !w.collapsed}
-      <div transition:slide>
-        <p>{w.location}</p>
-        <p>{w.desc}</p>
-        <p>Stack: {w.stack}</p>
-      </div>
+      <p transition:slide={{ delay: 0 }}>{w.location}</p>
+      <p transition:slide={{ delay: 100 }}>{w.desc}</p>
+      <p transition:slide={{ delay: 200 }}>Stack: {w.stack}</p>
     {/if}
   {/each}
 
@@ -205,6 +201,7 @@ Stack: React · Redux · CSS · GitHub-Actions.`,
       <div transition:slide>
         <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
       </div>
+      <p transition:slide={{ delay: 200 }}>Stack: {p.stack}</p>
     {/if}
   {/each}
 
