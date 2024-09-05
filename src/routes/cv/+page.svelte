@@ -48,14 +48,11 @@ Recreation of the Windows 11 desktop experience for the web.
 
 Nominated for "Fun Side Project of the Year" [JS Open Source Awards](https://youtu.be/V3FzeG3OneI) 2023, part of JSNation Conference.
 
-The project has gained attention from industry figures like :
+The project has gained attention from industry figures and has been featured in notable publications, including:
 - [Guillermo Rauch (CEO Vercel)](https://x.com/rauchg/status/1656493176088150017)
 - [Rich Harris (Creator Svelte)](https://x.com/Rich_Harris/status/1657097805733715987)
-
-It has also been featured in notable blogs and newsletters such as :
 - [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
-- [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts)
-- [Hacker News](https://news.ycombinator.com/item?id=35896505)`,
+- [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts)`,
     },
     {
       collapsed: true,
