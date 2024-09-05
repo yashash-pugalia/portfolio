@@ -3,79 +3,85 @@
   import { slide } from "svelte/transition";
   import "../../app.css";
   import MarkdownLink from "./MarkdownLink.svelte";
+  import TestimonialList from "./TestimonialList.svelte";
 
   const work = [
     {
-      collapsed: true,
+      collapsed: false,
       company: "Realm Labs AI",
-      date: "Jan 2023 - Jul 2023",
+      date: "2022 - 2023",
       location: "New York, United States - Remote",
-      desc: "Built the product from the ground up, covering everything from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated with Printify and Stripe for merchandise sales, and developed a chat interface to interact with comic characters using Langchain and OpenAI's GPT-3.5 models.",
+      desc: "Built the product from the ground up, covering everything from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated merchandise sales and payments into the platform. Created an AI chat interface to interact with comic characters.",
       stack:
-        "Svelte/Kit · TypeScript · MongoDB · Prisma · Firebase/Google Cloud Platform (GCP) · Tailwind/DaisyUI",
+        "Svelte/Kit · TypeScript/JavaScript · MongoDB/Prisma · Firebase/GCP · Tailwind/DaisyUI · Stripe · Auth.js · Langchain/GPT-3.5",
     },
     {
-      collapsed: true,
+      collapsed: false,
       company: "Haast",
       link: "https://www.haast.io/",
-      date: "Aug 2023 - Present",
+      date: "2023 - Present",
       location: "Canberra, Australia - Remote",
-      desc: "Led the complete redesign of the web app using TailwindCSS and DaisyUI. Developed a PDF comparison tool with PSPDFKit and a workflow status board featuring drag-and-drop functionality (similar to Linear) .",
-      stack: "Svelte · Tailwind/DaisyUI · JavaScript · Flask · PostgreSQL",
+      desc: "Led the visual overhaul of the web app. Developed a PDF comparison tool and a workflow status board featuring drag-and-drop functionality (similar to Linear).",
+      stack:
+        "Svelte · JavaScript · Flask · PostgreSQL/SQLAlchemy · TailwindCSS · DaisyUI · PSPDFKit",
     },
-    // {
-    //   collapsed: true,
-    //   company: "Inflection Zone Lab",
-    //   date: "Jun 2022 - Jul 2022",
-    //   location: "Pune, India - Remote",
-    //   link: "https://www.linkedin.com/company/inflection-zone-lab-private-limited",
-    //   desc: "Provided mentorship on best practices and code quality. Contributed significantly to the foundation of a developer productivity/low-code tool. Refactored the codebase for the dashboard of one of their healthcare clients.",
-    //   stack: "Svelte · TypeScript · Tailwind/SkeletonUI",
-    // },
   ];
 
   const projects = [
     {
-      collapsed: true,
+      collapsed: false,
       title: "Windows 11 in Svelte",
       link: "https://win11.yashash.dev/",
       github: "https://github.com/yashash-pugalia/win11-svelte",
-      date: "2022 - 2022",
+      date: "2021 - 2022",
       previewImage: "https://win11.yashash.dev/demo.webp",
       stack: "Svelte · JavaScript/TypeScript · CSS/Tailwind",
-      desc: `
-Recreation of the Windows 11 desktop experience for the web.
+      desc: `Recreated the Windows 11 desktop experience for the web.
 
-Nominated for "Fun Side Project of the Year" [JS Open Source Awards](https://youtu.be/V3FzeG3OneI) 2023, part of JSNation Conference.
-
-The project has gained attention from industry figures like :
-- [Guillermo Rauch (CEO Vercel)](https://x.com/rauchg/status/1656493176088150017)
-- [Rich Harris (Creator Svelte)](https://x.com/Rich_Harris/status/1657097805733715987)
-
-It has also been featured in notable blogs and newsletters such as :
+Featured in:
+- [JSNation Open Source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year' 2023
 - [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
-- [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023#:~:text=and%2075%20cells-,Windows%2011,-in%20Svelte%20attempts)
-- [Hacker News](https://news.ycombinator.com/item?id=35896505)`,
+- [Hacker News](https://news.ycombinator.com/item?id=35896505), [Trending #1](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
+
+Additionally, I was the [lead front-end contributor](https://github.com/blueedgetechno/win11react) to [Win11React](https://win11.blueedge.me), which garnered **7.8M** views in 2023.`,
+      testimonials: [
+        {
+          name: "Guillermo Rauch",
+          role: "CEO @Vercel",
+          quote:
+            "Well played https://win11-svelte.vercel.app <br> Also: modern web browsers are engineering marvels",
+          link: "https://x.com/rauchg/status/1656493176088150017",
+        },
+        {
+          name: "Rich Harris",
+          role: "Creator @Svelte",
+          quote:
+            "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
+          link: "https://x.com/Rich_Harris/status/1657097805733715987",
+        },
+        {
+          name: "Eric Simons",
+          role: "CEO @StackBlitz",
+          quote:
+            "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
+          link: "https://x.com/ericsimons40/status/1656644824190308352",
+        },
+      ],
     },
     {
-      collapsed: true,
-      title: "Win11React",
-      link: "https://win11.blueedge.me",
-      github: "https://github.com/blueedgetechno/win11react",
-      previewImage: "https://win11.blueedge.me/img/home.jpg",
-      date: "2021 - 2022",
-      stack: "React · Redux · CSS · GitHub-Actions",
-      desc: `I was the lead Front-End contributor to this project which aims to simulate the windows 11 experience on the web. Used by 3.1M+ users, viewed 7.8M+ times in 2023.`,
+      collapsed: false,
+      title: "Prosper Mint",
+      link: "https://prosper-mint.yashash.dev",
+      github: "https://github.com/yashash-pugalia/prosper-mint",
+      previewImage: "https://prosper-mint.yashash.dev/demo.webp",
+      date: "2023 - 2024",
+      stack:
+        "Svelte/Kit · JavaScript/TypeScript ·Tailwind/Daisy · PostgreSQL/DrizzleORM · Lucia Auth ",
+      desc: "Prosper Mint is a personal finance app for budgeting, expense tracking, and goal setting. It offers a responsive interface, allowing users to securely manage their finances with seamless authentication.",
     },
   ];
 
   const testimonials = [
-    {
-      name: "Julie Zhuo",
-      role: "Co-Founder @Sundial | Former VP Design @Facebook",
-      quote:
-        "Love your work! Especially your dedication to building with craft and creative exploration.",
-    },
     {
       name: "Will Yoo",
       quote:
@@ -83,25 +89,10 @@ It has also been featured in notable blogs and newsletters such as :
       role: "Founder @Realm Labs AI",
     },
     {
-      name: "Guillermo Rauch",
-      role: "CEO @Vercel",
+      name: "Julie Zhuo",
+      role: "Co-Founder @Sundial | Former VP Design @Facebook",
       quote:
-        "Well played https://win11-svelte.vercel.app <br><br> Also: modern web browsers are engineering marvels",
-      link: "https://x.com/rauchg/status/1656493176088150017",
-    },
-    {
-      name: "Rich Harris",
-      role: "Creator @Svelte",
-      quote:
-        "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
-      link: "https://x.com/Rich_Harris/status/1657097805733715987",
-    },
-    {
-      name: "Eric Simons",
-      role: "CEO @StackBlitz",
-      quote:
-        "Great work on this @yashash_pugalia!, <br><br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
-      link: "https://x.com/ericsimons40/status/1656644824190308352",
+        "Love your work! Especially your dedication to building with craft and creative exploration.",
     },
   ];
 
@@ -159,10 +150,9 @@ It has also been featured in notable blogs and newsletters such as :
 
   <h2>Work Experience</h2>
   {#each work as w}
-    <div
-      class="custom-hover-effect flex cursor-pointer justify-between gap-2"
-      on:click={() => (w.collapsed = !w.collapsed)}
-    >
+    <div class="flex justify-between gap-2">
+      <!-- custom-hover-effect cursor-pointer -->
+      <!-- on:click={() => (w.collapsed = !w.collapsed)} -->
       <h3>
         <a href={w.link} target="_blank">{w.company}</a>
       </h3>
@@ -177,10 +167,9 @@ It has also been featured in notable blogs and newsletters such as :
 
   <h2>Projects</h2>
   {#each projects as p}
-    <div
-      class="custom-hover-effect flex cursor-pointer justify-between gap-2"
-      on:click={() => (p.collapsed = !p.collapsed)}
-    >
+    <div class="flex justify-between gap-2">
+      <!-- custom-hover-effect cursor-pointer -->
+      <!-- on:click={() => (p.collapsed = !p.collapsed)} -->
       <h3 class="space-x-2">
         <a
           href={p.link}
@@ -206,39 +195,21 @@ It has also been featured in notable blogs and newsletters such as :
       <div transition:slide>
         <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
       </div>
-      <p transition:slide={{ delay: 200 }}>Stack: {p.stack}</p>
+
+      {#if p.testimonials}
+        <div transition:slide={{ delay: 200 }}>
+          <TestimonialList data={p.testimonials} />
+        </div>
+      {/if}
+
+      <p transition:slide={{ delay: p.testimonials ? 400 : 200 }}>
+        Stack: {p.stack}
+      </p>
     {/if}
   {/each}
 
   <h2>Testimonials</h2>
-  <div
-    class="not-prose flex w-full snap-x snap-mandatory gap-4 overflow-auto scroll-smooth"
-  >
-    {#each testimonials as t}
-      <a
-        class="flex w-10/12 flex-none snap-center flex-col rounded border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-700 dark:bg-neutral-800"
-        href={t.link}
-        target="_blank"
-      >
-        <div class="mb-auto flex items-center justify-between gap-2">
-          <h3 class="text-lg font-semibold text-black dark:text-white">
-            {t.name}
-          </h3>
-          <p class="my-auto">{t.role}</p>
-        </div>
-
-        <blockquote
-          class="mt-5 border-l-4 border-neutral-200 pl-4 dark:border-neutral-700"
-        >
-          <p
-            class="font-medium italic text-black before:content-[open-quote] after:content-[close-quote] dark:text-white"
-          >
-            {@html t.quote}
-          </p>
-        </blockquote>
-      </a>
-    {/each}
-  </div>
+  <TestimonialList data={testimonials} />
 
   <h2>Education</h2>
   {#each education as e}
