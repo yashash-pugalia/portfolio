@@ -1,7 +1,7 @@
 <script lang="ts">
   import SvelteMarkdown from "svelte-markdown";
   import { slide } from "svelte/transition";
-  import "../../app.css";
+  import "../app.css";
   import MarkdownLink from "./MarkdownLink.svelte";
   import TestimonialList from "./TestimonialList.svelte";
 
@@ -43,30 +43,7 @@ Featured in:
 - [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
 - [Hacker News](https://news.ycombinator.com/item?id=35896505), [Trending #1](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 
-Additionally, I was the [lead front-end contributor](https://github.com/blueedgetechno/win11react) to [Win11React](https://win11.blueedge.me), which garnered **7.8M** views in 2023.`,
-      testimonials: [
-        {
-          name: "Guillermo Rauch",
-          role: "CEO @Vercel",
-          quote:
-            "Well played https://win11-svelte.vercel.app <br> Also: modern web browsers are engineering marvels",
-          link: "https://x.com/rauchg/status/1656493176088150017",
-        },
-        {
-          name: "Rich Harris",
-          role: "Creator @Svelte",
-          quote:
-            "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
-          link: "https://x.com/Rich_Harris/status/1657097805733715987",
-        },
-        {
-          name: "Eric Simons",
-          role: "CEO @StackBlitz",
-          quote:
-            "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
-          link: "https://x.com/ericsimons40/status/1656644824190308352",
-        },
-      ],
+Additionally, I was the [lead front-end contributor](https://github.com/blueedgetechno/win11react) to [Win11React](https://win11.blueedge.me), which garnered **7.8M views** in 2023.`,
     },
     {
       collapsed: false,
@@ -94,11 +71,32 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
       quote:
         "Love your work! Especially your dedication to building with craft and creative exploration.",
     },
+    {
+      name: "Guillermo Rauch",
+      role: "CEO @Vercel",
+      quote:
+        "Well played https://win11-svelte.vercel.app <br> Also: modern web browsers are engineering marvels",
+      link: "https://x.com/rauchg/status/1656493176088150017",
+    },
+    {
+      name: "Rich Harris",
+      role: "Creator @Svelte",
+      quote:
+        "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
+      link: "https://x.com/Rich_Harris/status/1657097805733715987",
+    },
+    // {
+    //   name: "Eric Simons",
+    //   role: "CEO @StackBlitz",
+    //   quote:
+    //     "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
+    //   link: "https://x.com/ericsimons40/status/1656644824190308352",
+    // },
   ];
 
   const education = [
     {
-      date: "2022 - 2026",
+      // date: "",
       degree: "Bachelor of Technology - B.Tech, Computer Science",
       school: "Bennett University",
       location: "Greater Noida",
@@ -196,26 +194,22 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
         <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
       </div>
 
-      {#if p.testimonials}
-        <div transition:slide={{ delay: 200 }}>
-          <TestimonialList data={p.testimonials} />
-        </div>
-      {/if}
-
-      <p transition:slide={{ delay: p.testimonials ? 400 : 200 }}>
+      <p transition:slide={{ delay: 200 }}>
         Stack: {p.stack}
       </p>
     {/if}
   {/each}
 
   <h2>Testimonials</h2>
-  <TestimonialList data={testimonials} />
+  <div style="container-type: inline-size;">
+    <TestimonialList data={testimonials} />
+  </div>
 
   <h2>Education</h2>
   {#each education as e}
     <div class="flex justify-between gap-2">
       <h3>{e.school}</h3>
-      <p class="mt-auto">{e.date}</p>
+      <!-- <p class="mt-auto">{e.date}</p> -->
     </div>
 
     <p>{e.degree}</p>
@@ -230,8 +224,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   </div>
 </main>
 
-<style lang="postcss">
-  .custom-hover-effect {
+<!-- .custom-hover-effect {
     @apply relative;
   }
   .custom-hover-effect::before {
@@ -239,13 +232,13 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   }
   .custom-hover-effect:hover::before {
     @apply opacity-100;
-  }
-
+  } -->
+<style lang="postcss">
   .project-image {
     @apply relative;
   }
   .project-image::after {
-    @apply pointer-events-none absolute left-1/2 h-40 w-[272px] -translate-y-full translate-x-[calc(-50%+var(--mousePos))] scale-50 rounded border-8 border-neutral-100 bg-contain bg-no-repeat opacity-0 transition-all duration-100 [background-image:var(--previewImage)] [content:''] dark:border-neutral-800;
+    @apply pointer-events-none absolute left-1/2 z-[1] h-40 w-[272px] -translate-y-full translate-x-[calc(-50%+var(--mousePos))] scale-50 rounded border-8 border-neutral-100 bg-contain bg-no-repeat opacity-0 transition-all duration-100 [background-image:var(--previewImage)] [content:''] dark:border-neutral-800;
   }
   .project-image:hover::after {
     @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { slide } from "svelte/transition";
+  import Marquee from "svelte-fast-marquee";
 
   export let data: {
     name: string;
@@ -9,13 +9,10 @@
   }[];
 </script>
 
-<div
-  class="flex w-full snap-x snap-mandatory gap-4 overflow-auto scroll-smooth"
-  transition:slide
->
+<Marquee gap="1rem" pauseOnHover={true}>
   {#each data as t, idx}
     <blockquote
-      class="relative my-0 flex w-10/12 flex-none snap-center flex-col rounded bg-neutral-100 dark:bg-neutral-800"
+      class="relative my-0 flex h-full w-[83cqw] flex-none flex-col rounded bg-neutral-100 dark:bg-neutral-800"
     >
       <!-- svelte-ignore a11y-missing-content -->
       {#if t.link}
@@ -32,4 +29,4 @@
       </span>
     </blockquote>
   {/each}
-</div>
+</Marquee>
