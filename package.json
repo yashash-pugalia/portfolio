@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.2.5",
-    "@sveltejs/kit": "^2.6.2",
+    "@sveltejs/kit": "^2.6.4",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
@@ -23,12 +23,14 @@
     "svelte": "^4.2.19",
     "svelte-check": "^3.8.6",
     "tailwindcss": "^3.4.13",
+    "theme-change": "^2.5.0",
     "tslib": "^2.7.0",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "vite": "^5.4.8"
   },
   "type": "module",
   "dependencies": {
+    "iconify-icon": "^2.1.0",
     "svelte-fast-marquee": "^0.8.0",
     "svelte-markdown": "^0.4.1"
   }

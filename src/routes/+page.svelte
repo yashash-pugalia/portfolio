@@ -4,6 +4,13 @@
   import "../app.css";
   import MarkdownLink from "./MarkdownLink.svelte";
   import TestimonialList from "./TestimonialList.svelte";
+  import { onMount } from "svelte";
+  import { themeChange } from "theme-change";
+  import "iconify-icon";
+
+  onMount(() => {
+    themeChange(false);
+  });
 
   const work = [
     {
@@ -143,7 +150,38 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
       <h1 class="font-bold">Yashash Pugalia</h1>
       <h2 class="font-normal tracking-wider">Software Developer</h2>
     </div>
-    <img src="/me.jpg" alt="Yashash Pugalia" class="h-20 w-20 rounded-full" />
+
+    <div class="mb-auto flex flex-wrap items-center gap-2">
+      <div
+        class="flex rounded-full border border-neutral-200 dark:border-neutral-700"
+      >
+        <button
+          class="btn !rounded-full !border-none"
+          data-set-theme="light"
+          data-act-class="btn-active"
+        >
+          <iconify-icon icon="material-symbols:sunny-outline-rounded" />
+        </button>
+        <button
+          class="btn !rounded-full !border-none"
+          data-set-theme="dark"
+          data-act-class="btn-active"
+        >
+          <iconify-icon icon="material-symbols:nightlight-outline-rounded" />
+        </button>
+      </div>
+
+      <button class="btn-active hidden"
+        >so svelte doesn't remove btn-active css</button
+      >
+      <a class="btn" target="_blank" href="/Yashash-Pugalia_Resume-CV.pdf">
+        <iconify-icon
+          icon="material-symbols:download-rounded"
+          class="text-lg"
+        />
+        Download
+      </a>
+    </div>
   </div>
 
   <h2>Work Experience</h2>
@@ -242,5 +280,13 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   }
   .project-image:hover::after {
     @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
+  }
+
+  .btn {
+    @apply flex h-8 items-center justify-center gap-1 rounded border border-neutral-200 px-2 no-underline transition dark:border-neutral-700;
+  }
+  .btn-active,
+  .btn:hover {
+    @apply bg-neutral-100 dark:bg-neutral-800;
   }
 </style>

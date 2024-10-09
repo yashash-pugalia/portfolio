@@ -5,4 +5,5 @@ export default {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
+  darkMode: ["selector", '[data-theme="dark"]'],
 };
