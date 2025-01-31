@@ -1,16 +1,8 @@
 <script lang="ts">
-  import "iconify-icon";
-  import { onMount } from "svelte";
   import SvelteMarkdown from "svelte-markdown";
   import { slide } from "svelte/transition";
-  import { themeChange } from "theme-change";
-  import "../app.css";
   import MarkdownLink from "./MarkdownLink.svelte";
   import TestimonialList from "./TestimonialList.svelte";
-
-  onMount(() => {
-    themeChange(false);
-  });
 
   const work = [
     {
@@ -65,6 +57,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
     },
   ];
 
+  // TODO: make a testinomials page with even more!
   const testimonials = [
     {
       name: "Will Yoo",
@@ -92,13 +85,13 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
         "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
       link: "https://x.com/Rich_Harris/status/1657097805733715987",
     },
-    // {
-    //   name: "Eric Simons",
-    //   role: "CEO @StackBlitz",
-    //   quote:
-    //     "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
-    //   link: "https://x.com/ericsimons40/status/1656644824190308352",
-    // },
+    {
+      name: "Eric Simons",
+      role: "CEO bolt.new | @StackBlitz | WebContainers",
+      quote:
+        "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
+      link: "https://x.com/ericsimons40/status/1656644824190308352",
+    },
   ];
 
   const education = [
@@ -141,7 +134,6 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-
 <main
   class="prose prose-sm prose-neutral dark:prose-invert mx-auto max-w-3xl p-8"
 >
@@ -155,8 +147,18 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
       <div
         class="flex rounded-full border border-neutral-200 dark:border-neutral-700"
       >
+        <!-- TODO: Does not work -->
+        <!-- <button
+          class="btn btn-circle border-none!"
+          data-set-theme=""
+          data-act-class="btn-active"
+          aria-label="System"
+        >
+          <iconify-icon icon="material-symbols:devices-outline-rounded"
+          ></iconify-icon>
+        </button> -->
         <button
-          class="btn rounded-full! border-none!"
+          class="btn btn-circle border-none!"
           data-set-theme="light"
           data-act-class="btn-active"
           aria-label="Light Mode"
@@ -165,7 +167,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
           ></iconify-icon>
         </button>
         <button
-          class="btn rounded-full! border-none!"
+          class="btn btn-circle border-none!"
           data-set-theme="dark"
           data-act-class="btn-active"
           aria-label="Dark Mode"
@@ -190,7 +192,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   {#each work as w}
     <div class="flex justify-between gap-2">
       <!-- custom-hover-effect cursor-pointer -->
-      <!-- on:click={() => (w.collapsed = !w.collapsed)} -->
+      <!-- onclick={() => (w.collapsed = !w.collapsed)} -->
       <h3>
         <a href={w.link} target="_blank">{w.company}</a>
       </h3>
@@ -207,7 +209,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   {#each projects as p}
     <div class="flex justify-between gap-2">
       <!-- custom-hover-effect cursor-pointer -->
-      <!-- on:click={() => (p.collapsed = !p.collapsed)} -->
+      <!-- onclick={() => (p.collapsed = !p.collapsed)} -->
       <h3 class="space-x-2">
         <a
           href={p.link}
@@ -241,7 +243,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   {/each}
 
   <h2>Testimonials</h2>
-  <div style="container-type: inline-size;">
+  <div class="@container">
     <TestimonialList data={testimonials} />
   </div>
 
@@ -264,39 +266,31 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   </div>
 </main>
 
-<!-- Kept if we want accordian style back -->
-<!-- .custom-hover-effect {
-  @apply relative;
-}
-.custom-hover-effect::before {
-  @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded bg-neutral-100 opacity-0 transition-all [content:''] dark:bg-neutral-800;
-}
-.custom-hover-effect:hover::before {
-  @apply opacity-100;
-} -->
-
 <style lang="postcss">
   @reference "../app.css";
+
+  /* Kept if we want accordian style back */
+  /* .custom-hover-effect {
+    @apply relative;
+  }
+  .custom-hover-effect::before {
+    @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded bg-neutral-100 opacity-0 transition-all [content:''] dark:bg-neutral-800;
+  }
+  .custom-hover-effect:hover::before {
+    @apply opacity-100;
+  } */
 
   .project-image {
     @apply relative;
   }
 
   .project-image::after {
-    @apply pointer-events-none absolute left-1/2 z-1 h-40 w-[272px] -translate-y-full translate-x-[calc(-50%+var(--mousePos))] scale-50 rounded border-8 border-neutral-100 [background-image:var(--previewImage)] bg-contain bg-no-repeat opacity-0 transition-all duration-100 [content:''];
+    @apply pointer-events-none absolute left-1/2 z-1 h-40 w-[272px] translate-x-[calc(-50%+var(--mousePos))] -translate-y-full scale-50 rounded border-8 border-neutral-100 [background-image:var(--previewImage)] bg-contain bg-no-repeat opacity-0 transition-all duration-100 [content:''];
   }
   :global([data-theme="dark"]) .project-image::after {
     @apply border-neutral-800;
   }
   .project-image:hover::after {
     @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
-  }
-
-  .btn {
-    @apply flex h-8 items-center justify-center gap-1 rounded border border-neutral-200 px-2 no-underline transition dark:border-neutral-700;
-  }
-  .btn-active,
-  .btn:hover {
-    @apply bg-neutral-100 dark:bg-neutral-800;
   }
 </style>

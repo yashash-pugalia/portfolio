@@ -6,7 +6,23 @@ body {
   @apply dark:bg-neutral-900;
 }
 
-/* TODO: tailwind 4 made links blue */
+/* tailwind typography applies underline to a */
 a {
-  @apply text-current;
+  @apply no-underline;
+
+  &[href] {
+    @apply hover:underline;
+  }
+}
+
+/* MY STYLES */
+.btn {
+  @apply inline-flex items-center justify-center gap-1 rounded border border-neutral-200 px-2 py-1 no-underline transition dark:border-neutral-700;
+}
+.btn-active,
+.btn:hover {
+  @apply bg-neutral-100 dark:bg-neutral-800;
+}
+.btn-circle {
+  @apply aspect-square rounded-full;
 }
