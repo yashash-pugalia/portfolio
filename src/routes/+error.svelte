@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
 
@@ -16,7 +16,7 @@
   });
 </script>
 
-<div class="mx-auto mt-8 max-w-2xl place-items-center dark:text-white">
+<div class="not-prose mt-8 place-items-center">
   <div class="flex items-center gap-4 text-center">
     <iconify-icon
       icon="material-symbols:warning-outline-rounded"
@@ -27,9 +27,7 @@
 
   <div class="my-4">
     Going back to home in
-    <button class="btn h-[unset]! py-0!">{counter}</button>
+    <span class="badge badge-ghost tabular-nums">{counter}</span>
     seconds!
   </div>
-
-  <a href="/" class="btn h-[unset]! p-8">Go Home</a>
 </div>

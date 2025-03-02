@@ -1,270 +1,99 @@
 <script lang="ts">
+  import { education, projects, socials, testimonials, work } from "$lib";
+  import Marquee from "svelte-fast-marquee";
   import SvelteMarkdown from "svelte-markdown";
   import { slide } from "svelte/transition";
   import MarkdownLink from "./MarkdownLink.svelte";
-  import TestimonialList from "./TestimonialList.svelte";
-
-  const work = [
-    {
-      collapsed: false,
-      company: "Realm Labs AI",
-      date: "2022 - 2023",
-      location: "New York, United States - Remote",
-      desc: "Built the product from the ground up, covering everything from authentication to a comic book creation tool with a drag-and-drop interface and AI-powered scene/character generation. Integrated merchandise sales and payments into the platform. Created an AI chat interface to interact with comic characters.",
-      stack:
-        "Svelte/Kit · TypeScript/JavaScript · MongoDB/Prisma · Firebase/GCP · Tailwind/DaisyUI · Stripe · Auth.js · Langchain/GPT-3.5",
-    },
-    {
-      collapsed: false,
-      company: "Haast",
-      link: "https://www.haast.io/",
-      date: "2023 - Present",
-      location: "Canberra, Australia - Remote",
-      desc: "Led the visual overhaul of the web app. Developed a PDF comparison tool and a workflow status board featuring drag-and-drop functionality (similar to Linear).",
-      stack:
-        "Svelte · JavaScript · Flask · PostgreSQL/SQLAlchemy · TailwindCSS · DaisyUI · PSPDFKit",
-    },
-  ];
-
-  const projects = [
-    {
-      collapsed: false,
-      title: "Windows 11 in Svelte",
-      link: "https://win11.yashash.dev/",
-      github: "https://github.com/yashash-pugalia/win11-svelte",
-      date: "2021 - 2022",
-      previewImage: "https://win11.yashash.dev/demo.webp",
-      stack: "Svelte · JavaScript/TypeScript · CSS/Tailwind",
-      desc: `Recreated the Windows 11 desktop experience for the web.
-
-Featured in:
-- [JSNation Open Source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year' 2023
-- [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
-- [Hacker News](https://news.ycombinator.com/item?id=35896505), [Trending #1](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
-
-Additionally, I was the [lead front-end contributor](https://github.com/blueedgetechno/win11react) to [Win11React](https://win11.blueedge.me), which garnered **7.8M views** in 2023 and contributed to a combined total of over **10K GitHub Stars** across these projects.`,
-    },
-    {
-      collapsed: false,
-      title: "Prosper Mint",
-      link: "https://prosper-mint.yashash.dev",
-      github: "https://github.com/yashash-pugalia/prosper-mint",
-      previewImage: "https://prosper-mint.yashash.dev/demo.webp",
-      date: "2023 - 2024",
-      stack:
-        "Svelte/Kit · JavaScript/TypeScript ·Tailwind/Daisy · PostgreSQL/DrizzleORM · Lucia Auth ",
-      desc: "Prosper Mint is a personal finance app for budgeting, expense tracking, and goal setting. It offers a responsive interface, allowing users to securely manage their finances with seamless authentication.",
-    },
-  ];
-
-  // TODO: make a testinomials page with even more!
-  const testimonials = [
-    {
-      name: "Will Yoo",
-      quote:
-        "I want to say you're one of the most talented young engineers I've met, you make some engineers and even founders I've worked with look like amateurs. I highly encourage you to take risks, learn from these mistakes I've made, and do big things with your life. I'm always here to support you. Let's win together.",
-      role: "Founder @Realm Labs AI",
-    },
-    {
-      name: "Julie Zhuo",
-      role: "Co-Founder @Sundial | Former VP Design @Facebook",
-      quote:
-        "Love your work! Especially your dedication to building with craft and creative exploration.",
-    },
-    {
-      name: "Guillermo Rauch",
-      role: "CEO @Vercel",
-      quote:
-        "Well played https://win11-svelte.vercel.app <br> Also: modern web browsers are engineering marvels",
-      link: "https://x.com/rauchg/status/1656493176088150017",
-    },
-    {
-      name: "Rich Harris",
-      role: "Creator @Svelte",
-      quote:
-        "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos  @yashash_pugalia",
-      link: "https://x.com/Rich_Harris/status/1657097805733715987",
-    },
-    {
-      name: "Eric Simons",
-      role: "CEO bolt.new | @StackBlitz | WebContainers",
-      quote:
-        "Great work on this @yashash_pugalia!, <br> One idea I had- you could even power the file system and standalone terminal app using the http://webcontainers.io api 👀",
-      link: "https://x.com/ericsimons40/status/1656644824190308352",
-    },
-  ];
-
-  const education = [
-    {
-      // date: "",
-      degree: "Bachelor of Technology - B.Tech, Computer Science",
-      school: "Bennett University",
-      location: "Greater Noida",
-    },
-  ];
-
-  const socials = [
-    {
-      name: "Discord",
-      link: "https://discord.com/users/759823534100316200",
-      linkDisplay: "yashash",
-    },
-    {
-      name: "GitHub",
-      link: "https://github.com/yashash-pugalia",
-      linkDisplay: "yashash-pugalia",
-    },
-    {
-      name: "Twitter",
-      link: "https://twitter.com/yashash_pugalia",
-      linkDisplay: "yashash_pugalia",
-    },
-    {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/in/yashash-pugalia",
-      linkDisplay: "yashash-pugalia",
-    },
-    {
-      name: "Email",
-      link: "mailto:yashash1511@gmail.com",
-      linkDisplay: "yashash1511@gmail.com",
-    },
-  ];
+  import Testimonial from "./Testimonial.svelte";
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<main
-  class="prose prose-sm prose-neutral dark:prose-invert mx-auto max-w-3xl p-8"
->
-  <div class="flex justify-between gap-4">
-    <div>
-      <h1 class="font-bold">Yashash Pugalia</h1>
-      <h2 class="font-normal tracking-wider">Software Developer</h2>
-    </div>
 
-    <div class="mb-auto flex flex-wrap items-center gap-2">
-      <div
-        class="flex rounded-full border border-neutral-200 dark:border-neutral-700"
-      >
-        <!-- TODO: Does not work -->
-        <!-- <button
-          class="btn btn-circle border-none!"
-          data-set-theme=""
-          data-act-class="btn-active"
-          aria-label="System"
-        >
-          <iconify-icon icon="material-symbols:devices-outline-rounded"
-          ></iconify-icon>
-        </button> -->
-        <button
-          class="btn btn-circle border-none!"
-          data-set-theme="light"
-          data-act-class="btn-active"
-          aria-label="Light Mode"
-        >
-          <iconify-icon icon="material-symbols:sunny-outline-rounded"
-          ></iconify-icon>
-        </button>
-        <button
-          class="btn btn-circle border-none!"
-          data-set-theme="dark"
-          data-act-class="btn-active"
-          aria-label="Dark Mode"
-        >
-          <iconify-icon icon="material-symbols:nightlight-outline-rounded"
-          ></iconify-icon>
-        </button>
-      </div>
+<!-- <h2 class="font-normal tracking-wider">Software Developer</h2> -->
 
-      <button class="btn-active hidden"
-        >so svelte doesn't remove btn-active css</button
+<h2>Work Experience</h2>
+{#each work as w}
+  <div class="flex justify-between gap-2">
+    <!-- custom-hover-effect cursor-pointer -->
+    <!-- onclick={() => (w.collapsed = !w.collapsed)} -->
+    <h3>
+      <a href={w.link} target="_blank">{w.company}</a>
+    </h3>
+    <p class="mt-auto">{w.date}</p>
+  </div>
+  {#if !w.collapsed}
+    <p transition:slide={{ delay: 0 }}>{w.location}</p>
+    <p transition:slide={{ delay: 100 }}>{w.desc}</p>
+    <p transition:slide={{ delay: 200 }}>Stack: {w.stack}</p>
+  {/if}
+{/each}
+
+<h2>Projects</h2>
+{#each projects as p}
+  <div class="flex justify-between gap-2">
+    <!-- custom-hover-effect cursor-pointer -->
+    <!-- onclick={() => (p.collapsed = !p.collapsed)} -->
+    <h3 class="space-x-2">
+      <a
+        href={p.link}
+        target="_blank"
+        class="project-image [--mousePos:0]"
+        style:--previewImage="url('{p.previewImage}')"
+        onmousemove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          e.currentTarget.style.setProperty("--mousePos", `${x}px`);
+        }}
       >
-      <a class="btn" target="_blank" href="/Yashash-Pugalia_Resume-CV.pdf">
-        <iconify-icon icon="material-symbols:download-rounded" class="text-lg"
-        ></iconify-icon>
-        Download
+        {p.title}
       </a>
-    </div>
+      <a class="text-sm font-normal" href={p.github} target="_blank">
+        (GitHub)
+      </a>
+    </h3>
+    <p class="mt-auto">{p.date}</p>
   </div>
 
-  <h2>Work Experience</h2>
-  {#each work as w}
-    <div class="flex justify-between gap-2">
-      <!-- custom-hover-effect cursor-pointer -->
-      <!-- onclick={() => (w.collapsed = !w.collapsed)} -->
-      <h3>
-        <a href={w.link} target="_blank">{w.company}</a>
-      </h3>
-      <p class="mt-auto">{w.date}</p>
-    </div>
-    {#if !w.collapsed}
-      <p transition:slide={{ delay: 0 }}>{w.location}</p>
-      <p transition:slide={{ delay: 100 }}>{w.desc}</p>
-      <p transition:slide={{ delay: 200 }}>Stack: {w.stack}</p>
-    {/if}
-  {/each}
-
-  <h2>Projects</h2>
-  {#each projects as p}
-    <div class="flex justify-between gap-2">
-      <!-- custom-hover-effect cursor-pointer -->
-      <!-- onclick={() => (p.collapsed = !p.collapsed)} -->
-      <h3 class="space-x-2">
-        <a
-          href={p.link}
-          target="_blank"
-          class="project-image [--mousePos:0]"
-          style:--previewImage="url('{p.previewImage}')"
-          onmousemove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            e.currentTarget.style.setProperty("--mousePos", `${x}px`);
-          }}
-        >
-          {p.title}
-        </a>
-        <a class="text-sm font-normal" href={p.github} target="_blank">
-          (GitHub)
-        </a>
-      </h3>
-      <p class="mt-auto">{p.date}</p>
+  {#if !p.collapsed}
+    <div transition:slide>
+      <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
     </div>
 
-    {#if !p.collapsed}
-      <div transition:slide>
-        <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
-      </div>
+    <p transition:slide={{ delay: 200 }}>
+      Stack: {p.stack}
+    </p>
+  {/if}
+{/each}
 
-      <p transition:slide={{ delay: 200 }}>
-        Stack: {p.stack}
-      </p>
-    {/if}
-  {/each}
-
-  <h2>Testimonials</h2>
-  <div class="@container">
-    <TestimonialList data={testimonials} />
-  </div>
-
-  <h2>Education</h2>
-  {#each education as e}
-    <div class="flex justify-between gap-2">
-      <h3>{e.school}</h3>
-      <!-- <p class="mt-auto">{e.date}</p> -->
-    </div>
-
-    <p>{e.degree}</p>
-  {/each}
-
-  <h2>Socials</h2>
-  <div class="grid w-fit grid-cols-2 gap-2">
-    {#each socials as c}
-      <span>{c.name}: </span>
-      <a href={c.link} target="_blank">{c.linkDisplay}</a>
+<h2>
+  <a href="/testimonials"> Testimonials </a>
+</h2>
+<div class="@container">
+  <Marquee gap="1rem" pauseOnHover={true}>
+    {#each testimonials as t, idx}
+      <Testimonial data={t} class="w-[83cqw]" />
     {/each}
+  </Marquee>
+</div>
+
+<h2>Education</h2>
+{#each education as e}
+  <div class="flex justify-between gap-2">
+    <h3>{e.school}</h3>
+    <p class="mt-auto">{e.date}</p>
   </div>
-</main>
+
+  <p>{e.degree}</p>
+{/each}
+
+<h2>Socials</h2>
+<div class="grid w-fit grid-cols-2 gap-2">
+  {#each socials as c}
+    <span>{c.name}: </span>
+    <a href={c.link} target="_blank">{c.linkDisplay}</a>
+  {/each}
+</div>
 
 <style lang="postcss">
   @reference "../app.css";
@@ -274,7 +103,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
     @apply relative;
   }
   .custom-hover-effect::before {
-    @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded bg-neutral-100 opacity-0 transition-all [content:''] dark:bg-neutral-800;
+    @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded  opacity-0 transition-all [content:''] ;
   }
   .custom-hover-effect:hover::before {
     @apply opacity-100;
@@ -285,10 +114,7 @@ Additionally, I was the [lead front-end contributor](https://github.com/blueedge
   }
 
   .project-image::after {
-    @apply pointer-events-none absolute left-1/2 z-1 h-40 w-[272px] translate-x-[calc(-50%+var(--mousePos))] -translate-y-full scale-50 rounded border-8 border-neutral-100 [background-image:var(--previewImage)] bg-contain bg-no-repeat opacity-0 transition-all duration-100 [content:''];
-  }
-  :global([data-theme="dark"]) .project-image::after {
-    @apply border-neutral-800;
+    @apply border-base-300 pointer-events-none absolute left-1/2 z-1 h-40 w-[272px] translate-x-[calc(-50%+var(--mousePos))] -translate-y-full scale-50 rounded border-8 [background-image:var(--previewImage)] bg-contain bg-no-repeat opacity-0 transition-all duration-100 [content:''];
   }
   .project-image:hover::after {
     @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
