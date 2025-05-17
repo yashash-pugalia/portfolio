@@ -7,4 +7,8 @@
   let { text = "", href = "" }: Props = $props();
 </script>
 
-<a {href} target="_blank">{text}</a>
+{#if href.startsWith("/")}
+  <a {href}>{text}</a>
+{:else}
+  <a {href} target="_blank">{text}</a>
+{/if}

@@ -1,39 +1,35 @@
 <script lang="ts">
-  import { education, projects, socials, testimonials, work } from "$lib";
   import Marquee from "svelte-fast-marquee";
   import SvelteMarkdown from "svelte-markdown";
-  import { slide } from "svelte/transition";
+
+  import { education, projects, stack, testimonials, work } from "$lib";
+  import Testimonial from "../Testimonial.svelte";
   import MarkdownLink from "./MarkdownLink.svelte";
-  import Testimonial from "./Testimonial.svelte";
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
-<!-- <h2 class="font-normal tracking-wider">Software Developer</h2> -->
-
 <h2>Work Experience</h2>
 {#each work as w}
-  <div class="flex justify-between gap-2">
-    <!-- custom-hover-effect cursor-pointer -->
-    <!-- onclick={() => (w.collapsed = !w.collapsed)} -->
-    <h3>
-      <a href={w.link} target="_blank">{w.company}</a>
-    </h3>
-    <p class="mt-auto">{w.date}</p>
+  <div class="flex gap-2">
+    {#if w.link}
+      <a href={w.link} target="_blank">
+        <h3>{w.company}</h3>
+      </a>
+    {:else}
+      <h3>{w.company}</h3>
+    {/if}
+    <p class="mt-auto mb-2.5 ml-auto">{w.date}</p>
   </div>
-  {#if !w.collapsed}
-    <p transition:slide={{ delay: 0 }}>{w.location}</p>
-    <p transition:slide={{ delay: 100 }}>{w.desc}</p>
-    <p transition:slide={{ delay: 200 }}>Stack: {w.stack}</p>
-  {/if}
+  <p class="-mt-2 text-xs">{w.location}</p>
+
+  <SvelteMarkdown source={w.desc} renderers={{ link: MarkdownLink }} />
 {/each}
 
 <h2>Projects</h2>
 {#each projects as p}
-  <div class="flex justify-between gap-2">
-    <!-- custom-hover-effect cursor-pointer -->
-    <!-- onclick={() => (p.collapsed = !p.collapsed)} -->
+  <div class="flex gap-2">
     <h3 class="space-x-2">
       <a
         href={p.link}
@@ -48,66 +44,57 @@
       >
         {p.title}
       </a>
-      <a class="text-sm font-normal" href={p.github} target="_blank">
-        (GitHub)
-      </a>
     </h3>
-    <p class="mt-auto">{p.date}</p>
+    <p class="mt-auto mb-2.5 ml-auto">{p.date}</p>
   </div>
 
-  {#if !p.collapsed}
-    <div transition:slide>
-      <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
-    </div>
-
-    <p transition:slide={{ delay: 200 }}>
-      Stack: {p.stack}
-    </p>
-  {/if}
+  <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
 {/each}
 
-<h2>
-  <a href="/testimonials"> Testimonials </a>
-</h2>
-<div class="@container">
+<h2>Tech Stack</h2>
+{#each stack as s}
+  <p>
+    <strong>{s.section}: </strong>
+    <span>{s.stack.join(" · ")}</span>
+  </p>
+{/each}
+
+<a href="/testimonials">
+  <h2>Testimonials</h2>
+</a>
+<div class="@container print:hidden">
   <Marquee gap="1rem" pauseOnHover={true}>
     {#each testimonials as t, idx}
       <Testimonial data={t} class="w-[83cqw]" />
     {/each}
   </Marquee>
 </div>
+<div class="hidden print:block">
+  {#each testimonials as t, idx}
+    <Testimonial data={t} />
+  {/each}
+</div>
 
 <h2>Education</h2>
 {#each education as e}
-  <div class="flex justify-between gap-2">
-    <h3>{e.school}</h3>
-    <p class="mt-auto">{e.date}</p>
-  </div>
-
+  <h3>{e.school}</h3>
   <p>{e.degree}</p>
 {/each}
 
-<h2>Socials</h2>
-<div class="grid w-fit grid-cols-2 gap-2">
-  {#each socials as c}
-    <span>{c.name}: </span>
-    <a href={c.link} target="_blank">{c.linkDisplay}</a>
-  {/each}
+<div class="flex items-end justify-between gap-4 print:hidden">
+  <div>
+    <h2>Thank You!</h2>
+    <p>for reading the whole thing, lucky me :)</p>
+  </div>
+  <img
+    src="/me.jpg"
+    alt="Yashash Pugalia"
+    class="w-20 rounded-full grayscale transition hover:grayscale-0"
+  />
 </div>
 
 <style lang="postcss">
   @reference "../app.css";
-
-  /* Kept if we want accordian style back */
-  /* .custom-hover-effect {
-    @apply relative;
-  }
-  .custom-hover-effect::before {
-    @apply pointer-events-none absolute -inset-x-4 -inset-y-1 -z-10 mt-4 rounded  opacity-0 transition-all [content:''] ;
-  }
-  .custom-hover-effect:hover::before {
-    @apply opacity-100;
-  } */
 
   .project-image {
     @apply relative;

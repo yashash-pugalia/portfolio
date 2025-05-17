@@ -1,6 +1,6 @@
 <script lang="ts">
   import { testimonials } from "$lib";
-  import Testimonial from "../Testimonial.svelte";
+  import Testimonial from "../../Testimonial.svelte";
 </script>
 
 <h2>Testimonials</h2>
