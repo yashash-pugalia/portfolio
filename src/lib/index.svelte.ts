@@ -60,7 +60,7 @@ export let projects = $state([
     link: "https://win11.yashash.dev/",
     date: "2021 - 2022",
     previewImage: "https://win11.yashash.dev/demo.webp",
-    desc: `Built [win11-svelte](https://win11.yashash.dev) and [win11-react](https://win11.blueedge.me) reaching over **7.3M users, 18M views** and earning [10.8K GitHub Stars](https://github.com/yashash-pugalia).
+    desc: `Built [win11-svelte](https://win11.yashash.dev) and [win11-react](https://win11.blueedge.me) reaching over **7.3M users, 18M views** and earning [10.9K GitHub Stars](https://github.com/yashash-pugalia).
     
 - [Hacker News](https://news.ycombinator.com/item?id=35896505), #1 on News Y Combinator [(archive)](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - [JSNation open-source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year'
@@ -105,6 +105,12 @@ export const testimonials = [
     role: "Co-Founder Unto Labs, Thru",
     linkPerson: "https://www.linkedin.com/in/bywillyoo/",
   },
+  // {
+  //   name: "David Peng",
+  //   role: "Senior Software Engineer @Haast",
+  //   quote: "You're a one man frontend team 🫡",
+  //   linkPerson: "https://www.linkedin.com/in/david-peng-502747137/",
+  // },
 ];
 
 export const education = [
@@ -126,19 +132,24 @@ export const socials = [
     link: "https://www.linkedin.com/in/yashash-pugalia",
   },
   {
-    name: "Email",
-    icon: "lucide:mail",
-    link: "mailto:yashash1511@gmail.com",
-  },
-  {
     name: "Twitter",
     icon: "lucide:twitter",
-    link: "https://twitter.com/yashash_pugalia",
+    link: "https://x.com/yashash_pugalia",
+  },
+  {
+    name: "Instagram",
+    icon: "lucide:instagram",
+    link: "https://www.instagram.com/yashash_pugalia/",
   },
   {
     name: "Discord",
     icon: "ic:outline-discord",
     link: "https://discord.com/users/759823534100316200",
+  },
+  {
+    name: "Email",
+    icon: "lucide:mail",
+    link: "mailto:yashash1511@gmail.com",
   },
   {
     name: "YouTube",
