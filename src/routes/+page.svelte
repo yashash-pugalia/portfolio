@@ -1,6 +1,6 @@
 <script lang="ts">
+  import SvelteMarkdown from "@humanspeak/svelte-markdown";
   import Marquee from "svelte-fast-marquee";
-  import SvelteMarkdown from "svelte-markdown";
 
   import {
     education,
@@ -9,9 +9,9 @@
     testimonials,
     work,
   } from "$lib/index.svelte";
+  import { onMount } from "svelte";
   import Testimonial from "../Testimonial.svelte";
   import MarkdownLink from "./MarkdownLink.svelte";
-  import { onMount } from "svelte";
 
   let totalStars = $state(10000);
   const getTotalStars = async () => {
@@ -34,7 +34,7 @@
       if (!totalStars) return;
 
       projects[0].desc = projects[0].desc.replace(
-        "10.8K",
+        "10.9K",
         new Intl.NumberFormat("en", {
           notation: "compact",
           compactDisplay: "short",

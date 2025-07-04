@@ -25,7 +25,7 @@
 </script>
 
 {#snippet socialsList(classes?: string)}
-  <div class="flex flex-wrap gap-1.5 {classes}">
+  <div class="flex flex-wrap gap-2 {classes}">
     {#each socials as c}
       <div class="tooltip tooltip-bottom" data-tip={c.name}>
         <a
