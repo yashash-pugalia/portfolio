@@ -54,7 +54,7 @@ export const stack = [
   },
 ];
 
-export const projects = [
+export let projects = $state([
   {
     title: "Windows 11 Web",
     link: "https://win11.yashash.dev/",
@@ -67,7 +67,7 @@ export const projects = [
 - Endorsed by [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017) (CEO Vercel), [Eric Simons](https://x.com/ericsimons40/status/1656644824190308352) (CEO Bolt.new), [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987) (Creator Svelte) and [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
 `,
   },
-];
+]);
 
 export const testimonials = [
   {

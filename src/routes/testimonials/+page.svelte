@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { testimonials } from "$lib";
+  import { testimonials } from "$lib/index.svelte";
   import Testimonial from "../../Testimonial.svelte";
 </script>
 

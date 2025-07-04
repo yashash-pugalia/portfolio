@@ -5,7 +5,7 @@
   import { onMount } from "svelte";
   import { themeChange } from "theme-change";
 
-  import { socials } from "$lib";
+  import { socials } from "$lib/index.svelte";
   import "../app.css";
 
   let { children } = $props();

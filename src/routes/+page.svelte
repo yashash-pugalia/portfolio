@@ -2,15 +2,59 @@
   import Marquee from "svelte-fast-marquee";
   import SvelteMarkdown from "svelte-markdown";
 
-  import { education, projects, stack, testimonials, work } from "$lib";
+  import {
+    education,
+    projects,
+    stack,
+    testimonials,
+    work,
+  } from "$lib/index.svelte";
   import Testimonial from "../Testimonial.svelte";
   import MarkdownLink from "./MarkdownLink.svelte";
+  import { onMount } from "svelte";
+
+  let totalStars = $state(10000);
+  const getTotalStars = async () => {
+    const repos = [
+      "https://api.github.com/repos/yashash-pugalia/win11-svelte",
+      "https://api.github.com/repos/blueedgetechno/win11React",
+    ];
+
+    try {
+      const promises = repos.map(async (repo) => {
+        const response = await fetch(repo);
+        const data = await response.json();
+        return data.stargazers_count;
+      });
+
+      const results = await Promise.all(promises);
+
+      totalStars = results.reduce((acc, curr) => acc + curr, 0);
+
+      if (!totalStars) return;
+
+      projects[0].desc = projects[0].desc.replace(
+        "10.8K",
+        new Intl.NumberFormat("en", {
+          notation: "compact",
+          compactDisplay: "short",
+          maximumFractionDigits: 1,
+        }).format(totalStars),
+      );
+    } catch (error) {
+      // console.warn(error);
+      totalStars = 10000;
+    }
+  };
+
+  onMount(getTotalStars);
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
 <h2>Work Experience</h2>
+
 {#each work as w}
   <div class="flex gap-2">
     {#if w.link}
