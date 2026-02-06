@@ -3,11 +3,11 @@
   import Marquee from "svelte-fast-marquee";
 
   import {
-    education,
-    projects,
-    stack,
-    testimonials,
-    work,
+      education,
+      projects,
+      stack,
+      testimonials,
+      work,
   } from "$lib/index.svelte";
   import { onMount } from "svelte";
   import Testimonial from "../Testimonial.svelte";
@@ -34,7 +34,7 @@
       if (!totalStars) return;
 
       projects[0].desc = projects[0].desc.replace(
-        "10.9K",
+        "11.1K",
         new Intl.NumberFormat("en", {
           notation: "compact",
           compactDisplay: "short",

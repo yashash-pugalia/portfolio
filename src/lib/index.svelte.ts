@@ -60,7 +60,7 @@ export let projects = $state([
     link: "https://win11.yashash.dev/",
     date: "2021 - 2022",
     previewImage: "https://win11.yashash.dev/demo.webp",
-    desc: `Built [win11-svelte](https://win11.yashash.dev) and [win11-react](https://win11.blueedge.me) reaching over **7.3M users, 18M views** and earning [10.9K GitHub Stars](https://github.com/yashash-pugalia).
+    desc: `Built [win11-svelte](https://win11.yashash.dev) and [win11-react](https://win11.blueedge.me) reaching over **7.3M users, 18M views** and earning [11.1K GitHub Stars](https://github.com/yashash-pugalia).
     
 - [Hacker News](https://news.ycombinator.com/item?id=35896505), #1 on News Y Combinator [(archive)](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - [JSNation open-source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year'
