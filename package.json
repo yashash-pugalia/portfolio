@@ -23,7 +23,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "svelte": "^5.49.2",
+    "svelte": "^5.53.0",
     "svelte-check": "^4.3.6",
     "tailwindcss": "^4.1.11",
     "theme-change": "^2.5.0",
@@ -33,6 +33,6 @@
   "dependencies": {
     "@humanspeak/svelte-markdown": "^0.8.15",
     "iconify-icon": "^2.3.0",
-    "svelte-fast-marquee": "^0.8.0"
+    "svelte-fast-marquee": "^1.0.0"
   }
 }
