@@ -6,13 +6,17 @@ export const work = [
     link: "https://www.haast.io/",
     date: "2023 - Present",
     location: "Sydney, Australia - Remote",
-    desc: "Joined as the [first frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C), shipped core parts of the platform - automating legal and marketing compliance with AI. Now used by **Fortune 500s** and backed by [Airtree ($6M seed)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/).",
+    desc: `Joined as the [first frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C) at Pre-Seed; built and owned the majority of the frontend for the core platform automating marketing and legal compliance with AI. Scaled through [Seed (Airtree $6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into **Series A**, now used by **Fortune 500s**.
+- Built core product systems from scratch (workflows, reviews, asset management, rule pipelines) and document workflows (PDF comparison, annotations, commenting)
+- Led frontend foundation: Tailwind + DaisyUI, Rollup → Vite (fast HMR), Svelte v3 → v4 (+ v5 reactivity)  
+- Improved reliability and scalability of complex state-heavy systems; established standards (TypeScript, linting, CI) and contributed to in-house design system and frontend scalability
+`,
   },
   {
     company: "Realm Labs",
     date: "2022 - 2023",
     location: "New York, United States - Remote",
-    desc: "Built AI comic creation platform from scratch, from **auth to drag-and-drop editor**, AI scene/character gen, character chat, and integrated **merch + payments**. Worked with the [founder](/testimonials?highlight=will-yoo), and a team that included creators of **top open-source AI models**.",
+    desc: "Built AI comic creation platform from scratch, covering **authentication to drag-and-drop editor**, AI scene and character generation, character chat, and integrated **merch + payments**. Worked closely with the [founder](/testimonials?highlight=will-yoo) and a team including creators of top open-source AI models.",
   },
 ];
 
@@ -23,33 +27,37 @@ export const stack = [
       "JavaScript/TypeScript",
       "Svelte/Kit",
       "React",
-      "Tailwind/DaisyUI",
+      "Tailwind",
+      "shadcn/ui",
       "Chart.js",
+      // "LayerChart",
       "PSPDFKit",
+      "Adobe PDF API",
     ],
   },
   {
     section: "Backend / Database",
     stack: [
-      "MongoDB",
-      "PostgreSQL",
-      "DrizzleORM",
-      "Prisma",
-      "Flask",
       "FastAPI",
+      "Flask",
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma",
+      "Drizzle ORM",
       "SQLAlchemy",
     ],
   },
   {
-    section: "Platform / Tools",
+    section: "Platform / Tooling",
     stack: [
       "GitHub Actions",
-      "Firebase",
-      "Google Cloud Platform",
-      "Auth.js",
-      "Lucia Auth",
+      "GCP",
       "Stripe",
-      "Langchain",
+      "Auth.js",
+      "LangChain",
+      "ESLint",
+      "Vitest",
+      "Storybook",
     ],
   },
 ];
@@ -61,7 +69,6 @@ export let projects = $state([
     date: "2021 - 2022",
     previewImage: "https://win11.yashash.dev/demo.webp",
     desc: `Built [win11-svelte](https://win11.yashash.dev) and [win11-react](https://win11.blueedge.me) reaching over **7.3M users, 18M views** and earning [11.1K GitHub Stars](https://github.com/yashash-pugalia).
-    
 - [Hacker News](https://news.ycombinator.com/item?id=35896505), #1 on News Y Combinator [(archive)](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - [JSNation open-source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year'
 - Endorsed by [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017) (CEO Vercel), [Eric Simons](https://x.com/ericsimons40/status/1656644824190308352) (CEO Bolt.new), [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987) (Creator Svelte) and [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)
@@ -132,15 +139,15 @@ export const socials = [
     link: "https://www.linkedin.com/in/yashash-pugalia",
   },
   {
-    name: "Twitter",
+    name: "X (Twitter)",
     icon: "lucide:twitter",
     link: "https://x.com/yashash_pugalia",
   },
-  {
-    name: "Instagram",
-    icon: "lucide:instagram",
-    link: "https://www.instagram.com/yashash_pugalia/",
-  },
+  // {
+  // name: "Instagram",
+  // icon: "lucide:instagram",
+  // link: "https://www.instagram.com/yashash_pugalia/",
+  // },
   {
     name: "Discord",
     icon: "ic:outline-discord",

@@ -86,7 +86,7 @@
 {/snippet}
 
 <main
-  class="prose prose-sm prose-a:no-underline prose-a:italic prose-a:hover:underline mx-auto max-w-3xl p-4 sm:p-8 print:max-w-none"
+  class="prose prose-sm prose-a:no-underline prose-a:italic prose-a:hover:underline mx-auto max-w-4xl p-4 sm:p-8 print:max-w-none"
 >
   <nav
     class="bg-base-100/50 not-prose sticky top-0 z-10 -m-4 space-y-4 p-4 backdrop-blur [view-transition-name:header]"

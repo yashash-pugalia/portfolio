@@ -119,23 +119,22 @@
   {/each}
 </div>
 
-<h2>Education</h2>
-{#each education as e}
-  <h3>{e.school}</h3>
-  <p>{e.degree}</p>
-{/each}
-
-<div class="flex items-end justify-between gap-4 print:hidden">
+<div class="flex items-end justify-between gap-4 ">
   <div>
-    <h2>Thank You!</h2>
-    <p>for reading the whole thing, lucky me :)</p>
+    <h2>Education</h2>
+    {#each education as e}
+    <h3>{e.school}</h3>
+    <p>{e.degree}</p>
+    {/each}
   </div>
+
   <img
     src="/me.jpg"
     alt="Yashash Pugalia"
     class="w-20 rounded-full grayscale transition hover:grayscale-0"
   />
 </div>
+
 
 <style lang="postcss">
   @reference "../app.css";
