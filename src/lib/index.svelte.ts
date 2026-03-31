@@ -6,10 +6,12 @@ export const work = [
     link: "https://www.haast.io/",
     date: "2023 - Present",
     location: "Sydney, Australia - Remote",
-    desc: `Joined as the [first frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C) at Pre-Seed; built and owned the majority of the frontend for the core platform automating marketing and legal compliance with AI. Scaled through [Seed (Airtree $6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into **Series A**, now used by **Fortune 500s**.
-- Built core product systems from scratch (workflows, reviews, asset management, rule pipelines) and document workflows (PDF comparison, annotations, commenting)
-- Led frontend foundation: Tailwind + DaisyUI, Rollup → Vite (fast HMR), Svelte v3 → v4 (+ v5 reactivity)  
-- Improved reliability and scalability of complex state-heavy systems; established standards (TypeScript, linting, CI) and contributed to in-house design system and frontend scalability
+    desc: `Joined as the [founding frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C) at Pre-Seed for a B2B AI-native marketing & legal compliance platform used by enterprises. Built and owned the majority of the frontend for the core product. Scaled through [Seed (Airtree $6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into **Series A** during a period of rapid growth (4.5x YoY revenue growth), now used by **Fortune 500 companies**.
+- Built and scaled core product systems (workflows, reviews, asset management, rule pipelines) and document workflows (PDF comparison, annotations, commenting) used in enterprise compliance workflows, contributing to 80% reduction in manual review effort and 2-3x faster time-to-market
+- Delivered audit-ready review and collaboration UX (annotations, commenting, workflow states) providing complete audit trails and a single source of truth for regulated enterprise approvals
+- Led frontend foundation: introduced Tailwind + DaisyUI, migrated and optimized build system from Rollup → Vite reducing local dev build times from 30s to 500ms (50x faster, instant HMR), and upgraded Svelte v3 → v4 (+ contributions toward v5)
+- Stabilized complex state-heavy workflows and resolved production reactivity issues, improving reliability and scalability of critical user flows
+- Established engineering standards (TypeScript, linting, CI, pre-commit) and contributed to in-house design system and frontend scalability across the product
 `,
   },
   {
