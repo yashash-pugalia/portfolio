@@ -86,13 +86,18 @@
 {/snippet}
 
 <main
-  class="prose prose-sm prose-a:no-underline prose-a:italic prose-a:hover:underline mx-auto max-w-4xl p-4 sm:p-8 print:max-w-none"
+  class="prose prose-sm prose-a:underline prose-a:hover:no-underline prose-a:italic prose-a:[font-weight:inherit] mx-auto max-w-4xl p-4 sm:p-8 print:max-w-none"
 >
   <nav
     class="bg-base-100/50 not-prose sticky top-0 z-10 -m-4 space-y-4 p-4 backdrop-blur [view-transition-name:header]"
   >
     <header class="flex justify-between gap-4">
-      <a href="/" class="hover:underline" class:italic={page.route.id !== "/"}>
+      <a
+        href="/"
+        class="hover:no-underline"
+        class:underline={page.route.id !== "/"}
+        class:italic={page.route.id !== "/"}
+      >
         <h1 class="text-base-content shrink-0 text-3xl font-bold">
           Yashash Pugalia
         </h1>

@@ -3,11 +3,12 @@
   import Marquee from "svelte-fast-marquee";
 
   import {
+      about,
       education,
       projects,
-      stack,
+      technologies,
       testimonials,
-      work,
+      work
   } from "$lib/index.svelte";
   import { onMount } from "svelte";
   import Testimonial from "../Testimonial.svelte";
@@ -53,8 +54,18 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
-<h2>Work Experience</h2>
+<h2>About</h2>
+<p>{about}</p>
 
+<h2>Technologies</h2>
+{#each technologies as s}
+  <p>
+    <strong>{s.section}: </strong>
+    <span>{s.stack.join(" · ")}</span>
+  </p>
+{/each}
+
+<h2>Work Experience</h2>
 {#each work as w}
   <div class="flex gap-2">
     {#if w.link}
@@ -95,17 +106,7 @@
   <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
 {/each}
 
-<h2>Tech Stack</h2>
-{#each stack as s}
-  <p>
-    <strong>{s.section}: </strong>
-    <span>{s.stack.join(" · ")}</span>
-  </p>
-{/each}
-
-<a href="/testimonials">
-  <h2>Testimonials</h2>
-</a>
+<a href="/testimonials"><h2>Testimonials</h2></a>
 <div class="@container print:hidden">
   <Marquee gap="1rem" pauseOnHover={true}>
     {#each testimonials as t, idx}
