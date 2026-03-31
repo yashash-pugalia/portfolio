@@ -18,7 +18,12 @@ export const work = [
     company: "Realm Labs",
     date: "2022 - 2023",
     location: "New York, United States - Remote",
-    desc: "Built AI comic creation platform from scratch, covering **authentication to drag-and-drop editor**, AI scene and character generation, character chat, and integrated **merch + payments**. Worked closely with the [founder](/testimonials?highlight=will-yoo) and a team including creators of top open-source AI models.",
+    desc: `Joined as an early full-stack engineer and built a 0→1 AI comic creation platform, owning end-to-end development and working closely with the [founder](/testimonials?highlight=will-yoo) to ship the MVP from concept to production.
+- Developed key features including authentication, a custom drag-and-drop editor, AI scene and character generation, character chat, and creator monetization flows (payments + payouts via Stripe)
+- Integrated LLM and image generation workflows (LangChain, GPT-3.5, fine-tuned Stable Diffusion) to enable AI-driven content creation
+- Built full-stack architecture using SvelteKit, TypeScript, MongoDB + Prisma, and GCP for media storage, evolving backend from Firebase to a more scalable setup
+`,
+
   },
 ];
 
