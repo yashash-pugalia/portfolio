@@ -1,12 +1,11 @@
 <script lang="ts">
   import { onNavigate } from "$app/navigation";
   import { page } from "$app/state";
+  import { socials } from "$lib/index.svelte";
+  import "../app.css";
   import "iconify-icon";
   import { onMount } from "svelte";
   import { themeChange } from "theme-change";
-
-  import { socials } from "$lib/index.svelte";
-  import "../app.css";
 
   let { children } = $props();
 

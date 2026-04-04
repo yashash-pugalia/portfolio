@@ -1,18 +1,17 @@
 <script lang="ts">
-  import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import Marquee from "svelte-fast-marquee";
-
   import {
-      about,
-      education,
-      projects,
-      technologies,
-      testimonials,
-      work
+    about,
+    education,
+    projects,
+    technologies,
+    testimonials,
+    work,
   } from "$lib/index.svelte";
-  import { onMount } from "svelte";
   import Testimonial from "../Testimonial.svelte";
   import MarkdownLink from "./MarkdownLink.svelte";
+  import SvelteMarkdown from "@humanspeak/svelte-markdown";
+  import { onMount } from "svelte";
+  import Marquee from "svelte-fast-marquee";
 
   let totalStars = $state(10000);
   const getTotalStars = async () => {
@@ -120,12 +119,12 @@
   {/each}
 </div>
 
-<div class="flex items-end justify-between gap-4 ">
+<div class="flex items-end justify-between gap-4">
   <div>
     <h2>Education</h2>
     {#each education as e}
-    <h3>{e.school}</h3>
-    <p>{e.degree}</p>
+      <h3>{e.school}</h3>
+      <p>{e.degree}</p>
     {/each}
   </div>
 
@@ -135,7 +134,6 @@
     class="w-20 rounded-full grayscale transition hover:grayscale-0"
   />
 </div>
-
 
 <style lang="postcss">
   @reference "../app.css";

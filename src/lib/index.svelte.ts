@@ -1,6 +1,5 @@
 // place files you want to import through the `$lib` alias in this folder.
 
-
 export const socials = [
   {
     name: "GitHub",
@@ -38,7 +37,6 @@ export const socials = [
     link: "https://www.youtube.com/@yashashpugalia",
   },
 ];
-
 
 export const about =
   "Software Engineer specializing in frontend (TypeScript, Svelte) with React and full-stack experience. Owned frontend systems at a high-growth startup from pre-seed to Series A, building a B2B AI-native SaaS platform now used by Fortune 500 companies. Product-focused, built open-source projects reaching 20M+ visits.";
@@ -177,4 +175,3 @@ export const education = [
     school: "Bennett University",
   },
 ];
-
