@@ -1,151 +1,28 @@
 <script lang="ts">
-  import {
-    about,
-    education,
-    projects,
-    technologies,
-    testimonials,
-    work,
-  } from "$lib/index.svelte";
-  import Testimonial from "../Testimonial.svelte";
   import MarkdownLink from "./MarkdownLink.svelte";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import { onMount } from "svelte";
-  import Marquee from "svelte-fast-marquee";
 
-  let totalStars = $state(10000);
-  const getTotalStars = async () => {
-    const repos = [
-      "https://api.github.com/repos/yashash-pugalia/win11-svelte",
-      "https://api.github.com/repos/blueedgetechno/win11React",
-    ];
+  const bio = `I'm a software engineer. I'm originally from Kolkata, India, and brought up in New Delhi. I owe much of my career to the Web and open source.
 
-    try {
-      const promises = repos.map(async (repo) => {
-        const response = await fetch(repo);
-        const data = await response.json();
-        return data.stargazers_count;
-      });
+I spent my early teens tinkering with computers — flashing custom ROMs on Android phones, dual-booting Linux distros, and building small WordPress sites.
 
-      const results = await Promise.all(promises);
+At 16, I built browser-based replicas of Windows 11 ([win11-svelte](https://win11.yashash.dev), [win11-react](https://win11.blueedge.me)), which went viral and reached over **20M+ visits**, including hitting [#1 on Hacker News](https://news.ycombinator.com/item?id=35896505) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)). The project was sponsored by Vercel and received recognition from people like [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017), [Eric Simons](https://x.com/ericsimons40/status/1656644824190308352), and [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987).
 
-      totalStars = results.reduce((acc, curr) => acc + curr, 0);
+I later worked with early-stage startups, building MVPs and product systems across full-stack.
 
-      if (!totalStars) return;
+At 18, I joined [Haast](https://www.haast.io) as a [founding frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C/) at Pre-Seed. I built and owned much of the frontend for a B2B AI platform focused on marketing and legal compliance, as the company scaled from pre-seed through [Seed (Airtree A$6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into [Series A (Peak XV $12M)](https://www.axios.com/pro/enterprise-software-deals/2026/04/09/enterprise-compliance-haast-12-m), now used by **Fortune 500s**.
 
-      projects[0].desc = projects[0].desc.replace(
-        "11.1K",
-        new Intl.NumberFormat("en", {
-          notation: "compact",
-          compactDisplay: "short",
-          maximumFractionDigits: 1,
-        }).format(totalStars),
-      );
-    } catch (error) {
-      // console.warn(error);
-      totalStars = 10000;
-    }
-  };
-
-  onMount(getTotalStars);
+I'm particularly interested in building product experiences at the intersection of AI and the web.`;
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-
-<h2>About</h2>
-<p>{about}</p>
-
-<h2>Technologies</h2>
-{#each technologies as s}
-  <p>
-    <strong>{s.section}: </strong>
-    <span>{s.stack.join(" · ")}</span>
-  </p>
-{/each}
-
-<h2>Work Experience</h2>
-{#each work as w}
-  <div class="flex gap-2">
-    {#if w.link}
-      <a href={w.link} target="_blank">
-        <h3>{w.company}</h3>
-      </a>
-    {:else}
-      <h3>{w.company}</h3>
-    {/if}
-    <p class="mt-auto mb-2.5 ml-auto">{w.date}</p>
-  </div>
-  <p class="-mt-2 text-xs">{w.location}</p>
-
-  <SvelteMarkdown source={w.desc} renderers={{ link: MarkdownLink }} />
-{/each}
-
-<h2>Projects</h2>
-{#each projects as p}
-  <div class="flex gap-2">
-    <h3 class="space-x-2">
-      <a
-        href={p.link}
-        target="_blank"
-        class="project-image [--mousePos:0]"
-        style:--previewImage="url('{p.previewImage}')"
-        onmousemove={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          e.currentTarget.style.setProperty("--mousePos", `${x}px`);
-        }}
-      >
-        {p.title}
-      </a>
-    </h3>
-    <p class="mt-auto mb-2.5 ml-auto">{p.date}</p>
-  </div>
-
-  <SvelteMarkdown source={p.desc} renderers={{ link: MarkdownLink }} />
-{/each}
-
-<a href="/testimonials"><h2>Testimonials</h2></a>
-<div class="@container print:hidden">
-  <Marquee gap="1rem" pauseOnHover={true}>
-    {#each testimonials as t, idx}
-      <Testimonial data={t} class="w-[83cqw]" />
-    {/each}
-  </Marquee>
-</div>
-<div class="hidden print:block">
-  {#each testimonials as t, idx}
-    <Testimonial data={t} />
-  {/each}
-</div>
-
-<div class="flex items-end justify-between gap-4">
-  <div>
-    <h2>Education</h2>
-    {#each education as e}
-      <h3>{e.school}</h3>
-      <p>{e.degree}</p>
-    {/each}
-  </div>
+<div class="prose-base">
+  <h2>About</h2>
 
   <img
     src="/me.jpg"
     alt="Yashash Pugalia"
-    class="w-20 rounded-full grayscale transition hover:grayscale-0"
+    class="bg-base-200 float-none mx-auto mb-8 block aspect-square w-40 max-w-[45%] rounded-2xl object-cover object-center shadow sm:float-right sm:mt-1 sm:mb-4 sm:ml-8 sm:w-44 sm:max-w-none md:w-52"
   />
+
+  <SvelteMarkdown source={bio} renderers={{ link: MarkdownLink }} />
 </div>
-
-<style lang="postcss">
-  @reference "../app.css";
-
-  .project-image {
-    @apply relative;
-  }
-
-  .project-image::after {
-    @apply border-base-300 pointer-events-none absolute left-1/2 z-1 h-40 w-[272px] translate-x-[calc(-50%+var(--mousePos))] -translate-y-full scale-50 rounded border-8 [background-image:var(--previewImage)] bg-contain bg-no-repeat opacity-0 transition-all duration-100 [content:''];
-  }
-  .project-image:hover::after {
-    @apply -translate-y-[calc(100%+1.5rem)] scale-100 opacity-100;
-  }
-</style>
