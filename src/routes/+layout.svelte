@@ -4,12 +4,8 @@
   import { socials } from "$lib/index.svelte";
   import "../app.css";
   import "iconify-icon";
-  import { onMount } from "svelte";
-  import { themeChange } from "theme-change";
 
   let { children } = $props();
-
-  onMount(() => themeChange(false));
 
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
@@ -23,96 +19,48 @@
   });
 </script>
 
-{#snippet socialsList(classes?: string)}
-  <div class="flex flex-wrap gap-2 {classes}">
-    {#each socials as c}
-      <div class="tooltip tooltip-bottom" data-tip={c.name}>
-        <a
-          href={c.link}
-          target="_blank"
-          class="btn btn-sm btn-square"
-          aria-label={c.name}
-        >
-          <iconify-icon icon={c.icon} class="text-base"></iconify-icon>
-        </a>
-      </div>
-    {/each}
-  </div>
-{/snippet}
-
-{#snippet donwloadBtn()}
-  <div class="border-base-300 mb-auto rounded-full border print:hidden">
+<main
+  class="prose prose-headings:font-medium prose-headings:leading-snug prose-p:leading-[1.55] prose-a:font-normal prose-a:text-primary prose-a:underline prose-a:decoration-primary prose-a:underline-offset-[3px] prose-a:decoration-1 prose-a:[font-weight:inherit] prose-a:hover:text-primary prose-a:hover:decoration-primary prose-a:hover:no-underline mx-auto flex min-h-dvh max-w-4xl flex-col p-4 sm:p-8"
+>
+  <nav
+    class="not-prose border-base-300 bg-base-100 sticky top-0 z-10 -m-4 mb-0 flex items-start justify-between gap-4 border-b p-4 [view-transition-name:header] sm:pb-8"
+  >
     <a
-      class="btn btn-neutral max-sm:btn-sm"
+      href="/"
+      class="hover:no-underline"
+      class:underline={page.route.id !== "/"}
+    >
+      <h1
+        class="text-base-content shrink-0 text-3xl font-medium tracking-tight"
+      >
+        Yashash Pugalia
+      </h1>
+    </a>
+
+    <a
+      class="ui-btn-primary"
       target="_blank"
       href="https://drive.google.com/file/d/1rEI0fqz-LcTZS0YQD2azX91sZFjTpPKs/view?usp=sharing"
     >
       <iconify-icon icon="material-symbols:download-rounded" class="text-base"
-      ></iconify-icon> Download
+      ></iconify-icon>
+      Download
     </a>
-  </div>
-{/snippet}
-
-{#snippet themeSwitcher()}
-  <div class="border-base-300 mb-auto flex rounded-full border print:hidden">
-    <button
-      class="btn btn-circle btn-sm btn-ghost"
-      data-set-theme="light"
-      data-act-class="btn-active"
-      aria-label="Light Mode"
-    >
-      <iconify-icon
-        icon="material-symbols:sunny-outline-rounded"
-        class="text-base"
-      ></iconify-icon>
-    </button>
-    <button
-      class="btn btn-circle btn-sm btn-ghost"
-      data-set-theme="dark"
-      data-act-class="btn-active"
-      aria-label="Dark Mode"
-    >
-      <iconify-icon
-        icon="material-symbols:nightlight-outline-rounded"
-        class="text-base"
-      ></iconify-icon>
-    </button>
-
-    <button class="btn-active hidden">
-      so svelte doesn't remove btn-active css
-    </button>
-  </div>
-{/snippet}
-
-<main
-  class="prose prose-sm prose-a:underline prose-a:hover:no-underline prose-a:italic prose-a:[font-weight:inherit] mx-auto max-w-4xl p-4 sm:p-8 print:max-w-none"
->
-  <nav
-    class="bg-base-100/50 not-prose sticky top-0 z-10 -m-4 space-y-4 p-4 backdrop-blur [view-transition-name:header]"
-  >
-    <header class="flex justify-between gap-4">
-      <a
-        href="/"
-        class="hover:no-underline"
-        class:underline={page.route.id !== "/"}
-        class:italic={page.route.id !== "/"}
-      >
-        <h1 class="text-base-content shrink-0 text-3xl font-bold">
-          Yashash Pugalia
-        </h1>
-      </a>
-
-      {@render socialsList("not-print:hidden")}
-
-      {@render donwloadBtn()}
-    </header>
-
-    <div class="flex flex-wrap justify-between gap-2">
-      {@render socialsList("print:hidden")}
-
-      {@render themeSwitcher()}
-    </div>
   </nav>
 
-  {@render children()}
+  <div class="flex-1">
+    {@render children()}
+  </div>
+
+  <!-- text-sm -->
+  <footer
+    class="border-base-300 -mx-4 mt-12 flex flex-wrap items-center gap-4 border-t px-4 pt-4 sm:pt-8"
+  >
+    {#each socials as c}
+      <a href={c.link} target="_blank" class="flex items-center gap-1">
+        <iconify-icon icon={c.icon}></iconify-icon>
+        {c.name}
+      </a>
+    {/each}
+  </footer>
 </main>
