@@ -10,5 +10,3 @@
     <Testimonial data={t} />
   {/each}
 </div>
-
-<a href="/" class="mt-6 inline-block">← Home</a>
