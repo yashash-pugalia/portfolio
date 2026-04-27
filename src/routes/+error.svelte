@@ -16,18 +16,23 @@
   });
 </script>
 
-<div class="not-prose mt-8 place-items-center">
-  <div class="flex items-center gap-4 text-center">
-    <iconify-icon
-      icon="material-symbols:warning-outline-rounded"
-      class="text-9xl"
-    ></iconify-icon>
-    <h1 class="text-9xl font-semibold">404</h1>
-  </div>
+<div
+  class="not-prose border-l-primary mt-6 w-full  border-l-[2pt] pl-5 text-left"
+>
+  <p class="text-primary mb-1 font-medium">404</p>
 
-  <div class="my-4">
-    Going back to home in
-    <span class="badge badge-ghost tabular-nums">{counter}</span>
-    seconds!
-  </div>
+  <h1
+    class="text-base-content mb-3 text-2xl leading-snug font-medium tracking-tight"
+  >
+    This page doesn't exist.
+  </h1>
+
+  <p class="mb-6 text-base leading-[1.55] text-[#504e49]">
+    The link may be wrong or the page was removed. Redirecting to the home page
+    in
+    <span class="text-primary font-medium tabular-nums">{counter}</span>
+    second{counter === 1 ? "" : "s"}, or go there now.
+  </p>
 </div>
+
+<a href="/">← Home</a>

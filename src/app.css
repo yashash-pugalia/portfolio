@@ -1,19 +1,142 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@plugin "daisyui";
-
-@plugin "daisyui/theme" {
-  name: "light";
-  --radius-field: 2rem;
+/*
+  Kami design tokens — tw93/Kami.
+  Light parchment canvas; single chromatic ink.
+*/
+:root {
+  /* Surfaces (Kami §1) */
+  --app-base-100: #f5f4ed;
+  --app-base-200: #faf9f5;
+  --app-base-300: #e8e6dc;
+  --app-base-content: #141413;
+  /* Brand ink — links, primary actions */
+  --app-primary: #1b365d;
+  --app-primary-content: #faf9f5;
 }
-@plugin "daisyui/theme" {
-  name: "dark";
-  --color-base-100: oklch(20% 0 0);
-  --color-base-200: oklch(26% 0 0);
-  --color-base-300: oklch(37% 0 0);
-  --color-base-content: oklch(98% 0 0);
-  --radius-field: 2rem;
+
+@theme {
+  --color-base-100: var(--app-base-100);
+  --color-base-200: var(--app-base-200);
+  --color-base-300: var(--app-base-300);
+  --color-base-content: var(--app-base-content);
+  --color-primary: var(--app-primary);
+  --color-primary-content: var(--app-primary-content);
+}
+
+@layer components {
+  .ui-btn-primary {
+    /* Kami: default control radius ~8pt */
+    @apply bg-primary text-primary-content ring-primary inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ring-1 transition-opacity hover:opacity-95;
+  }
+
+  .ui-badge {
+    @apply bg-base-200 text-base-content ring-base-300 inline-flex min-w-[2ch] items-center justify-center rounded-lg px-2.5 py-1 text-sm tabular-nums ring-1;
+  }
+}
+
+@layer base {
+  html {
+    min-height: 100%;
+    background-color: var(--app-base-100);
+    color: var(--app-base-content);
+    font-family:
+      Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia,
+      "Palatino Linotype", Palatino, "Times New Roman", serif;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--app-base-100);
+    color: var(--app-base-content);
+  }
+
+  /* Kami: emphasize with brand ink, not synthetic bold */
+  .prose :where(strong):not(:where([class~="not-prose"] *)) {
+    color: var(--app-primary);
+    font-weight: 400;
+  }
+}
+
+/*
+  Typography — Kami (https://kami.tw93.fun/)
+  Keep chromatic ink sparse in running text (~5%): thin link underlines + dash lists, not heavy bullets.
+*/
+.prose {
+  --tw-prose-body: #141413;
+  --tw-prose-headings: #141413;
+  --tw-prose-lead: #3d3d3a;
+  --tw-prose-links: var(--app-primary);
+  --tw-prose-bold: #141413;
+  --tw-prose-bullets: var(--app-primary);
+  --tw-prose-counters: #6b6a64;
+  --tw-prose-hr: #e8e6dc;
+  --tw-prose-quotes: #504e49;
+  --tw-prose-quote-borders: var(--app-primary);
+  --tw-prose-captions: #6b6a64;
+  --tw-prose-code: #3d3d3a;
+  --tw-prose-pre-code: #3d3d3a;
+  --tw-prose-pre-bg: #faf9f5;
+  --tw-prose-th-borders: #e8e6dc;
+  --tw-prose-td-borders: #e5e3d8;
+}
+
+/* Kami: dash list (editorial), warm stone — not primary bullets */
+.prose :where(ul):not(:where([class~="not-prose"] *)) {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *)) {
+  position: relative;
+  padding-left: 1.1em;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #6b6a64;
+  font-weight: 400;
+}
+
+/* Kami: code — JetBrains Mono, ivory surface, ~6pt radius, hairline border */
+.prose :where(code):not(:where(pre *, [class~="not-prose"] *)) {
+  font-family:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+  font-size: 0.875em;
+  font-weight: 400;
+}
+
+.prose :where(pre):not(:where([class~="not-prose"] *)) {
+  font-family:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  background-color: var(--app-base-200);
+  color: var(--app-base-content);
+  border: 1px solid var(--app-base-300);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.prose :where(pre code):not(:where([class~="not-prose"] *)) {
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border: 0;
+}
+
+/* Highlight pulse on /testimonials — solid fills (no alpha) */
+.testimonial-highlight {
+  background-color: #ddd9cf;
 }
 
 /* To avoid layout shift */
