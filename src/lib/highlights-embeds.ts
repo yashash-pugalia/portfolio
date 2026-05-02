@@ -1,14 +1,11 @@
-/**
- * Embedded X / LinkedIn posts for `/highlights` and matching `/work/[slug]` detail pages.
- */
-
 export type HighlightEmbedItem =
   | {
       kind: "x";
       key: string;
       id: string;
       href: string;
-      /** ISO 8601 (UTC); tweet time from numeric status ID. */
+      xLink?: string;
+      linkedinLink?: string;
       publishedAt: string;
     }
   | {
@@ -16,93 +13,110 @@ export type HighlightEmbedItem =
       key: string;
       urn: string;
       href: string;
-      /** ISO 8601 (UTC); set manually — LinkedIn does not expose a stable ID-derived time here. */
+      xLink?: string;
+      linkedinLink?: string;
       publishedAt: string;
+    }
+  | {
+      kind: "image";
+      key: string;
+      src: string;
+      alt: string;
+      caption: string;
+      dateLabel?: string;
+      xLink?: string;
+      linkedinLink?: string;
+      publishedAt: string;
+    }
+  | {
+      kind: "imageGroup";
+      key: string;
+      caption: string;
+      dateLabel?: string;
+      xLink?: string;
+      linkedinLink?: string;
+      publishedAt: string;
+      images: {
+        src: string;
+        alt: string;
+      }[];
     };
 
-const TWITTER_SNOWFLAKE_EPOCH_MS = 1288834974657;
-
-/** Publication time encoded in X / Twitter numeric `status` ids. */
-export function isoFromTweetSnowflake(statusId: string): string {
-  const ms = Number((BigInt(statusId) >> 22n) + BigInt(TWITTER_SNOWFLAKE_EPOCH_MS));
-  return new Date(ms).toISOString();
-}
-
-function sortByPublishedAtDesc(
-  items: HighlightEmbedItem[],
-): HighlightEmbedItem[] {
-  return [...items].sort(
-    (a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt),
-  );
-}
-
-/** Endorsements around Windows 11 in Svelte + same-era threads (sorted newest first). */
-export const embedsWindows11Web = sortByPublishedAtDesc([
-  {
-    kind: "x",
-    key: "1666673933150740480",
-    id: "1666673933150740480",
-    href: "https://x.com/yashash_pugalia/status/1666673933150740480",
-    publishedAt: isoFromTweetSnowflake("1666673933150740480"),
-  },
+export const embedsWindows11Web: HighlightEmbedItem[] = [
+  // {
+  //   kind: "x",
+  //   key: "1666673933150740480",
+  //   id: "1666673933150740480",
+  //   href: "https://x.com/yashash_pugalia/status/1666673933150740480",
+  //   publishedAt: "2023-06-08T05:10:05.624Z",
+  // },
   {
     kind: "x",
     key: "1663581820477120512",
     id: "1663581820477120512",
     href: "https://x.com/yashash_pugalia/status/1663581820477120512",
-    publishedAt: isoFromTweetSnowflake("1663581820477120512"),
+    publishedAt: "2023-05-30T16:23:08.514Z",
   },
   {
     kind: "x",
     key: "1657097805733715987",
     id: "1657097805733715987",
     href: "https://x.com/Rich_Harris/status/1657097805733715987",
-    publishedAt: isoFromTweetSnowflake("1657097805733715987"),
+    publishedAt: "2023-05-12T18:57:58.932Z",
   },
   {
     kind: "x",
     key: "1656644824190308352",
     id: "1656644824190308352",
     href: "https://x.com/EricSimons/status/1656644824190308352",
-    publishedAt: isoFromTweetSnowflake("1656644824190308352"),
-  },
-  {
-    kind: "x",
-    key: "1656493176088150017",
-    id: "1656493176088150017",
-    href: "https://x.com/rauchg/status/1656493176088150017",
-    publishedAt: isoFromTweetSnowflake("1656493176088150017"),
+    publishedAt: "2023-05-11T12:57:59.716Z",
   },
   {
     kind: "x",
     key: "1656500100775157760",
     id: "1656500100775157760",
     href: "https://x.com/SvelteSociety/status/1656500100775157760",
-    publishedAt: isoFromTweetSnowflake("1656500100775157760"),
+    publishedAt: "2023-05-11T03:22:54.965Z",
   },
-]);
+  {
+    kind: "x",
+    key: "1656493176088150017",
+    id: "1656493176088150017",
+    href: "https://x.com/rauchg/status/1656493176088150017",
+    publishedAt: "2023-05-11T02:55:23.991Z",
+  },
+];
 
-export const embedsHaast = sortByPublishedAtDesc([
+export const embedsHaast: HighlightEmbedItem[] = [
   {
     kind: "x",
     key: "2042317998997061722",
     id: "2042317998997061722",
     href: "https://x.com/yashash_pugalia/status/2042317998997061722",
-    publishedAt: isoFromTweetSnowflake("2042317998997061722"),
+    linkedinLink:
+      "https://www.linkedin.com/posts/yashash-pugalia_the-big-news-is-finally-out-haast-has-raised-activity-7448119710304374784-h43q?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD315asBwZb0UsVW7y586I1DcHLL0aXjFQk",
+    publishedAt: "2026-04-09T19:05:30.051Z",
   },
   {
-    kind: "x",
-    key: "2029779608200188281",
-    id: "2029779608200188281",
-    href: "https://x.com/yashash_pugalia/status/2029779608200188281",
-    publishedAt: isoFromTweetSnowflake("2029779608200188281"),
+    kind: "image",
+    key: "haast-engineer-award",
+    src: "/highlights/haast engineer award.webp",
+    alt: "Haast engineer award",
+    caption: "Haast Longest-serving Engineer Award",
+    dateLabel: "6 March 2026",
+    xLink: "https://x.com/yashash_pugalia/status/2029779608200188281?s=20",
+    publishedAt: "2026-03-06T12:00:00.000Z",
   },
   {
-    kind: "linkedin",
-    key: "7402502643920785409",
-    urn: "urn:li:ugcPost:7402502643920785409",
-    href: "https://www.linkedin.com/posts/were-officially-in-festive-mode-at-haast-ugcPost-7402502643920785409-ELPf",
-    publishedAt: "2025-12-12T06:30:00.000Z",
+    kind: "image",
+    key: "haast-xmas-party",
+    src: "/highlights/haast xmas party.webp",
+    alt: "Haast Christmas party",
+    caption: "Haast the Halls: Christmas Party 🎄",
+    dateLabel: "3 Dec 2025",
+    linkedinLink:
+      "https://www.linkedin.com/posts/were-officially-in-festive-mode-at-haast-ugcPost-7402502643920785409-ELPf/",
+    publishedAt: "2025-12-03T12:00:00.000Z",
   },
   {
     kind: "linkedin",
@@ -118,33 +132,57 @@ export const embedsHaast = sortByPublishedAtDesc([
     href: "https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C",
     publishedAt: "2023-05-09T12:00:00.000Z",
   },
-]);
-
-export const embedsGeneral = sortByPublishedAtDesc([
-  {
-    kind: "linkedin",
-    key: "7453177830638551040",
-    urn: "urn:li:ugcPost:7453177830638551040",
-    href: "https://www.linkedin.com/posts/yashash-pugalia_had-a-great-time-at-a-smally-combinator-ugcPost-7453177830638551040-5rH5",
-    publishedAt: "2026-03-20T06:30:00.000Z",
-  },
-]);
-
-export type HighlightPageSection = {
-  id: string;
-  heading: string;
-  items: HighlightEmbedItem[];
-};
-
-export const highlightPageSections: HighlightPageSection[] = [
-  { id: "general", heading: "General", items: embedsGeneral },
-  { id: "haast", heading: "Haast", items: embedsHaast },
-  { id: "win11", heading: "Windows 11 Web", items: embedsWindows11Web },
 ];
 
-/** Matches `ExperienceItem.slug` / `ProjectItem.slug` from `resume-work-content`. */
-export function getEmbedsForWorkSlug(slug: string): HighlightEmbedItem[] {
-  switch (slug) {
+export const embedsGeneral: HighlightEmbedItem[] = [
+  // {
+  //   kind: "imageGroup",
+  //   key: "yc-apr-2026-group",
+  //   caption: "Dinner with YC partners Jon Xu & Jared Friedman",
+  //   dateLabel: "17-18 Apr 2026",
+  //   xLink: "https://x.com/yashash_pugalia/status/2047301953739510270?s=20",
+  //   linkedinLink:
+  //     "https://www.linkedin.com/posts/yashash-pugalia_had-a-great-time-at-a-smally-combinator-activity-7453177831636832256-iGYo?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD315asBwZb0UsVW7y586I1DcHLL0aXjFQk",
+  //   publishedAt: "2026-04-18T12:00:00.000Z",
+  //   images: [
+  //     {
+  //       src: "/highlights/yc startup school 2.webp",
+  //       alt: "YC Startup School",
+  //     },
+  //     {
+  //       src: "/highlights/yc dinner with jon xu.webp",
+  //       alt: "YC dinner with Jon Xu & Jared Friedman",
+  //     },
+  //     {
+  //       src: "/highlights/yc dinner.webp",
+  //       alt: "YC dinner",
+  //     },
+  //   ],
+  // },
+  {
+    kind: "x",
+    key: "2047301953739510270",
+    id: "2047301953739510270",
+    href: "https://x.com/yashash_pugalia/status/2047301953739510270",
+    publishedAt: "2026-04-23T13:09:57.459Z",
+  },
+  // {
+  //   kind: "linkedin",
+  //   key: "7453177830638551040",
+  //   urn: "urn:li:ugcPost:7453177830638551040",
+  //   href: "https://www.linkedin.com/posts/yashash-pugalia_had-a-great-time-at-a-smally-combinator-ugcPost-7453177830638551040-5rH5/",
+  //   publishedAt: "2026-03-20T06:30:00.000Z",
+  // },
+];
+
+export const highlightPageEmbeds: HighlightEmbedItem[] = [
+  ...embedsGeneral,
+  ...embedsHaast,
+  ...embedsWindows11Web,
+];
+
+export function getEmbedsForWorkId(id: string): HighlightEmbedItem[] {
+  switch (id) {
     case "haast":
       return [...embedsHaast];
     case "windows11-web":
@@ -154,9 +192,11 @@ export function getEmbedsForWorkSlug(slug: string): HighlightEmbedItem[] {
   }
 }
 
-/** Rough heights for shortest-column packing (iframes are cross-origin). */
 export function estimateEmbedHeight(item: HighlightEmbedItem): number {
-  return item.kind === "x" ? 360 : 720;
+  if (item.kind === "x") return 360;
+  if (item.kind === "image") return 430;
+  if (item.kind === "imageGroup") return 500;
+  return 720;
 }
 
 export function distributeEmbedColumns(

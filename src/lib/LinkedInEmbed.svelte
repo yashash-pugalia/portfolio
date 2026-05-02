@@ -7,9 +7,8 @@
 
   let { urn, variant = "default" }: Props = $props();
 
-  /** `collapsed=1` trims long posts in the embed chrome. */
   const src = $derived(
-    `https://www.linkedin.com/embed/feed/update/${encodeURIComponent(urn)}?collapsed=1`,
+    `https://www.linkedin.com/embed/feed/update/${encodeURIComponent(urn)}`,
   );
 
   const shellClass = $derived(

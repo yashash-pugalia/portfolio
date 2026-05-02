@@ -41,4 +41,4 @@ I'm particularly interested in building product experiences at the intersection 
 
 <SvelteMarkdown source={bio} renderers={{ link: MarkdownLink }} />
 
-<SvelteMarkdown source={selectedLinks} renderers={{ link: MarkdownLink }} />
+<!-- <SvelteMarkdown source={selectedLinks} renderers={{ link: MarkdownLink }} /> -->

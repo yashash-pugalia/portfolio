@@ -26,11 +26,11 @@
     class="not-prose border-base-300 bg-base-100 sticky top-0 z-10 -mx-4 mb-0 flex items-start justify-between gap-4 border-b px-4 py-4 [view-transition-name:header] sm:items-center sm:py-8"
   >
     <div
-      class="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+      class="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-3 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-y-0"
     >
       <a
         href="/"
-        class="hover:no-underline"
+        class="hover:no-underline sm:col-start-1 sm:row-start-1"
         class:underline={page.route.id !== "/"}
       >
         <h1
@@ -40,8 +40,20 @@
         </h1>
       </a>
 
+      <a
+        class="ui-btn-primary shrink-0 justify-self-end sm:col-start-3 sm:row-start-1"
+        target="_blank"
+        rel="noreferrer"
+        href="https://drive.google.com/file/d/1rEI0fqz-LcTZS0YQD2azX91sZFjTpPKs/view?usp=sharing"
+        aria-label="Open resume (PDF)"
+      >
+        <iconify-icon icon="material-symbols:download-rounded" class="text-base"
+        ></iconify-icon>
+        Resume
+      </a>
+
       <nav
-        class="text-base-content/90 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"
+        class="text-base-content/90 col-span-2 row-start-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:justify-end"
         aria-label="Site"
       >
         <a href="/" class:underline={page.route.id === "/"}>About</a>
@@ -55,18 +67,6 @@
         >
       </nav>
     </div>
-
-    <a
-      class="ui-btn-primary shrink-0"
-      target="_blank"
-      rel="noreferrer"
-      href="https://drive.google.com/file/d/1rEI0fqz-LcTZS0YQD2azX91sZFjTpPKs/view?usp=sharing"
-      aria-label="Open resume (PDF)"
-    >
-      <iconify-icon icon="material-symbols:download-rounded" class="text-base"
-      ></iconify-icon>
-      Resume
-    </a>
   </header>
 
   <div class="flex-1">
