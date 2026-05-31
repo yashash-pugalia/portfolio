@@ -74,7 +74,6 @@
     {@render children()}
   </div>
 
-  <!-- text-sm -->
   <footer
     class="border-base-300 -mx-4 mt-12 flex flex-wrap items-center gap-4 border-t px-4 py-4 sm:py-8"
   >

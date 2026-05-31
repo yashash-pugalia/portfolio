@@ -27,7 +27,7 @@
     This page doesn't exist.
   </h1>
 
-  <p class="mb-6 text-base leading-[1.55] text-[#504e49]">
+  <p class="mb-6 text-base leading-[1.55] text-[var(--app-prose-quotes)]">
     The link may be wrong or the page was removed. Redirecting to the home page
     in
     <span class="text-primary font-medium tabular-nums">{counter}</span>

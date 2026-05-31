@@ -52,7 +52,7 @@
   <div
     class="pointer-events-none relative z-1 flex min-w-0 flex-col gap-3 [&_a]:pointer-events-auto"
   >
-    <p class="leading-snug text-[#504e49] not-italic">
+    <p class="leading-snug text-[var(--app-prose-quotes)] not-italic">
       {@html data.quote}
     </p>
 
