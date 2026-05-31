@@ -14,6 +14,7 @@
   /* Brand ink — links, primary actions */
   --app-primary: #1b365d;
   --app-primary-content: #faf9f5;
+  --app-prose-quotes: #504e49;
 }
 
 @theme {
@@ -29,10 +30,6 @@
   .ui-btn-primary {
     /* Kami: default control radius ~8pt */
     @apply bg-primary text-primary-content ring-primary inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ring-1 transition-opacity hover:opacity-95;
-  }
-
-  .ui-badge {
-    @apply bg-base-200 text-base-content ring-base-300 inline-flex min-w-[2ch] items-center justify-center rounded-lg px-2.5 py-1 text-sm tabular-nums ring-1;
   }
 }
 
@@ -73,7 +70,7 @@
   --tw-prose-bullets: var(--app-primary);
   --tw-prose-counters: #6b6a64;
   --tw-prose-hr: #e8e6dc;
-  --tw-prose-quotes: #504e49;
+  --tw-prose-quotes: var(--app-prose-quotes);
   --tw-prose-quote-borders: var(--app-primary);
   --tw-prose-captions: #6b6a64;
   --tw-prose-code: #3d3d3a;

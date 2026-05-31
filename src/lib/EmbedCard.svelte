@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { formatHighlightDate, type HighlightEmbedItem } from "$lib/highlights-embeds";
+  import {
+    formatHighlightDate,
+    type HighlightEmbedItem,
+  } from "$lib/highlights-embeds";
 
   interface Props {
     item: HighlightEmbedItem;
@@ -13,12 +16,19 @@
 
 {#snippet figcaptionContent(item: HighlightEmbedItem)}
   {item.caption}
-  <span class="block text-base-content/70">{formatHighlightDate(item.date)}</span>
+  <span class="block text-base-content/70"
+    >{formatHighlightDate(item.date)}</span
+  >
   {#if item.xLink || item.linkedinLink || item.ytLink || item.hnLink}
-    <span class="mt-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs">
+    <span
+      class="mt-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs"
+    >
       {#if item.xLink}
-        <a href={item.xLink} target="_blank" rel="noreferrer" class={externalLinkClass}
-          >X (Twitter)</a
+        <a
+          href={item.xLink}
+          target="_blank"
+          rel="noreferrer"
+          class={externalLinkClass}>X (Twitter)</a
         >
       {/if}
       {#if item.linkedinLink}
@@ -30,13 +40,19 @@
         >
       {/if}
       {#if item.ytLink}
-        <a href={item.ytLink} target="_blank" rel="noreferrer" class={externalLinkClass}
-          >YouTube</a
+        <a
+          href={item.ytLink}
+          target="_blank"
+          rel="noreferrer"
+          class={externalLinkClass}>YouTube</a
         >
       {/if}
       {#if item.hnLink}
-        <a href={item.hnLink} target="_blank" rel="noreferrer" class={externalLinkClass}
-          >Hacker News</a
+        <a
+          href={item.hnLink}
+          target="_blank"
+          rel="noreferrer"
+          class={externalLinkClass}>Hacker News</a
         >
       {/if}
     </span>
@@ -45,7 +61,9 @@
 
 <div class="flex w-full min-w-0 flex-col">
   {#if item.kind === "imageGroup"}
-    <figure class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300">
+    <figure
+      class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300"
+    >
       <div class="grid w-full grid-cols-2 gap-1 p-1 pb-0">
         <img
           src={item.images[0].src}
@@ -78,7 +96,9 @@
       </figcaption>
     </figure>
   {:else}
-    <figure class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300">
+    <figure
+      class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300"
+    >
       <div class="p-1 pb-0">
         <img
           src={item.src}

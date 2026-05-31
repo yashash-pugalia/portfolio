@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import EmbedCard from "$lib/EmbedCard.svelte";
   import {
     distributeEmbedColumns,
     type HighlightEmbedItem,
   } from "$lib/highlights-embeds";
+  import { onMount } from "svelte";
 
   interface Props {
     items: HighlightEmbedItem[];

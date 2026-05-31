@@ -1,6 +1,6 @@
 <script lang="ts">
-  import MarkdownLink from "./MarkdownLink.svelte";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
+  import MarkdownLink from "$lib/MarkdownLink.svelte";
 
   const bio = `I'm a software engineer. I'm originally from Kolkata, India, and brought up in New Delhi. I owe much of my career to the Web and open source.
 

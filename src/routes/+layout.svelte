@@ -7,6 +7,8 @@
 
   let { children } = $props();
 
+  const pathname = $derived(page.url.pathname);
+
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
 
@@ -56,14 +58,13 @@
         class="text-base-content/90 col-span-2 row-start-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:justify-end"
         aria-label="Site"
       >
-        <a href="/" class:underline={page.route.id === "/"}>About</a>
-        <a href="/work" class:underline={page.route.id === "/work"}>Work</a>
-        <a href="/highlights" class:underline={page.route.id === "/highlights"}
+        <a href="/" class:underline={pathname === "/"}>About</a>
+        <a href="/work" class:underline={pathname.startsWith("/work")}>Work</a>
+        <a href="/highlights" class:underline={pathname === "/highlights"}
           >Highlights</a
         >
-        <a
-          href="/testimonials"
-          class:underline={page.route.id === "/testimonials"}>Testimonials</a
+        <a href="/testimonials" class:underline={pathname === "/testimonials"}
+          >Testimonials</a
         >
       </nav>
     </div>
@@ -73,7 +74,6 @@
     {@render children()}
   </div>
 
-  <!-- text-sm -->
   <footer
     class="border-base-300 -mx-4 mt-12 flex flex-wrap items-center gap-4 border-t px-4 py-4 sm:py-8"
   >

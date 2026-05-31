@@ -16,13 +16,19 @@ function stripHtml(text: string): string {
 
 function workLink(item: WorkItem): string {
   const meta = [item.years, item.location].filter(Boolean).join(", ");
-  const note = collapseWhitespace(meta ? `${meta}. ${item.summary}` : item.summary);
+  const note = collapseWhitespace(
+    meta ? `${meta}. ${item.summary}` : item.summary,
+  );
   return `- [${item.title}](${SITE_URL}/work/${item.id}): ${note}`;
 }
 
 function workDetailBlock(item: WorkItem): string[] {
   const meta = [item.years, item.location].filter(Boolean).join(" · ");
-  const lines = [`**${item.title}**${meta ? ` (${meta})` : ""}`, "", item.summary.trim()];
+  const lines = [
+    `**${item.title}**${meta ? ` (${meta})` : ""}`,
+    "",
+    item.summary.trim(),
+  ];
 
   if (item.details.trim()) {
     lines.push("", item.details.trim());
@@ -47,10 +53,12 @@ function testimonialLink(t: (typeof testimonials)[number]): string {
 }
 
 export function generateLlmsTxt(): string {
-  const optionalWorkDetails = [...experience, ...projects].flatMap((item, index) => [
-    ...(index > 0 ? ["", "---", ""] : []),
-    ...workDetailBlock(item),
-  ]);
+  const optionalWorkDetails = [...experience, ...projects].flatMap(
+    (item, index) => [
+      ...(index > 0 ? ["", "---", ""] : []),
+      ...workDetailBlock(item),
+    ],
+  );
 
   const lines = [
     "# Yashash Pugalia",

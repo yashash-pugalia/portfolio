@@ -1,16 +1,10 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
+  import { testimonialSlug, type Testimonial } from "$lib/index.svelte";
   import { onMount, tick } from "svelte";
 
   interface Props {
-    data: {
-      name: string;
-      role: string;
-      quote: string;
-      link?: string;
-      linkPerson: string;
-      avatar: string;
-    };
+    data: Testimonial;
     class?: string;
   }
 
@@ -32,9 +26,9 @@
   };
 
   onMount(() => {
-    if ($page.route.id !== "/testimonials") return;
+    if (page.route.id !== "/testimonials") return;
 
-    const id = new URLSearchParams($page.url.search)?.get("highlight");
+    const id = page.url.searchParams.get("highlight");
     if (id) highlightTestimonial(id);
   });
 </script>
@@ -42,7 +36,7 @@
 <blockquote
   class="prose prose-sm border-base-300 border-l-primary bg-base-200 text-base-content prose-p:my-0 prose-p:leading-snug prose-a:text-primary prose-a:underline prose-a:decoration-primary prose-a:underline-offset-2 hover:prose-a:text-primary hover:prose-a:decoration-primary relative my-0 flex h-full max-w-none flex-none flex-col rounded-lg border border-l-[2pt] py-3 pr-2 pl-4 leading-snug not-italic transition-[border-color,box-shadow] duration-200 hover:shadow-[0_4px_24px_rgba(0,0,0,0.05)] {classes}"
   class:hover:border-primary={data.link}
-  id={data.name.toLowerCase().replace(/ /g, "-")}
+  id={testimonialSlug(data.name)}
 >
   <!-- svelte-ignore a11y_missing_content -->
   {#if data.link}
@@ -58,7 +52,7 @@
   <div
     class="pointer-events-none relative z-1 flex min-w-0 flex-col gap-3 [&_a]:pointer-events-auto"
   >
-    <p class="leading-snug text-[#504e49] not-italic">
+    <p class="leading-snug text-[var(--app-prose-quotes)] not-italic">
       {@html data.quote}
     </p>
 

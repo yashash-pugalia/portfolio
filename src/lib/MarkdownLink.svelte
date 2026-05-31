@@ -10,5 +10,5 @@
 {#if href.startsWith("/")}
   <a {href}>{text}</a>
 {:else}
-  <a {href} target="_blank">{text}</a>
+  <a {href} target="_blank" rel="noopener noreferrer">{text}</a>
 {/if}
