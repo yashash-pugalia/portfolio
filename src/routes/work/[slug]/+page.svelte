@@ -24,7 +24,7 @@
   let wideLayoutEmbeds = $state(false);
 
   onMount(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 640px)");
     const apply = () => {
       wideLayoutEmbeds = mq.matches;
     };
@@ -76,7 +76,7 @@
 {/if}
 
 {#if workEmbeds.length > 0}
-  <h2 class="mt-14 text-[color:var(--tw-prose-headings)]">Highlights</h2>
+  <h3 class="mt-8 text-[color:var(--tw-prose-headings)]">Highlights</h3>
   <EmbedGridSection
     items={workEmbeds}
     wideLayout={wideLayoutEmbeds}
