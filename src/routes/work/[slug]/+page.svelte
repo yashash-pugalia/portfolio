@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import EmbedGridSection from "$lib/EmbedGridSection.svelte";
   import MarkdownLink from "../../MarkdownLink.svelte";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
@@ -20,18 +19,6 @@
   const work = $derived(data.work);
   const workEmbeds = $derived(getEmbedsForWorkId(work.id));
   const detailMarkdown = $derived(work.details.trim());
-
-  let wideLayoutEmbeds = $state(false);
-
-  onMount(() => {
-    const mq = window.matchMedia("(min-width: 640px)");
-    const apply = () => {
-      wideLayoutEmbeds = mq.matches;
-    };
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
-  });
 </script>
 
 <svelte:head>
@@ -77,9 +64,5 @@
 
 {#if workEmbeds.length > 0}
   <h3 class="mt-8 text-[color:var(--tw-prose-headings)]">Highlights</h3>
-  <EmbedGridSection
-    items={workEmbeds}
-    wideLayout={wideLayoutEmbeds}
-    sectionClass="not-prose mt-6"
-  />
+  <EmbedGridSection items={workEmbeds} sectionClass="not-prose mt-6" />
 {/if}
