@@ -6,7 +6,7 @@
   let wideLayout = $state(false);
 
   onMount(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 640px)");
     const apply = () => {
       wideLayout = mq.matches;
     };
