@@ -14,29 +14,57 @@ export const socials = [
     icon: "lucide:twitter",
     link: "https://x.com/yashash_pugalia",
   },
-  // {
-  //   name: "Instagram",
-  //   icon: "lucide:instagram",
-  //   link: "https://www.instagram.com/yashash_pugalia/",
-  // },
+  {
+    name: "Instagram",
+    icon: "lucide:instagram",
+    link: "https://www.instagram.com/yashash_pugalia/",
+  },
+  {
+    name: "Discord",
+    icon: "ic:outline-discord",
+    link: "https://discord.com/users/759823534100316200",
+  },
+  {
+    name: "YouTube",
+    icon: "lucide:youtube",
+    link: "https://www.youtube.com/@yashashpugalia",
+  },
   {
     name: "Email",
     icon: "lucide:mail",
     link: "mailto:yashash1511@gmail.com",
   },
-  // {
-  //   name: "Discord",
-  //   icon: "ic:outline-discord",
-  //   link: "https://discord.com/users/759823534100316200",
-  // },
-  // {
-  //   name: "YouTube",
-  //   icon: "lucide:youtube",
-  //   link: "https://www.youtube.com/@yashashpugalia",
-  // },
 ];
 
-export const testimonials = [
+export type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  linkPerson: string;
+  avatar: string;
+  link?: string;
+  workIds?: string[];
+};
+
+export function testimonialSlug(name: string): string {
+  return name.toLowerCase().replace(/ /g, "-");
+}
+
+const workTestimonialOrder: Record<string, string[]> = {
+  "realm-labs": ["will-yoo"],
+  "windows11-web": ["guillermo-rauch", "rich-harris", "eric-simons"],
+};
+
+export function getTestimonialsForWorkId(workId: string): Testimonial[] {
+  const order = workTestimonialOrder[workId];
+  if (!order) return [];
+  const matching = testimonials.filter((t) => t.workIds?.includes(workId));
+  return order
+    .map((slug) => matching.find((t) => testimonialSlug(t.name) === slug))
+    .filter((t): t is Testimonial => t != null);
+}
+
+export const testimonials: Testimonial[] = [
   {
     name: "Julie Zhuo",
     role: "Co-Founder Sundial | ex-VP Design Facebook",
@@ -53,6 +81,7 @@ export const testimonials = [
     link: "https://x.com/rauchg/status/1656493176088150017",
     linkPerson: "https://x.com/rauchg",
     avatar: "https://unavatar.io/x/rauchg",
+    workIds: ["windows11-web"],
   },
   {
     name: "Eric Simons",
@@ -62,6 +91,7 @@ export const testimonials = [
     link: "https://x.com/EricSimons/status/1656644824190308352",
     linkPerson: "https://www.linkedin.com/in/eric-simons-a464a664/",
     avatar: "https://unavatar.io/linkedin/eric-simons-a464a664",
+    workIds: ["windows11-web"],
   },
   {
     name: "Rich Harris",
@@ -71,6 +101,7 @@ export const testimonials = [
     link: "https://x.com/Rich_Harris/status/1657097805733715987",
     linkPerson: "https://x.com/Rich_Harris",
     avatar: "https://unavatar.io/x/Rich_Harris",
+    workIds: ["windows11-web"],
   },
   {
     name: "Will Yoo",
@@ -79,6 +110,7 @@ export const testimonials = [
     role: "Co-Founder Unto Labs, Thru",
     linkPerson: "https://www.linkedin.com/in/bywillyoo/",
     avatar: "https://unavatar.io/linkedin/bywillyoo",
+    workIds: ["realm-labs"],
   },
   // {
   //   name: "David Peng",

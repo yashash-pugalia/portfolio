@@ -26,8 +26,9 @@ export type HighlightEmbedItem =
     }[];
   };
 
-export function formatHighlightDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-GB", {
+export function formatHighlightDate(isoDate: string): string {
+  const [year, month] = isoDate.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, 1)).toLocaleDateString("en-GB", {
     month: "long",
     year: "numeric",
     timeZone: "UTC",
@@ -43,7 +44,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     caption: "Windows 11 Web: JSNation Open Source Awards",
     xLink: "https://x.com/yashash_pugalia/status/1663566935085424642",
     ytLink: "https://youtu.be/V3FzeG3OneI",
-    date: "2023-05-30T16:23:08.514Z",
+    date: "2023-05-30",
   },
   {
     kind: "image",
@@ -52,7 +53,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     alt: "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos @yashash_pugalia: win11-svelte.vercel.app always get nervous seeing svelte at the top of hacker news but i guess i shouldn't have been",
     caption: "Windows 11 Web: Rich Harris, Creator of Svelte",
     xLink: "https://x.com/Rich_Harris/status/1657097805733715987",
-    date: "2023-05-12T18:57:58.932Z",
+    date: "2023-05-12",
   },
   {
     kind: "image",
@@ -61,7 +62,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     alt: "Great work on this @yashash_pugalia! One idea I had- you could even power the file system and standalone terminal app using the webcontainers.io api 👀",
     caption: "Windows 11 Web: Eric Simons, CEO Bolt.new",
     xLink: "https://x.com/EricSimons/status/1656644824190308352",
-    date: "2023-05-11T12:57:59.716Z",
+    date: "2023-05-11",
   },
   {
     kind: "image",
@@ -71,7 +72,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     caption: "Windows 11 Web: Svelte Society, Hacker News #1",
     xLink: "https://x.com/SvelteSociety/status/1656500100775157760",
     hnLink: "https://news.ycombinator.com/item?id=35896505",
-    date: "2023-05-11T03:22:54.965Z",
+    date: "2023-05-11",
   },
   {
     kind: "image",
@@ -80,7 +81,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     alt: "Well played win11-svelte.vercel.app Also: modern web browsers are engineering marvels",
     caption: "Windows 11 Web: Guillermo Rauch, CEO Vercel",
     xLink: "https://x.com/rauchg/status/1656493176088150017",
-    date: "2023-05-11T02:55:23.991Z",
+    date: "2023-05-11",
   },
 ];
 
@@ -123,7 +124,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
     caption: "Haast: Seed, Airtree (A$6M)",
     linkedinLink:
       "https://www.linkedin.com/posts/yashash-pugalia_seedround-startup-ai-share-7325814092743561216-YV8Q",
-    date: "2025-05-07T12:00:00.000Z",
+    date: "2025-05-07",
   },
   {
     kind: "image",
@@ -133,7 +134,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
     caption: "Haast: Pre-Seed, Aura Ventures (A$1.2M)",
     linkedinLink:
       "https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C",
-    date: "2023-05-09T12:00:00.000Z",
+    date: "2023-05-09",
   },
 ];
 
