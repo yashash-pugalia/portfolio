@@ -179,25 +179,3 @@ export function getEmbedsForWorkId(id: string): HighlightEmbedItem[] {
       return [];
   }
 }
-
-export function estimateEmbedHeight(item: HighlightEmbedItem): number {
-  if (item.kind === "image") return 430;
-  return 500;
-}
-
-export function distributeEmbedColumns(
-  items: HighlightEmbedItem[],
-  n: number,
-): HighlightEmbedItem[][] {
-  const cols: HighlightEmbedItem[][] = Array.from({ length: n }, () => []);
-  const heights = new Array<number>(n).fill(0);
-  for (const item of items) {
-    let best = 0;
-    for (let j = 1; j < n; j++) {
-      if (heights[j] < heights[best]) best = j;
-    }
-    cols[best].push(item);
-    heights[best] += estimateEmbedHeight(item);
-  }
-  return cols;
-}
