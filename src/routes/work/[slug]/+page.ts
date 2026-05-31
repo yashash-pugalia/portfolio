@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
-import type { PageLoad } from "./$types";
 import { getWorkById } from "$lib/resume-work-content";
+import type { PageLoad } from "./$types";
 
 export const load: PageLoad = ({ params }) => {
   const work = getWorkById(params.slug);

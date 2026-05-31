@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="not-prose border-l-primary mt-6 w-full  border-l-[2pt] pl-5 text-left"
+  class="not-prose border-l-primary mt-6 w-full border-l-[2pt] pl-5 text-left"
 >
   <p class="text-primary mb-1 font-medium">404</p>
 
