@@ -181,8 +181,8 @@ export function getEmbedsForWorkId(id: string): HighlightEmbedItem[] {
 }
 
 export function estimateEmbedHeight(item: HighlightEmbedItem): number {
-  if (item.kind === "image") return 430;
-  return 500;
+  if (item.kind === "imageGroup") return 500;
+  return 430;
 }
 
 export function distributeEmbedColumns(

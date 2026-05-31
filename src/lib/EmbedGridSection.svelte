@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import EmbedCard from "$lib/EmbedCard.svelte";
   import {
     distributeEmbedColumns,
@@ -7,12 +8,22 @@
 
   interface Props {
     items: HighlightEmbedItem[];
-    wideLayout: boolean;
     /** e.g. `not-prose mt-6` */
     sectionClass?: string;
   }
 
-  let { items, wideLayout, sectionClass = "" }: Props = $props();
+  let { items, sectionClass = "" }: Props = $props();
+  let wideLayout = $state(false);
+
+  onMount(() => {
+    const mq = window.matchMedia("(min-width: 640px)");
+    const apply = () => {
+      wideLayout = mq.matches;
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  });
 </script>
 
 {#if items.length > 0}
