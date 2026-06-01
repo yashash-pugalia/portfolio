@@ -45,9 +45,8 @@ export const projects: WorkItem[] = [
     github: "https://github.com/yashash-pugalia/win11-svelte",
     years: "2021 - 2022",
     summary:
-      "Browser-based Windows 11 desktop replicas in Svelte and React—20M+ visits, #1 on Hacker News, Vercel-sponsored, and widely picked up by the JavaScript community.",
-    details: `- Built browser-based Windows 11 replicas [win11-svelte](https://win11.yashashpugalia.com/) and [win11-react](https://win11.blueedge.me), reaching **20M+ visits** and earning [11K GitHub stars](https://github.com/yashash-pugalia), sponsored by Vercel
-- [Hacker News](https://news.ycombinator.com/item?id=35896505) (#1 on News Y Combinator) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/))
+      "Built browser-based Windows 11 replicas [win11-svelte](https://win11.yashashpugalia.com/) and [win11-react](https://win11.blueedge.me), reaching **20M+ visits** and earning [11K GitHub stars](https://github.com/yashash-pugalia), sponsored by Vercel",
+    details: `- #1 on [Hacker News](https://news.ycombinator.com/item?id=35896505) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/))
 - [JSNation open-source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year'
 - Endorsed by [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017) (CEO Vercel), [Eric Simons](https://x.com/EricSimons/status/1656644824190308352) (CEO Bolt.new), [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987) (Creator Svelte) and [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)`,
   },

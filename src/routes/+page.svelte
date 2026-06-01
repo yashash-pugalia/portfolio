@@ -10,7 +10,7 @@ Built browser-based replicas of Windows 11 ([win11-svelte](https://win11.yashash
 
 After that I worked with early-stage startups, building MVPs and product systems across the full-stack.
 
-I joined [Haast](https://www.haast.io) as a [founding frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C/) at Pre-Seed. I built and owned much of the frontend for a B2B AI platform focused on marketing and legal compliance, as the company scaled from pre-seed through [Seed (Airtree A$6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into [Series A (Peak XV $12M)](https://www.axios.com/pro/enterprise-software-deals/2026/04/09/enterprise-compliance-haast-12-m), now used by **Fortune 500s**.
+I joined [Haast](https://www.haast.io) as a [founding frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C/) at Pre-Seed. I built and owned much of the frontend for a B2B AI platform focused on marketing and legal compliance, as the company scaled from Pre-Seed through [Seed (Airtree A$6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into [Series A (Peak XV $12M)](https://www.axios.com/pro/enterprise-software-deals/2026/04/09/enterprise-compliance-haast-12-m), now used by **Fortune 500s**.
 
 I'm particularly interested in building product experiences at the intersection of AI and the web.`;
 </script>
