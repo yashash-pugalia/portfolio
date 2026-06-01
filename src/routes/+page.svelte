@@ -2,7 +2,7 @@
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
   import MarkdownLink from "$lib/MarkdownLink.svelte";
 
-  const bio = `I'm a software engineer. I'm originally from Kolkata, India, and brought up in New Delhi. I owe much of my career to the Web and open source.
+  const bio = `I'm a software engineer, originally from Kolkata and brought up in New Delhi, India. I owe much of my career to the Web and Open Source.
 
 I spent my early teens tinkering with computers, flashing custom ROMs on Android phones, dual-booting Linux distros, and building small WordPress sites.
 

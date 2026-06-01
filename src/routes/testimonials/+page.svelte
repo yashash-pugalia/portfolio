@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { testimonials } from "$lib/index.svelte";
+  import { getTestimonialsForMainPage } from "$lib/index.svelte";
   import Testimonial from "$lib/Testimonial.svelte";
+
+  const testimonials = getTestimonialsForMainPage();
 </script>
 
 <h2>Testimonials</h2>
