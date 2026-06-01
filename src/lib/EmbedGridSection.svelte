@@ -8,7 +8,6 @@
 
   interface Props {
     items: HighlightEmbedItem[];
-    /** e.g. `not-prose mt-6` */
     sectionClass?: string;
   }
 

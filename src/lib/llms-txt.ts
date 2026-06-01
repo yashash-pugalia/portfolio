@@ -1,4 +1,8 @@
-import { socials, testimonials } from "$lib/index.svelte";
+import {
+  getTestimonialsForMainPage,
+  socials,
+  type Testimonial,
+} from "$lib/index.svelte";
 import { experience, projects, type WorkItem } from "$lib/resume-work-content";
 
 export const SITE_URL = "https://yashashpugalia.com";
@@ -45,7 +49,7 @@ function workDetailBlock(item: WorkItem): string[] {
   return lines;
 }
 
-function testimonialLink(t: (typeof testimonials)[number]): string {
+function testimonialLink(t: Testimonial): string {
   const url = t.link ?? t.linkPerson;
   const quote = collapseWhitespace(stripHtml(t.quote));
   const label = `${t.name} — ${t.role}`;
@@ -95,7 +99,7 @@ export function generateLlmsTxt(): string {
     "---",
     "",
     `- [Testimonials](${SITE_URL}/testimonials): Full endorsements page`,
-    ...testimonials.map(testimonialLink),
+    ...getTestimonialsForMainPage().map(testimonialLink),
     "",
     `- [Resume (PDF)](https://drive.google.com/file/d/1rEI0fqz-LcTZS0YQD2azX91sZFjTpPKs/view?usp=sharing): Full resume download`,
     `- [Sitemap](${SITE_URL}/sitemap.xml): All indexed pages`,

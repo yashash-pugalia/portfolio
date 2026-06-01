@@ -44,15 +44,29 @@ export type Testimonial = {
   avatar: string;
   link?: string;
   workIds?: string[];
+  workPageOnly?: boolean;
 };
 
 export function testimonialSlug(name: string): string {
   return name.toLowerCase().replace(/ /g, "-");
 }
 
+export function getTestimonialsForMainPage(): Testimonial[] {
+  return testimonials.filter((t) => !t.workPageOnly);
+}
+
+export const LINKEDIN_RECOMMENDATIONS_URL =
+  "https://www.linkedin.com/in/yashash-pugalia/details/recommendations/";
+
 const workTestimonialOrder: Record<string, string[]> = {
+  haast: ["jim-kelly"],
   "realm-labs": ["will-yoo"],
-  "windows11-web": ["guillermo-rauch", "rich-harris", "eric-simons"],
+  "windows11-web": [
+    "guillermo-rauch",
+    "rich-harris",
+    "eric-simons",
+    "rohan-gupta",
+  ],
 };
 
 export function getTestimonialsForWorkId(workId: string): Testimonial[] {
@@ -112,10 +126,34 @@ export const testimonials: Testimonial[] = [
     avatar: "https://unavatar.io/linkedin/bywillyoo",
     workIds: ["realm-labs"],
   },
+  {
+    name: "Jim Kelly",
+    quote:
+      "I've had the absolute pleasure of working alongside Yashash at Haast for the past two years. During this period of time I've watched Yashash grow alongside the organisation and continue to grow evermore capable as a frontend developer.<br><br>Yashash has a solid understanding of frontend development cycles and collaborated efficiently with our design team to build smooth, responsive interfaces. He knows how to push through problems independently and exactly when to ask for guidance to stay unblocked. He brings fantastic energy to the team, and I have absolutely no doubt he has a bright trajectory ahead of him. Any engineering team would be incredibly lucky to have him!",
+    role: "Staff Software Engineer @ Haast",
+    link: LINKEDIN_RECOMMENDATIONS_URL,
+    linkPerson: "https://www.linkedin.com/in/jimkellyt/",
+    avatar: "https://unavatar.io/linkedin/jimkellyt",
+    workIds: ["haast"],
+    workPageOnly: true,
+  },
   // {
   //   name: "David Peng",
-  //   role: "Senior Software Engineer @Haast",
+  //   role: "Senior Software Engineer @ Haast",
   //   quote: "You're a one man frontend team 🫡",
   //   linkPerson: "https://www.linkedin.com/in/david-peng-502747137/",
+  //   avatar: "https://unavatar.io/linkedin/david-peng-502747137",
+  //   workIds: ["haast"],
   // },
+  {
+    name: "Rohan Gupta",
+    quote:
+      "I had the chance to work closely with Yashash on the Windows 11 Web project, and it was honestly one of those rare collaborations where things just click.<br><br>What stood out immediately was his ability to take complex ideas and turn them into fast, polished, and highly intuitive user experiences. He doesn't just \"build UI\" — he thinks deeply about performance, scalability, and how real users will interact with the product.<br><br>Beyond the technical side, Yashash is great to work with — clear communicator, thoughtful in discussions, and someone who genuinely takes ownership of what he builds.<br><br>If you're looking for someone who can own frontend systems end-to-end and ship high-quality products at scale, Yashash is that person.",
+    role: "Software Engineer @ Microsoft",
+    link: LINKEDIN_RECOMMENDATIONS_URL,
+    linkPerson: "https://www.linkedin.com/in/rohan1176/",
+    avatar: "https://unavatar.io/github/blueedgetechno",
+    workIds: ["windows11-web"],
+    workPageOnly: true,
+  },
 ];

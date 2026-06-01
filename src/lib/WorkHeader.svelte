@@ -6,7 +6,6 @@
   interface Props {
     work: WorkItem;
     heading?: "h2" | "h4";
-    /** When true and `work.live` is set, the title links to the live site */
     linkTitle?: boolean;
   }
 
