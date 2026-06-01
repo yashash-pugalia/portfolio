@@ -53,7 +53,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
     alt: "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos @yashash_pugalia: win11-svelte.vercel.app always get nervous seeing svelte at the top of hacker news but i guess i shouldn't have been",
     caption: "Windows 11 Web: Rich Harris, Creator of Svelte",
     xLink: "https://x.com/Rich_Harris/status/1657097805733715987",
-    date: "2023-05-12",
+    date: "2023-05-13",
   },
   {
     kind: "image",
@@ -134,7 +134,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
     caption: "Haast: Pre-Seed, Aura Ventures (A$1.2M)",
     linkedinLink:
       "https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C",
-    date: "2023-05-09",
+    date: "2023-08-28",
   },
 ];
 
