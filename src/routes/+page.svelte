@@ -6,7 +6,7 @@
 
 I spent my early teens tinkering with computers, flashing custom ROMs on Android phones, dual-booting Linux distros, and building small WordPress sites.
 
-Built browser-based replicas of Windows 11 ([win11-svelte](https://win11.yashashpugalia.com/), [win11-react](https://win11.blueedge.me)), which went viral and reached over **20M visits, 11K GitHub stars**, hitting [#1 on Hacker News](https://news.ycombinator.com/item?id=35896505) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)). The project was sponsored by Vercel, reaching industry acclaim: [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017), [Eric Simons](https://x.com/EricSimons/status/1656644824190308352), and [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987).
+Built browser-based replicas of Windows 11 ([win11-svelte](https://win11.yashash.com/), [win11-react](https://win11.blueedge.me)), which went viral and reached over **20M visits, 11K GitHub stars**, hitting [#1 on Hacker News](https://news.ycombinator.com/item?id=35896505) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)). The project was sponsored by Vercel, reaching industry acclaim: [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017), [Eric Simons](https://x.com/EricSimons/status/1656644824190308352), and [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987).
 
 After that I worked with early-stage startups, building MVPs and product systems across the full-stack.
 

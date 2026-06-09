@@ -5,7 +5,7 @@ import {
 } from "$lib/index.svelte";
 import { experience, projects, type WorkItem } from "$lib/resume-work-content";
 
-export const SITE_URL = "https://yashashpugalia.com";
+export const SITE_URL = "https://yashash.com";
 
 const SITE_SUMMARY =
   "Software engineer specializing in frontend (TypeScript, Svelte) with React and full-stack experience. Built and scaled systems at a Series A B2B AI startup used by Fortune 500 companies. Built open-source projects with 20M+ visits.";

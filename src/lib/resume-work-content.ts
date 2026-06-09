@@ -30,7 +30,7 @@ export const experience: WorkItem[] = [
     years: "2022 - 2023",
     location: "New York, United States - Remote",
     summary:
-      "Joined as an early full-stack engineer and built a 0→1 AI comic creation platform, owning end-to-end development and working closely with the [founder](https://yashashpugalia.com/testimonials?highlight=will-yoo) to ship the MVP from concept to production",
+      "Joined as an early full-stack engineer and built a 0→1 AI comic creation platform, owning end-to-end development and working closely with the [founder](https://yashash.com/testimonials?highlight=will-yoo) to ship the MVP from concept to production",
     details: `- Developed key features including authentication, a custom drag-and-drop editor, AI scene and character generation, character chat, and creator monetization flows **(payments + payouts via Stripe)**
 - Integrated LLM and image generation workflows (LangChain, GPT-3.5, fine-tuned Stable Diffusion) to enable AI-driven content creation
 - Built full-stack architecture using SvelteKit, TypeScript, MongoDB + Prisma, and GCP, evolving backend from Firebase to a more scalable setup`,
@@ -41,11 +41,11 @@ export const projects: WorkItem[] = [
   {
     id: "windows11-web",
     title: "Windows 11 Web",
-    live: "https://win11.yashashpugalia.com/",
+    live: "https://win11.yashash.com/",
     github: "https://github.com/yashash-pugalia/win11-svelte",
     years: "2021 - 2022",
     summary:
-      "Built browser-based Windows 11 replicas [win11-svelte](https://win11.yashashpugalia.com/) and [win11-react](https://win11.blueedge.me), reaching **20M+ visits** and earning [11K GitHub stars](https://github.com/yashash-pugalia), sponsored by Vercel",
+      "Built browser-based Windows 11 replicas [win11-svelte](https://win11.yashash.com/) and [win11-react](https://win11.blueedge.me), reaching **20M+ visits** and earning [11K GitHub stars](https://github.com/yashash-pugalia), sponsored by Vercel",
     details: `- #1 on [Hacker News](https://news.ycombinator.com/item?id=35896505) ([archive](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/))
 - [JSNation open-source Awards](https://youtu.be/V3FzeG3OneI), nominated for 'Fun Side Project of the Year'
 - Endorsed by [Guillermo Rauch](https://x.com/rauchg/status/1656493176088150017) (CEO Vercel), [Eric Simons](https://x.com/EricSimons/status/1656644824190308352) (CEO Bolt.new), [Rich Harris](https://x.com/Rich_Harris/status/1657097805733715987) (Creator Svelte) and [JavaScript Weekly](https://javascriptweekly.com/issues/638#:~:text=Fake-,Windows%2011,-in%20Svelte%20%E2%80%94%20This)`,
@@ -53,7 +53,7 @@ export const projects: WorkItem[] = [
   {
     id: "prosper-mint",
     title: "Prosper Mint",
-    live: "https://prosper-mint.yashash.dev",
+    live: "https://prosper.yashash.com",
     github: "https://github.com/yashash-pugalia/prosper-mint",
     summary:
       "Full-stack SvelteKit MVP for personal finance: connect accounts and surface a clear view of spending, balances, and where your money goes.",
