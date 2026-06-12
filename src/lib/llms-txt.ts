@@ -4,11 +4,9 @@ import {
   type Testimonial,
 } from "$lib/index.svelte";
 import { experience, projects, type WorkItem } from "$lib/resume-work-content";
+import { DEFAULT_DESCRIPTION, SITE_URL } from "$lib/seo";
 
-export const SITE_URL = "https://yashash.com";
-
-const SITE_SUMMARY =
-  "Software engineer specializing in frontend (TypeScript, Svelte) with React and full-stack experience. Built and scaled systems at a Series A B2B AI startup used by Fortune 500 companies. Built open-source projects with 20M+ visits.";
+const SITE_SUMMARY = DEFAULT_DESCRIPTION;
 
 function collapseWhitespace(text: string): string {
   return text.replace(/\s+/g, " ").trim();
@@ -69,7 +67,7 @@ export function generateLlmsTxt(): string {
     "",
     `> ${SITE_SUMMARY}`,
     "",
-    "Portfolio for Yashash Pugalia — founding frontend engineer at Haast, creator of Windows 11 Web (20M+ visits, #1 on Hacker News). Originally from Kolkata, India; based in New Delhi. Focused on product experiences at the intersection of AI and the web.",
+    "Portfolio for Yashash Pugalia — founding frontend engineer at Haast, creator of Windows 11 Web (20M+ visits, #1 on Hacker News). Focused on product experiences at the intersection of AI and the web.",
     "",
     "## Pages",
     "",

@@ -4,6 +4,12 @@
   import { getEmbedsForWorkId } from "$lib/highlights-embeds";
   import { getTestimonialsForWorkId } from "$lib/index.svelte";
   import MarkdownLink from "$lib/MarkdownLink.svelte";
+  import {
+    breadcrumbListJsonLd,
+    PROJECT_SCHEMA_IDS,
+    SITE_URL,
+    softwareApplicationJsonLd,
+  } from "$lib/seo";
   import Testimonial from "$lib/Testimonial.svelte";
   import WorkHeader from "$lib/WorkHeader.svelte";
   import type { PageProps } from "./$types";
@@ -14,10 +20,27 @@
   const workEmbeds = $derived(getEmbedsForWorkId(work.id));
   const workTestimonials = $derived(getTestimonialsForWorkId(work.id));
   const detailMarkdown = $derived(work.details.trim());
+  const breadcrumbSchema = $derived(
+    breadcrumbListJsonLd([
+      { name: "Home", url: `${SITE_URL}/` },
+      { name: "Work", url: `${SITE_URL}/work` },
+      { name: work.title, url: `${SITE_URL}/work/${work.id}` },
+    ]),
+  );
+  const projectSchema = $derived(
+    PROJECT_SCHEMA_IDS.has(work.id) ? softwareApplicationJsonLd(work) : null,
+  );
 </script>
 
 <svelte:head>
-  <title>{work.title} · Work · Yashash Pugalia</title>
+  <svelte:element this={"script"} type="application/ld+json">
+    {breadcrumbSchema}
+  </svelte:element>
+  {#if projectSchema}
+    <svelte:element this={"script"} type="application/ld+json">
+      {projectSchema}
+    </svelte:element>
+  {/if}
 </svelte:head>
 
 <section class="mb-6" aria-label="Overview">

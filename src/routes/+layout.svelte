@@ -2,13 +2,19 @@
   import { onNavigate } from "$app/navigation";
   import { page } from "$app/state";
   import { socials } from "$lib/index.svelte";
+  import { getPageMeta, OG_IMAGE_URL, personJsonLd, SITE_URL } from "$lib/seo";
   import "../app.css";
   import "iconify-icon";
 
   let { children } = $props();
 
   const pathname = $derived(page.url.pathname);
-
+  const canonicalUrl = $derived(
+    pathname === "/" ? `${SITE_URL}/` : `${SITE_URL}${pathname}`,
+  );
+  const pageMeta = $derived(getPageMeta(page.route.id, page.data, page.status));
+  const isErrorPage = $derived(page.status >= 400);
+  const personSchema = personJsonLd();
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
 
@@ -20,6 +26,30 @@
     });
   });
 </script>
+
+<svelte:head>
+  {#if pageMeta}
+    <title>{pageMeta.title}</title>
+    <meta name="title" content={pageMeta.title} />
+    <meta name="description" content={pageMeta.description} />
+    <meta property="og:title" content={pageMeta.title} />
+    <meta property="og:description" content={pageMeta.description} />
+    <meta name="twitter:title" content={pageMeta.title} />
+    <meta name="twitter:description" content={pageMeta.description} />
+  {/if}
+  {#if !isErrorPage}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:url" content={canonicalUrl} />
+  {/if}
+  <meta property="og:image" content={OG_IMAGE_URL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content={OG_IMAGE_URL} />
+  <svelte:element this={"script"} type="application/ld+json">
+    {personSchema}
+  </svelte:element>
+</svelte:head>
 
 <main
   class="prose prose-headings:font-medium prose-headings:leading-snug prose-p:leading-[1.55] prose-a:font-normal prose-a:text-primary prose-a:underline prose-a:decoration-primary prose-a:underline-offset-[3px] prose-a:decoration-1 prose-a:[font-weight:inherit] prose-a:hover:text-primary prose-a:hover:decoration-primary prose-a:hover:no-underline mx-auto flex min-h-dvh max-w-4xl flex-col px-4 sm:px-8"

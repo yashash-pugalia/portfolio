@@ -16,6 +16,10 @@
   });
 </script>
 
+<svelte:head>
+  <meta name="robots" content="noindex, nofollow" />
+</svelte:head>
+
 <div
   class="not-prose border-l-primary mt-6 w-full border-l-[2pt] pl-5 text-left"
 >
