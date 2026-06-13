@@ -8,6 +8,14 @@ declare global {
     // interface PageState {}
     // interface Platform {}
   }
+
+  interface Window {
+    gtag: (...args: unknown[]) => void;
+  }
+
+  var partytown: {
+    forward: string[];
+  };
 }
 
 export {};

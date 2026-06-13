@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onNavigate } from "$app/navigation";
+  import { afterNavigate, onNavigate } from "$app/navigation";
   import { page } from "$app/state";
   import { socials } from "$lib/index.svelte";
+  import PartytownHead from "$lib/partytown/PartytownHead.svelte";
   import { getPageMeta, OG_IMAGE_URL, personJsonLd, SITE_URL } from "$lib/seo";
   import "../app.css";
   import "iconify-icon";
@@ -15,6 +16,15 @@
   const pageMeta = $derived(getPageMeta(page.route.id, page.data, page.status));
   const isErrorPage = $derived(page.status >= 400);
   const personSchema = personJsonLd();
+
+  afterNavigate(({ from, to }) => {
+    if (!from || !to || typeof window.gtag !== "function") return;
+
+    window.gtag("config", "G-94YW8BED1P", {
+      page_path: to.url.pathname,
+    });
+  });
+
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
 
@@ -50,6 +60,8 @@
     {personSchema}
   </svelte:element>
 </svelte:head>
+
+<PartytownHead />
 
 <main
   class="prose prose-headings:font-medium prose-headings:leading-snug prose-p:leading-[1.55] prose-a:font-normal prose-a:text-primary prose-a:underline prose-a:decoration-primary prose-a:underline-offset-[3px] prose-a:decoration-1 prose-a:[font-weight:inherit] prose-a:hover:text-primary prose-a:hover:decoration-primary prose-a:hover:no-underline mx-auto flex min-h-dvh max-w-4xl flex-col px-4 sm:px-8"
