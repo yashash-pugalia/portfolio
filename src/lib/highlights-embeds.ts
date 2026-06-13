@@ -39,7 +39,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "1663566935085424642",
-    src: "/highlights/win11-web-jsnation-award.png",
+    src: "/highlights/win11-web-jsnation-award.webp",
     alt: "🤯 github.com/yashash-pugali... has been nominated for JavaScript Open Source Awards! @thejsnation Category: Fun Side Project of the Year. Thanks Everyone. osawards.com/javascript/",
     caption: "Windows 11 Web: JSNation Open Source Awards",
     xLink: "https://x.com/yashash_pugalia/status/1663566935085424642",
@@ -49,7 +49,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "1657097805733715987",
-    src: "/highlights/win11-web-rich-harris.png",
+    src: "/highlights/win11-web-rich-harris.webp",
     alt: "i love the 'build a pretend OS in svelte' trend that @puruvjdev started — kudos @yashash_pugalia: win11-svelte.vercel.app always get nervous seeing svelte at the top of hacker news but i guess i shouldn't have been",
     caption: "Windows 11 Web: Rich Harris, Creator of Svelte",
     xLink: "https://x.com/Rich_Harris/status/1657097805733715987",
@@ -58,7 +58,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "1656644824190308352",
-    src: "/highlights/win11-web-eric-simons.png",
+    src: "/highlights/win11-web-eric-simons.webp",
     alt: "Great work on this @yashash_pugalia! One idea I had- you could even power the file system and standalone terminal app using the webcontainers.io api 👀",
     caption: "Windows 11 Web: Eric Simons, CEO Bolt.new",
     xLink: "https://x.com/EricSimons/status/1656644824190308352",
@@ -67,7 +67,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "1656500100775157760",
-    src: "/highlights/win11-web-svelte-society-hn.png",
+    src: "/highlights/win11-web-svelte-society-hn.webp",
     alt: "svelte on HN again! Screenshot shows Windows 11 in Svelte at #1 on Hacker News.",
     caption: "Windows 11 Web: Svelte Society, Hacker News #1",
     xLink: "https://x.com/SvelteSociety/status/1656500100775157760",
@@ -77,7 +77,7 @@ export const embedsWindows11Web: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "1656493176088150017",
-    src: "/highlights/win11-web-guillermo-rauch.png",
+    src: "/highlights/win11-web-guillermo-rauch.webp",
     alt: "Well played win11-svelte.vercel.app Also: modern web browsers are engineering marvels",
     caption: "Windows 11 Web: Guillermo Rauch, CEO Vercel",
     xLink: "https://x.com/rauchg/status/1656493176088150017",
@@ -89,7 +89,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "2042317998997061722",
-    src: "/highlights/haast-series-a.jpeg",
+    src: "/highlights/haast-series-a.webp",
     alt: "Haast $12M Series A. Investors: Peak XV Partners, Airtree, Aura Ventures, defy, Black Sheep Capital.",
     caption: "Haast: Series A, Peak XV ($12M)",
     date: "2026-04-10",
@@ -119,7 +119,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "7325814092743561216",
-    src: "/highlights/haast-seed-airtree.png",
+    src: "/highlights/haast-seed-airtree.webp",
     alt: "I'm thrilled that the big news is finally out: Haast has raised a $6M seed round from Airtree, defy.vc, Aura Ventures, and Black Sheep Capital! Having been at Haast for 2 years, it's been an incredible journey building this platform from the ground up.",
     caption: "Haast: Seed, Airtree (A$6M)",
     linkedinLink:
@@ -129,7 +129,7 @@ export const embedsHaast: HighlightEmbedItem[] = [
   {
     kind: "image",
     key: "7101717182698459136",
-    src: "/highlights/haast-pre-seed-aura.png",
+    src: "/highlights/haast-pre-seed-aura.webp",
     alt: "Excited to announce Haast have raised $1.2m pre-seed round and continue building Haast. Thanks to our amazing team including Yashash Pugalia. Investors: Aura Ventures, Black Sheep Capital.",
     caption: "Haast: Pre-Seed, Aura Ventures (A$1.2M)",
     linkedinLink:

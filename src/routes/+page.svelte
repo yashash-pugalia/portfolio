@@ -27,7 +27,7 @@ I'm particularly interested in building product experiences at the intersection 
 <h2>About</h2>
 
 <img
-  src="/me.jpg"
+  src="/me.webp"
   alt="Yashash Pugalia"
   class="bg-base-200 ring-base-300 float-none mx-auto mb-8 block aspect-square w-40 max-w-[45%] rounded-2xl ring-1 sm:float-right sm:mt-1 sm:mb-4 sm:ml-8 sm:w-44 sm:max-w-none md:w-52"
 />

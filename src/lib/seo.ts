@@ -2,7 +2,7 @@ import type { WorkItem } from "$lib/resume-work-content";
 
 export const SITE_URL = "https://yashash.com";
 
-export const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg`;
+export const OG_IMAGE_URL = `${SITE_URL}/og-image.webp`;
 
 export const DEFAULT_TITLE =
   "Yashash Pugalia — Software Engineer | Frontend, TypeScript, Svelte | 20M+ Visits";
@@ -96,7 +96,7 @@ export function personJsonLd(): string {
     "@type": "Person",
     name: "Yashash Pugalia",
     url: SITE_URL,
-    image: `${SITE_URL}/me.jpg`,
+    image: `${SITE_URL}/me.webp`,
     sameAs: [
       "https://github.com/yashash-pugalia",
       "https://twitter.com/yashash_pugalia",
