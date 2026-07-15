@@ -93,7 +93,7 @@ parsep=0.10 cm, partopsep=0pt, itemsep=0pt, leftmargin=10pt ] }{ \end{itemize} }
 
 \newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
 \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-\put( \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm}, \LenToUnit{\paperheight-1.0 cm} ){\vtop{{\null}\makebox[0pt][c]{ \small\color{gray}\textit{Last updated in April 2026}\hspace{\widthof{Last updated in April 2026}} }}}%
+\put( \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm}, \LenToUnit{\paperheight-1.0 cm} ){\vtop{{\null}\makebox[0pt][c]{ \small\color{gray}\textit{Last updated in July 2026}\hspace{\widthof{Last updated in July 2026}} }}}%
 }%
 }%
 
@@ -249,6 +249,8 @@ parsep=0.10 cm, partopsep=0pt, itemsep=0pt, leftmargin=10pt ] }{ \end{itemize} }
 			reaching \textbf{20M+ visits} and earning \href{https://github.com/yashash-pugalia}{\underline{\textit{11K GitHub stars}}},
 			sponsored by Vercel
 
+			\item Used code splitting via dynamic imports to optimize load performance
+
 			\item \href{https://news.ycombinator.com/item?id=35896505}{\underline{\textit{Hacker News}}}
 			(\#1 on News Y Combinator)
 			\href{https://web.archive.org/web/20230511060851/https://news.ycombinator.com/}{\underline{\textit{(archive)}}}
@@ -264,7 +266,23 @@ parsep=0.10 cm, partopsep=0pt, itemsep=0pt, leftmargin=10pt ] }{ \end{itemize} }
 		\end{highlights}
 	\end{onecolentry}
 
-	\newpage
+	% \vspace{0.2 cm}
+	%
+	% \begin{twocolentry}
+	% 	{2023 - Present} \href{https://prosper.yashash.com}{\textbf{Prosper Mint}}
+	% \end{twocolentry}
+	%
+	% \vspace{0.10 cm}
+	%
+	% \begin{onecolentry}
+	% 	\begin{highlights}
+	% 		\item Built a full-stack personal-finance MVP with SvelteKit that connects
+	% 		financial accounts and gives users a clear view of spending, balances,
+	% 		and where their money goes
+	% 	\end{highlights}
+	% \end{onecolentry}
+
+	% \newpage
 	\section{Testimonials}
 
 	\begin{onecolentry}
@@ -309,7 +327,11 @@ parsep=0.10 cm, partopsep=0pt, itemsep=0pt, leftmargin=10pt ] }{ \end{itemize} }
 
 	\section{Education}
 	\begin{onecolentry}
-		\textbf{Bennett University}, Bachelor of Technology - B.Tech, Computer
-		Science
+		\textbf{Bennett University}, Bachelor of Technology - Computer
+		Science and Engineering
+		\begin{highlights}
+			\item Graduated with a CGPA of 7.86 on a 10-point scale
+			\item Clubs and societies: Google Developer Group; Computer Society of India
+		\end{highlights}
 	\end{onecolentry}
 \end{document}
