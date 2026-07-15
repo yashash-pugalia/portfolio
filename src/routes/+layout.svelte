@@ -17,6 +17,18 @@
   const isErrorPage = $derived(page.status >= 400);
   const personSchema = personJsonLd();
 
+  const navLinks = [
+    { href: "/", label: "About" },
+    { href: "/work", label: "Work" },
+    { href: "/highlights", label: "Highlights" },
+    { href: "/testimonials", label: "Testimonials" },
+  ] as const;
+
+  function isNavActive(href: string, path: string) {
+    if (href === "/work") return path.startsWith("/work");
+    return path === href;
+  }
+
   afterNavigate(({ from, to }) => {
     if (!from || !to || typeof window.gtag !== "function") return;
 
@@ -70,19 +82,13 @@
     class="not-prose border-base-300 bg-base-100 sticky top-0 z-10 -mx-4 mb-0 flex items-start justify-between gap-4 border-b px-4 py-4 [view-transition-name:header] sm:items-center sm:py-8"
   >
     <div
-      class="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-3 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-y-0"
+      class="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] items-start gap-x-2 gap-y-3 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-y-0"
     >
-      <a
-        href="/"
-        class="hover:no-underline sm:col-start-1 sm:row-start-1"
-        class:underline={page.route.id !== "/"}
+      <h1
+        class="text-base-content shrink-0 text-3xl font-medium tracking-tight"
       >
-        <h1
-          class="text-base-content shrink-0 text-3xl font-medium tracking-tight"
-        >
-          Yashash Pugalia
-        </h1>
-      </a>
+        Yashash Pugalia
+      </h1>
 
       <a
         class="ui-btn-primary shrink-0 justify-self-end sm:col-start-3 sm:row-start-1"
@@ -97,17 +103,18 @@
       </a>
 
       <nav
-        class="text-base-content/90 col-span-2 row-start-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:justify-end"
+        class="text-base-content/90 col-span-2 row-start-2 flex flex-wrap items-center gap-y-1 text-sm sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:justify-end"
         aria-label="Site"
       >
-        <a href="/" class:underline={pathname === "/"}>About</a>
-        <a href="/work" class:underline={pathname.startsWith("/work")}>Work</a>
-        <a href="/highlights" class:underline={pathname === "/highlights"}
-          >Highlights</a
-        >
-        <a href="/testimonials" class:underline={pathname === "/testimonials"}
-          >Testimonials</a
-        >
+        {#each navLinks as item (item.href)}
+          {@const active = isNavActive(item.href, pathname)}
+          <a
+            href={item.href}
+            class="inline-flex items-center rounded-lg px-1.5 py-1 transition-colors hover:bg-white hover:text-base-content hover:no-underline {active ? 'bg-white text-base-content no-underline' : ''}"
+          >
+            {item.label}
+          </a>
+        {/each}
       </nav>
     </div>
   </header>
