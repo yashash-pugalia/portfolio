@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { testimonialSlug, type Testimonial } from "#lib/index.svelte.ts";
   import { page } from "$app/state";
-  import { testimonialSlug, type Testimonial } from "$lib/index.svelte";
   import { onMount, tick } from "svelte";
 
   interface Props {

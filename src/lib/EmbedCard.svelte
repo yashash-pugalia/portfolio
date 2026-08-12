@@ -2,7 +2,7 @@
   import {
     formatHighlightDate,
     type HighlightEmbedItem,
-  } from "$lib/highlights-embeds";
+  } from "#lib/highlights-embeds.ts";
 
   interface Props {
     item: HighlightEmbedItem;
@@ -16,7 +16,7 @@
 
 {#snippet figcaptionContent(item: HighlightEmbedItem)}
   {item.caption}
-  <span class="block text-base-content/70"
+  <span class="text-base-content/70 block"
     >{formatHighlightDate(item.date)}</span
   >
   {#if item.xLink || item.linkedinLink || item.ytLink || item.hnLink}
@@ -62,7 +62,7 @@
 <div class="flex w-full min-w-0 flex-col">
   {#if item.kind === "imageGroup"}
     <figure
-      class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300"
+      class="bg-base-200 ring-base-300 m-0 w-full overflow-hidden rounded-xl ring-1"
     >
       <div class="grid w-full grid-cols-2 gap-1 p-1 pb-0">
         <img
@@ -97,7 +97,7 @@
     </figure>
   {:else}
     <figure
-      class="bg-base-200 m-0 w-full overflow-hidden rounded-xl ring-1 ring-base-300"
+      class="bg-base-200 ring-base-300 m-0 w-full overflow-hidden rounded-xl ring-1"
     >
       <div class="p-1 pb-0">
         <img

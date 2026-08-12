@@ -1,4 +1,4 @@
-import { generateLlmsTxt } from "$lib/llms-txt";
+import { generateLlmsTxt } from "#lib/llms-txt.ts";
 
 export const prerender = true;
 

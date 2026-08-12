@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { getWorkById } from "$lib/resume-work-content";
+import { getWorkById } from "#lib/resume-work-content.ts";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = ({ params }) => {

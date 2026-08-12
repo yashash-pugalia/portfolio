@@ -1,6 +1,6 @@
 <script lang="ts">
-  import EmbedGridSection from "$lib/EmbedGridSection.svelte";
-  import { highlightPageEmbeds } from "$lib/highlights-embeds";
+  import EmbedGridSection from "#lib/EmbedGridSection.svelte";
+  import { highlightPageEmbeds } from "#lib/highlights-embeds.ts";
 </script>
 
 <h2>Highlights</h2>

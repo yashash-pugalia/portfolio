@@ -1,17 +1,17 @@
 <script lang="ts">
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import EmbedGridSection from "$lib/EmbedGridSection.svelte";
-  import { getEmbedsForWorkId } from "$lib/highlights-embeds";
-  import { getTestimonialsForWorkId } from "$lib/index.svelte";
-  import MarkdownLink from "$lib/MarkdownLink.svelte";
+  import EmbedGridSection from "#lib/EmbedGridSection.svelte";
+  import { getEmbedsForWorkId } from "#lib/highlights-embeds.ts";
+  import { getTestimonialsForWorkId } from "#lib/index.svelte.ts";
+  import MarkdownLink from "#lib/MarkdownLink.svelte";
   import {
     breadcrumbListJsonLd,
     PROJECT_SCHEMA_IDS,
     SITE_URL,
     softwareApplicationJsonLd,
-  } from "$lib/seo";
-  import Testimonial from "$lib/Testimonial.svelte";
-  import WorkHeader from "$lib/WorkHeader.svelte";
+  } from "#lib/seo.ts";
+  import Testimonial from "#lib/Testimonial.svelte";
+  import WorkHeader from "#lib/WorkHeader.svelte";
   import type { PageProps } from "./$types";
 
   let { data }: PageProps = $props();

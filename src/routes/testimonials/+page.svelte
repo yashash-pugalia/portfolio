@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { getTestimonialsForMainPage } from "$lib/index.svelte";
-  import Testimonial from "$lib/Testimonial.svelte";
+  import { getTestimonialsForMainPage } from "#lib/index.svelte.ts";
+  import Testimonial from "#lib/Testimonial.svelte";
 
   const testimonials = getTestimonialsForMainPage();
 </script>

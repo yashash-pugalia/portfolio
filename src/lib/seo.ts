@@ -1,4 +1,4 @@
-import type { WorkItem } from "$lib/resume-work-content";
+import type { WorkItem } from "#lib/resume-work-content.ts";
 
 export const SITE_URL = "https://yashash.com";
 

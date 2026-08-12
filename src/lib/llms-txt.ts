@@ -2,9 +2,13 @@ import {
   getTestimonialsForMainPage,
   socials,
   type Testimonial,
-} from "$lib/index.svelte";
-import { experience, projects, type WorkItem } from "$lib/resume-work-content";
-import { DEFAULT_DESCRIPTION, SITE_URL } from "$lib/seo";
+} from "#lib/index.svelte.ts";
+import {
+  experience,
+  projects,
+  type WorkItem,
+} from "#lib/resume-work-content.ts";
+import { DEFAULT_DESCRIPTION, SITE_URL } from "#lib/seo.ts";
 
 const SITE_SUMMARY = DEFAULT_DESCRIPTION;
 

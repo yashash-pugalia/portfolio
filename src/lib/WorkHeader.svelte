@@ -1,7 +1,7 @@
 <script lang="ts">
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import MarkdownLink from "$lib/MarkdownLink.svelte";
-  import type { WorkItem } from "$lib/resume-work-content";
+  import MarkdownLink from "#lib/MarkdownLink.svelte";
+  import type { WorkItem } from "#lib/resume-work-content.ts";
 
   interface Props {
     work: WorkItem;

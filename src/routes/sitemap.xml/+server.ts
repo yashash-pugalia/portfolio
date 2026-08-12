@@ -1,5 +1,5 @@
-import { experience, projects } from "$lib/resume-work-content";
-import { SITE_URL } from "$lib/seo";
+import { experience, projects } from "#lib/resume-work-content.ts";
+import { SITE_URL } from "#lib/seo.ts";
 
 export const prerender = true;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { experience, projects } from "$lib/resume-work-content";
-  import WorkHeader from "$lib/WorkHeader.svelte";
+  import { experience, projects } from "#lib/resume-work-content.ts";
+  import WorkHeader from "#lib/WorkHeader.svelte";
 
   const cardProse =
     "prose prose-sm max-w-none text-base-content pointer-events-none prose-headings:font-medium prose-h4:my-0 prose-h4:text-lg prose-p:my-0 [&>p]:mt-1 [&>p]:text-sm [&>p]:text-[var(--app-prose-quotes)] [&_div]:mt-3";

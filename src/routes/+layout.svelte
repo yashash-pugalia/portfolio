@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { socials } from "#lib/index.svelte.ts";
+  import PartytownHead from "#lib/partytown/PartytownHead.svelte";
+  import {
+    getPageMeta,
+    OG_IMAGE_URL,
+    personJsonLd,
+    SITE_URL,
+  } from "#lib/seo.ts";
   import { afterNavigate, onNavigate } from "$app/navigation";
   import { page } from "$app/state";
-  import { socials } from "$lib/index.svelte";
-  import PartytownHead from "$lib/partytown/PartytownHead.svelte";
-  import { getPageMeta, OG_IMAGE_URL, personJsonLd, SITE_URL } from "$lib/seo";
   import "../app.css";
   import "iconify-icon";
 
@@ -110,7 +115,9 @@
           {@const active = isNavActive(item.href, pathname)}
           <a
             href={item.href}
-            class="inline-flex items-center rounded-lg px-1.5 py-1 transition-colors hover:bg-white hover:text-base-content hover:no-underline {active ? 'bg-white text-base-content no-underline' : ''}"
+            class="hover:text-base-content inline-flex items-center rounded-lg px-1.5 py-1 transition-colors hover:bg-white hover:no-underline {active
+              ? 'text-base-content bg-white no-underline'
+              : ''}"
           >
             {item.label}
           </a>

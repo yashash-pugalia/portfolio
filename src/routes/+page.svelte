@@ -1,7 +1,7 @@
 <script lang="ts">
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import MarkdownLink from "$lib/MarkdownLink.svelte";
-  import { websiteJsonLd } from "$lib/seo";
+  import MarkdownLink from "#lib/MarkdownLink.svelte";
+  import { websiteJsonLd } from "#lib/seo.ts";
 
   const bio = `I'm a software engineer and builder. I owe much of my career to the Web and Open Source.
 
