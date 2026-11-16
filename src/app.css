@@ -142,3 +142,13 @@ iconify-icon {
   width: 1em;
   height: 1em;
 }
+
+/*
+  Keep the sticky header above named work transitions.
+  View-transition groups paint in capture / DOM order by default, so
+  work-head/meta/sum snapshots slide over the navbar when leaving
+  /work/[slug]. Explicit z-index restores the intended stack.
+*/
+::view-transition-group(header) {
+  z-index: 100;
+}

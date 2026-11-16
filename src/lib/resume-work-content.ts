@@ -14,7 +14,7 @@ export const experience: WorkItem[] = [
     id: "haast",
     title: "Haast",
     live: "https://www.haast.io/",
-    years: "2023 - Present",
+    years: "2023 - 2026",
     location: "Sydney, Australia - Remote",
     summary:
       "Joined as the [founding frontend engineer](https://www.linkedin.com/posts/liamking97_ai-start-ups-score-245m-funding-windfall-activity-7101717182698459136-KD0C) at Pre-Seed for a B2B AI-native marketing & legal compliance platform used by enterprises. Built and owned the majority of the frontend for the core product. Scaled through [Seed (Airtree $6M)](https://www.capitalbrief.com/article/haast-raises-6-million-to-transform-compliance-with-ai-automation-24f00fee-be78-4b0b-be61-dc0019789885/) and into [Series A (Peak XV $12M)](https://www.axios.com/pro/enterprise-software-deals/2026/04/09/enterprise-compliance-haast-12-m) during rapid growth (4.5x YoY revenue), now used by **Fortune 500** companies",
